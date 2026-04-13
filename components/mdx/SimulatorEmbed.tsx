@@ -9,7 +9,12 @@ interface SimulatorEmbedProps {
   caption?: string
 }
 
-export function SimulatorEmbed({ simulator, initialState, height = 400, caption }: SimulatorEmbedProps) {
+export function SimulatorEmbed({
+  simulator,
+  initialState,
+  height = 400,
+  caption,
+}: SimulatorEmbedProps) {
   const Component = simulatorRegistry[simulator]
 
   return (

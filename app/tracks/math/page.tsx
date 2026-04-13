@@ -15,8 +15,8 @@ export default function MathTrackPage() {
         <div className={cn('mb-4 h-1 w-16 rounded-full', colors.accent)} />
         <h1 className="text-3xl font-bold text-foreground">Mathematics Track</h1>
         <p className="mt-2 text-muted-foreground">
-          Six lessons building the linear algebra and probability theory that underpin quantum mechanics.
-          From complex numbers to the Born rule.
+          Six lessons building the linear algebra and probability theory that underpin quantum
+          mechanics. From complex numbers to the Born rule.
         </p>
       </div>
 
@@ -27,10 +27,13 @@ export default function MathTrackPage() {
 
           const card = (
             <div className="flex items-start gap-4">
-              <div className={cn(
-                'flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full text-sm font-bold',
-                colors.bg, colors.text,
-              )}>
+              <div
+                className={cn(
+                  'flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full text-sm font-bold',
+                  colors.bg,
+                  colors.text
+                )}
+              >
                 A{i + 1}
               </div>
               <div className="min-w-0 flex-1">
@@ -41,12 +44,24 @@ export default function MathTrackPage() {
                       Free
                     </span>
                   )}
-                  {!isFree && !meta.hasContent && <Lock className="h-3.5 w-3.5 text-muted-foreground" />}
+                  {!isFree && !meta.hasContent && (
+                    <Lock className="h-3.5 w-3.5 text-muted-foreground" />
+                  )}
                 </div>
-                {meta.subtitle && <p className="mt-0.5 text-sm text-muted-foreground">{meta.subtitle}</p>}
+                {meta.subtitle && (
+                  <p className="mt-0.5 text-sm text-muted-foreground">{meta.subtitle}</p>
+                )}
                 <div className="mt-1.5 flex items-center gap-3 text-xs text-muted-foreground">
-                  <span className="flex items-center gap-1"><Clock className="h-3 w-3" />{meta.estimatedMinutes} min</span>
-                  {meta.totalParts > 1 && <span className="flex items-center gap-1"><BookOpen className="h-3 w-3" />{meta.totalParts} parts</span>}
+                  <span className="flex items-center gap-1">
+                    <Clock className="h-3 w-3" />
+                    {meta.estimatedMinutes} min
+                  </span>
+                  {meta.totalParts > 1 && (
+                    <span className="flex items-center gap-1">
+                      <BookOpen className="h-3 w-3" />
+                      {meta.totalParts} parts
+                    </span>
+                  )}
                   {!meta.hasContent && <span className="italic">Coming soon</span>}
                 </div>
               </div>
@@ -54,7 +69,11 @@ export default function MathTrackPage() {
           )
 
           return meta.hasContent ? (
-            <Link key={meta.slug} href={href} className="block rounded-lg border border-border p-4 transition-colors hover:border-primary/40 hover:bg-muted/50">
+            <Link
+              key={meta.slug}
+              href={href}
+              className="block rounded-lg border border-border p-4 transition-colors hover:border-primary/40 hover:bg-muted/50"
+            >
               {card}
             </Link>
           ) : (

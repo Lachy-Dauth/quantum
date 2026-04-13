@@ -66,18 +66,19 @@ Each successive root is obtained by multiplying by $\omega$, which rotates by $2
 <WorkedExample title="The 4th Roots of Unity">
   **Find all $z$ such that $z^4 = 1$.**
 
-  The four solutions are $\omega_k = \cos\frac{2\pi k}{4} + i\sin\frac{2\pi k}{4} = \cos\frac{\pi k}{2} + i\sin\frac{\pi k}{2}$ for $k = 0, 1, 2, 3$:
+The four solutions are $\omega_k = \cos\frac{2\pi k}{4} + i\sin\frac{2\pi k}{4} = \cos\frac{\pi k}{2} + i\sin\frac{\pi k}{2}$ for $k = 0, 1, 2, 3$:
 
-  | $k$ | $\theta$ | $\omega_k$ |
-  |---|---|---|
-  | 0 | $0$ | $1$ |
-  | 1 | $\pi/2$ | $i$ |
-  | 2 | $\pi$ | $-1$ |
-  | 3 | $3\pi/2$ | $-i$ |
+| $k$ | $\theta$ | $\omega_k$ |
+| --- | -------- | ---------- |
+| 0   | $0$      | $1$        |
+| 1   | $\pi/2$  | $i$        |
+| 2   | $\pi$    | $-1$       |
+| 3   | $3\pi/2$ | $-i$       |
 
-  These are the four cardinal points of the unit circle, forming a **square**. And indeed, $1^4 = 1$, $i^4 = (i^2)^2 = (-1)^2 = 1$, $(-1)^4 = 1$, $(-i)^4 = 1$. All check out.
+These are the four cardinal points of the unit circle, forming a **square**. And indeed, $1^4 = 1$, $i^4 = (i^2)^2 = (-1)^2 = 1$, $(-1)^4 = 1$, $(-i)^4 = 1$. All check out.
 
-  Notice that $i^2 = -1$, $i^3 = -i$, $i^4 = 1$ — the powers of $i$ cycle through four values. This cycling is the defining feature of roots of unity.
+Notice that $i^2 = -1$, $i^3 = -i$, $i^4 = 1$ — the powers of $i$ cycle through four values. This cycling is the defining feature of roots of unity.
+
 </WorkedExample>
 
 <SimulatorEmbed
@@ -107,25 +108,26 @@ There are two ways to see why this is true — one algebraic, one geometric.
 <Proof>
   **Algebraic proof (geometric series).**
 
-  Let $S = 1 + \omega + \omega^2 + \cdots + \omega^{n-1}$. This is a geometric series with first term 1 and common ratio $\omega$.
+Let $S = 1 + \omega + \omega^2 + \cdots + \omega^{n-1}$. This is a geometric series with first term 1 and common ratio $\omega$.
 
-  Since $\omega \neq 1$ (because $n \geq 2$), the geometric series formula gives:
+Since $\omega \neq 1$ (because $n \geq 2$), the geometric series formula gives:
 
-  $$
-  S = \frac{1 - \omega^n}{1 - \omega}
-  $$
+$$
+S = \frac{1 - \omega^n}{1 - \omega}
+$$
 
-  But $\omega$ is an $n$-th root of unity, so $\omega^n = 1$. Therefore:
+But $\omega$ is an $n$-th root of unity, so $\omega^n = 1$. Therefore:
 
-  $$
-  S = \frac{1 - 1}{1 - \omega} = \frac{0}{1 - \omega} = 0
-  $$
+$$
+S = \frac{1 - 1}{1 - \omega} = \frac{0}{1 - \omega} = 0
+$$
 
-  **Geometric proof (symmetry).**
+**Geometric proof (symmetry).**
 
-  The $n$ roots of unity are equally spaced around the unit circle. By symmetry, their centroid (average position) must be at the centre of the circle — the origin. But the centroid is $\frac{1}{n}\sum \omega_k$, so $\sum \omega_k = 0$.
+The $n$ roots of unity are equally spaced around the unit circle. By symmetry, their centroid (average position) must be at the centre of the circle — the origin. But the centroid is $\frac{1}{n}\sum \omega_k$, so $\sum \omega_k = 0$.
 
-  More formally: rotating all roots by $\omega$ (i.e., multiplying each by $\omega$) just permutes them (sends $\omega_k$ to $\omega_{k+1}$, wrapping around). So the sum $S$ is unchanged by multiplication by $\omega$: $\omega S = S$. Since $\omega \neq 1$, this forces $S = 0$.
+More formally: rotating all roots by $\omega$ (i.e., multiplying each by $\omega$) just permutes them (sends $\omega_k$ to $\omega_{k+1}$, wrapping around). So the sum $S$ is unchanged by multiplication by $\omega$: $\omega S = S$. Since $\omega \neq 1$, this forces $S = 0$.
+
 </Proof>
 
 **Verification for $n = 4$:** $1 + i + (-1) + (-i) = 0$. The real parts cancel ($1 + (-1) = 0$), and the imaginary parts cancel ($i + (-i) = 0$).
@@ -143,14 +145,15 @@ We've been writing complex numbers on the unit circle as $\cos\theta + i\sin\the
 <Theorem name="Euler's Formula">
   For all real numbers $\theta$:
 
-  $$
-  e^{i\theta} = \cos\theta + i\sin\theta
-  $$
+$$
+e^{i\theta} = \cos\theta + i\sin\theta
+$$
+
 </Theorem>
 
 This is Euler's formula, and it's one of the most important equations in all of mathematics. It says that the exponential function, when given an imaginary argument, traces out the unit circle.
 
-But wait — what does it even *mean* to raise $e$ to an imaginary power? The usual definition of $e^x$ (as repeated multiplication, or as the limit $(1 + x/n)^n$) doesn't obviously make sense when $x = i\theta$. We need to derive this formula, not just state it. We'll give two proofs, each illuminating a different aspect.
+But wait — what does it even _mean_ to raise $e$ to an imaginary power? The usual definition of $e^x$ (as repeated multiplication, or as the limit $(1 + x/n)^n$) doesn't obviously make sense when $x = i\theta$. We need to derive this formula, not just state it. We'll give two proofs, each illuminating a different aspect.
 
 ### Derivation 1: Taylor Series
 
@@ -171,87 +174,94 @@ $$
 $$
 
 <Callout type="info" title="What if Taylor series are new to you?">
-  A Taylor series writes a smooth function as an infinite polynomial. The idea is that you can approximate any well-behaved function near a point by matching its value, its slope, its curvature, and so on. The factorial denominators ($n!$) ensure that each term matches the right derivative. For now, you can treat these three series as facts — we're going to verify Euler's formula by substituting and rearranging, so the main skill required is patience with algebra, not deep analysis.
+  A Taylor series writes a smooth function as an infinite polynomial. The idea is that you can
+  approximate any well-behaved function near a point by matching its value, its slope, its
+  curvature, and so on. The factorial denominators ($n!$) ensure that each term matches the right
+  derivative. For now, you can treat these three series as facts — we're going to verify Euler's
+  formula by substituting and rearranging, so the main skill required is patience with algebra, not
+  deep analysis.
 </Callout>
 
 <Proof>
   **Taylor series derivation of Euler's formula.**
 
-  Substitute $x = i\theta$ into the Taylor series for $e^x$:
+Substitute $x = i\theta$ into the Taylor series for $e^x$:
 
-  $$
-  e^{i\theta} = \sum_{n=0}^{\infty} \frac{(i\theta)^n}{n!} = 1 + i\theta + \frac{(i\theta)^2}{2!} + \frac{(i\theta)^3}{3!} + \frac{(i\theta)^4}{4!} + \frac{(i\theta)^5}{5!} + \cdots
-  $$
+$$
+e^{i\theta} = \sum_{n=0}^{\infty} \frac{(i\theta)^n}{n!} = 1 + i\theta + \frac{(i\theta)^2}{2!} + \frac{(i\theta)^3}{3!} + \frac{(i\theta)^4}{4!} + \frac{(i\theta)^5}{5!} + \cdots
+$$
 
-  Now use the powers of $i$:
+Now use the powers of $i$:
 
-  - $i^0 = 1$
-  - $i^1 = i$
-  - $i^2 = -1$
-  - $i^3 = -i$
-  - $i^4 = 1$ (and the cycle repeats)
+- $i^0 = 1$
+- $i^1 = i$
+- $i^2 = -1$
+- $i^3 = -i$
+- $i^4 = 1$ (and the cycle repeats)
 
-  Substituting:
+Substituting:
 
-  $$
-  e^{i\theta} = 1 + i\theta - \frac{\theta^2}{2!} - \frac{i\theta^3}{3!} + \frac{\theta^4}{4!} + \frac{i\theta^5}{5!} - \frac{\theta^6}{6!} - \cdots
-  $$
+$$
+e^{i\theta} = 1 + i\theta - \frac{\theta^2}{2!} - \frac{i\theta^3}{3!} + \frac{\theta^4}{4!} + \frac{i\theta^5}{5!} - \frac{\theta^6}{6!} - \cdots
+$$
 
-  Now separate real and imaginary parts:
+Now separate real and imaginary parts:
 
-  $$
-  e^{i\theta} = \underbrace{\left(1 - \frac{\theta^2}{2!} + \frac{\theta^4}{4!} - \frac{\theta^6}{6!} + \cdots\right)}_{\cos\theta} + i\underbrace{\left(\theta - \frac{\theta^3}{3!} + \frac{\theta^5}{5!} - \cdots\right)}_{\sin\theta}
-  $$
+$$
+e^{i\theta} = \underbrace{\left(1 - \frac{\theta^2}{2!} + \frac{\theta^4}{4!} - \frac{\theta^6}{6!} + \cdots\right)}_{\cos\theta} + i\underbrace{\left(\theta - \frac{\theta^3}{3!} + \frac{\theta^5}{5!} - \cdots\right)}_{\sin\theta}
+$$
 
-  The real part is exactly the Taylor series for $\cos\theta$. The imaginary part is exactly the Taylor series for $\sin\theta$. Therefore:
+The real part is exactly the Taylor series for $\cos\theta$. The imaginary part is exactly the Taylor series for $\sin\theta$. Therefore:
 
-  $$
-  e^{i\theta} = \cos\theta + i\sin\theta \qquad \square
-  $$
+$$
+e^{i\theta} = \cos\theta + i\sin\theta \qquad \square
+$$
+
 </Proof>
 
 ### Derivation 2: The ODE Argument
 
-The Taylor series proof works, but it has a "rabbit out of a hat" quality — you substitute and simplify, and Euler's formula pops out, but you don't get a deep understanding of *why* the exponential and the trig functions are related.
+The Taylor series proof works, but it has a "rabbit out of a hat" quality — you substitute and simplify, and Euler's formula pops out, but you don't get a deep understanding of _why_ the exponential and the trig functions are related.
 
 The ODE argument gives that deeper understanding. It starts from a single observation: the function $f(\theta) = \cos\theta + i\sin\theta$ satisfies a very specific differential equation.
 
 <Proof>
   **ODE derivation of Euler's formula.**
 
-  Define $f(\theta) = \cos\theta + i\sin\theta$. We'll show that $f$ satisfies the same initial-value problem as $e^{i\theta}$, and since the solution is unique, they must be equal.
+Define $f(\theta) = \cos\theta + i\sin\theta$. We'll show that $f$ satisfies the same initial-value problem as $e^{i\theta}$, and since the solution is unique, they must be equal.
 
-  **Step 1: Compute $f'(\theta)$.**
+**Step 1: Compute $f'(\theta)$.**
 
-  $$
-  f'(\theta) = -\sin\theta + i\cos\theta = i(\cos\theta + i\sin\theta) = i \cdot f(\theta)
-  $$
+$$
+f'(\theta) = -\sin\theta + i\cos\theta = i(\cos\theta + i\sin\theta) = i \cdot f(\theta)
+$$
 
-  (In the middle step, we factored out $i$ and used $i \cdot i = -1$.)
+(In the middle step, we factored out $i$ and used $i \cdot i = -1$.)
 
-  So $f$ satisfies the differential equation $f'(\theta) = i \cdot f(\theta)$.
+So $f$ satisfies the differential equation $f'(\theta) = i \cdot f(\theta)$.
 
-  **Step 2: Check the initial condition.**
+**Step 2: Check the initial condition.**
 
-  $$
-  f(0) = \cos 0 + i\sin 0 = 1 + 0i = 1
-  $$
+$$
+f(0) = \cos 0 + i\sin 0 = 1 + 0i = 1
+$$
 
-  **Step 3: Note that $g(\theta) = e^{i\theta}$ satisfies the same equation.**
+**Step 3: Note that $g(\theta) = e^{i\theta}$ satisfies the same equation.**
 
-  If we trust that the exponential function works the same way with complex exponents as with real ones (which the Taylor series argument justifies), then:
+If we trust that the exponential function works the same way with complex exponents as with real ones (which the Taylor series argument justifies), then:
 
-  $$
-  g'(\theta) = ie^{i\theta} = ig(\theta), \qquad g(0) = e^0 = 1
-  $$
+$$
+g'(\theta) = ie^{i\theta} = ig(\theta), \qquad g(0) = e^0 = 1
+$$
 
-  **Step 4: Uniqueness.**
+**Step 4: Uniqueness.**
 
-  The initial-value problem $y' = iy$, $y(0) = 1$ has a unique solution (by the existence and uniqueness theorem for ODEs). Since both $f$ and $g$ solve it, they must be equal:
+The initial-value problem $y' = iy$, $y(0) = 1$ has a unique solution (by the existence and uniqueness theorem for ODEs). Since both $f$ and $g$ solve it, they must be equal:
 
-  $$
-  e^{i\theta} = \cos\theta + i\sin\theta \qquad \square
-  $$
+$$
+e^{i\theta} = \cos\theta + i\sin\theta \qquad \square
+$$
+
 </Proof>
 
 **Why this argument is important:** The key insight is that $f'(\theta) = i \cdot f(\theta)$ means the velocity is always $i$ times the position. But multiplying by $i$ rotates by 90 degrees. So at every instant, the point is moving **perpendicular to its position vector** — which is exactly the condition for moving in a circle at constant speed.
@@ -265,7 +275,10 @@ A point that starts at $1$ (on the positive real axis), always moves perpendicul
 />
 
 <Callout type="foreshadow" title="Looking ahead: matrix exponentials">
-  This ODE argument generalises powerfully. In lesson A3, you'll encounter the matrix exponential $e^{iHt}$, where $H$ is a matrix. The same logic applies: $e^{iHt}$ satisfies $\frac{d}{dt}U(t) = iH \cdot U(t)$, which is the Schrödinger equation governing quantum time evolution. The scalar Euler's formula you just learned is the 1×1 case of a much bigger story.
+  This ODE argument generalises powerfully. In lesson A3, you'll encounter the matrix exponential
+  $e^{iHt}$, where $H$ is a matrix. The same logic applies: $e^{iHt}$ satisfies $\frac{d}
+  {dt}U(t) = iH \cdot U(t)$, which is the Schrödinger equation governing quantum time evolution. The
+  scalar Euler's formula you just learned is the 1×1 case of a much bigger story.
 </Callout>
 
 ---
@@ -334,20 +347,21 @@ Euler himself didn't single it out as special (he stated the more general formul
 
 With Euler's formula in hand, here's a reference table of $e^{i\theta}$ at common angles. These values appear constantly in quantum computing — learn them now, and you'll never have to re-derive them mid-calculation.
 
-| $\theta$ | $e^{i\theta} = \cos\theta + i\sin\theta$ | Simplified |
-|---|---|---|
-| $0$ | $1 + 0i$ | $1$ |
-| $\pi/6$ | $\frac{\sqrt{3}}{2} + \frac{1}{2}i$ | |
-| $\pi/4$ | $\frac{1}{\sqrt{2}} + \frac{i}{\sqrt{2}}$ | $\frac{1+i}{\sqrt{2}}$ |
-| $\pi/3$ | $\frac{1}{2} + \frac{i\sqrt{3}}{2}$ | |
-| $\pi/2$ | $0 + i$ | $i$ |
-| $\pi$ | $-1 + 0i$ | $-1$ |
-| $3\pi/2$ | $0 - i$ | $-i$ |
+| $\theta$ | $e^{i\theta} = \cos\theta + i\sin\theta$  | Simplified             |
+| -------- | ----------------------------------------- | ---------------------- |
+| $0$      | $1 + 0i$                                  | $1$                    |
+| $\pi/6$  | $\frac{\sqrt{3}}{2} + \frac{1}{2}i$       |                        |
+| $\pi/4$  | $\frac{1}{\sqrt{2}} + \frac{i}{\sqrt{2}}$ | $\frac{1+i}{\sqrt{2}}$ |
+| $\pi/3$  | $\frac{1}{2} + \frac{i\sqrt{3}}{2}$       |                        |
+| $\pi/2$  | $0 + i$                                   | $i$                    |
+| $\pi$    | $-1 + 0i$                                 | $-1$                   |
+| $3\pi/2$ | $0 - i$                                   | $-i$                   |
 
 <Callout type="confusion" title="The argument is only defined modulo 2π">
   A subtle point that trips up students: $\arg(z)$ is not a single number but a family of numbers differing by multiples of $2\pi$. The angle $\pi/4$ and the angle $\pi/4 + 2\pi = 9\pi/4$ point in the same direction.
 
-  The **principal argument** $\operatorname{Arg}(z) \in (-\pi, \pi]$ gives a single canonical choice, but be aware that this convention creates a discontinuity: as you cross the negative real axis, the principal argument jumps from just below $\pi$ to just above $-\pi$. This "branch cut" matters in complex analysis; for our purposes, the main takeaway is: **angles are periodic**, and $e^{i\theta} = e^{i(\theta + 2\pi)}$.
+The **principal argument** $\operatorname{Arg}(z) \in (-\pi, \pi]$ gives a single canonical choice, but be aware that this convention creates a discontinuity: as you cross the negative real axis, the principal argument jumps from just below $\pi$ to just above $-\pi$. This "branch cut" matters in complex analysis; for our purposes, the main takeaway is: **angles are periodic**, and $e^{i\theta} = e^{i(\theta + 2\pi)}$.
+
 </Callout>
 
 ---
@@ -359,33 +373,35 @@ The exponential form makes computing powers almost effortless.
 <WorkedExample title="Euler's Formula at Key Angles">
   **Evaluate $e^{i\pi/4}$ and express in rectangular form.**
 
-  By Euler's formula:
+By Euler's formula:
 
-  $$
-  e^{i\pi/4} = \cos\frac{\pi}{4} + i\sin\frac{\pi}{4} = \frac{1}{\sqrt{2}} + \frac{i}{\sqrt{2}} = \frac{1+i}{\sqrt{2}}
-  $$
+$$
+e^{i\pi/4} = \cos\frac{\pi}{4} + i\sin\frac{\pi}{4} = \frac{1}{\sqrt{2}} + \frac{i}{\sqrt{2}} = \frac{1+i}{\sqrt{2}}
+$$
 
-  **Verification:** The modulus is $|e^{i\pi/4}|^2 = \frac{1}{2} + \frac{1}{2} = 1$. Good — Euler's formula always produces points on the unit circle.
+**Verification:** The modulus is $|e^{i\pi/4}|^2 = \frac{1}{2} + \frac{1}{2} = 1$. Good — Euler's formula always produces points on the unit circle.
 
-  This number appears everywhere in quantum computing: the $T$ gate applies a phase of $e^{i\pi/4}$, and the Hadamard gate's entries involve $1/\sqrt{2}$.
+This number appears everywhere in quantum computing: the $T$ gate applies a phase of $e^{i\pi/4}$, and the Hadamard gate's entries involve $1/\sqrt{2}$.
+
 </WorkedExample>
 
 <WorkedExample title="Computing (1+i)^8">
   **Compute $(1+i)^8$.**
 
-  **Step 1: Convert $1+i$ to exponential form.**
+**Step 1: Convert $1+i$ to exponential form.**
 
-  $|1+i| = \sqrt{2}$, $\arg(1+i) = \pi/4$. So $1+i = \sqrt{2}\, e^{i\pi/4}$.
+$|1+i| = \sqrt{2}$, $\arg(1+i) = \pi/4$. So $1+i = \sqrt{2}\, e^{i\pi/4}$.
 
-  **Step 2: Raise to the 8th power.**
+**Step 2: Raise to the 8th power.**
 
-  $$
-  (1+i)^8 = \left(\sqrt{2}\, e^{i\pi/4}\right)^8 = (\sqrt{2})^8 \cdot e^{i \cdot 8\pi/4} = 2^4 \cdot e^{i \cdot 2\pi} = 16 \cdot 1 = 16
-  $$
+$$
+(1+i)^8 = \left(\sqrt{2}\, e^{i\pi/4}\right)^8 = (\sqrt{2})^8 \cdot e^{i \cdot 8\pi/4} = 2^4 \cdot e^{i \cdot 2\pi} = 16 \cdot 1 = 16
+$$
 
-  **The answer is 16** — a positive real number. This is surprising if you try to compute it in rectangular form (expanding $(1+i)^8$ by hand is painful), but obvious in exponential form: the modulus gets raised to the 8th power, and the argument $8 \times \pi/4 = 2\pi$ wraps back to $0$.
+**The answer is 16** — a positive real number. This is surprising if you try to compute it in rectangular form (expanding $(1+i)^8$ by hand is painful), but obvious in exponential form: the modulus gets raised to the 8th power, and the argument $8 \times \pi/4 = 2\pi$ wraps back to $0$.
 
-  This is why polar/exponential form exists: it turns hard problems (repeated complex multiplication) into easy problems (multiplying real numbers and adding angles).
+This is why polar/exponential form exists: it turns hard problems (repeated complex multiplication) into easy problems (multiplying real numbers and adding angles).
+
 </WorkedExample>
 
 <Callout type="foreshadow" title="Looking ahead: repeated gate application">
@@ -398,4 +414,4 @@ The exponential form makes computing powers almost effortless.
 
 We've now built the full toolkit of complex number mechanics: rectangular form for addition, exponential form for multiplication and powers, and Euler's formula as the bridge between them. The roots of unity showed us the beautiful symmetry of complex numbers on the unit circle.
 
-But we haven't yet answered the question that motivated this entire lesson: *why do quantum mechanics and quantum computing need complex numbers?* In Part 4, we'll see that the answer lies in **phase** — specifically, in the distinction between global phase (which is physically meaningless) and relative phase (which is the source of all quantum interference and the entire power of quantum computing).
+But we haven't yet answered the question that motivated this entire lesson: _why do quantum mechanics and quantum computing need complex numbers?_ In Part 4, we'll see that the answer lies in **phase** — specifically, in the distinction between global phase (which is physically meaningless) and relative phase (which is the source of all quantum interference and the entire power of quantum computing).

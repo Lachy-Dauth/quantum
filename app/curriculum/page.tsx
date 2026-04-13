@@ -1,5 +1,11 @@
 import Link from 'next/link'
-import { CANONICAL_ORDER, LESSON_META, lessonHref, canonicalPosition, isFreeLessonSlug } from '@/lib/lessons/data'
+import {
+  CANONICAL_ORDER,
+  LESSON_META,
+  lessonHref,
+  canonicalPosition,
+  isFreeLessonSlug,
+} from '@/lib/lessons/data'
 import { TRACK_COLORS } from '@/lib/tracks'
 import { Badge } from '@/components/ui/Badge'
 import { Clock, Lock, BookOpen } from 'lucide-react'
@@ -11,7 +17,8 @@ export default function CurriculumPage() {
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-foreground">Curriculum</h1>
         <p className="mt-2 text-muted-foreground">
-          23 lessons across three interleaved tracks, from 2&times;2 matrices to Shor&apos;s algorithm. Follow the canonical order below for the recommended learning path.
+          23 lessons across three interleaved tracks, from 2&times;2 matrices to Shor&apos;s
+          algorithm. Follow the canonical order below for the recommended learning path.
         </p>
       </div>
 
@@ -30,24 +37,14 @@ export default function CurriculumPage() {
                   href={href}
                   className={cn(
                     'block rounded-lg border border-border p-4 transition-colors',
-                    'hover:border-primary/40 hover:bg-muted/50',
+                    'hover:border-primary/40 hover:bg-muted/50'
                   )}
                 >
-                  <LessonRow
-                    position={position}
-                    meta={meta}
-                    isFree={isFree}
-                    colors={colors}
-                  />
+                  <LessonRow position={position} meta={meta} isFree={isFree} colors={colors} />
                 </Link>
               ) : (
                 <div className="block rounded-lg border border-border p-4 opacity-60">
-                  <LessonRow
-                    position={position}
-                    meta={meta}
-                    isFree={isFree}
-                    colors={colors}
-                  />
+                  <LessonRow position={position} meta={meta} isFree={isFree} colors={colors} />
                 </div>
               )}
             </div>
@@ -72,10 +69,13 @@ function LessonRow({
   return (
     <div className="flex items-start gap-4">
       {/* Position number */}
-      <div className={cn(
-        'flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full text-sm font-bold',
-        colors.bg, colors.text,
-      )}>
+      <div
+        className={cn(
+          'flex h-9 w-9 flex-shrink-0 items-center justify-center rounded-full text-sm font-bold',
+          colors.bg,
+          colors.text
+        )}
+      >
         {position}
       </div>
 
@@ -89,14 +89,10 @@ function LessonRow({
               Free
             </span>
           )}
-          {!isFree && !meta.hasContent && (
-            <Lock className="h-3.5 w-3.5 text-muted-foreground" />
-          )}
+          {!isFree && !meta.hasContent && <Lock className="h-3.5 w-3.5 text-muted-foreground" />}
         </div>
 
-        {meta.subtitle && (
-          <p className="mt-0.5 text-sm text-muted-foreground">{meta.subtitle}</p>
-        )}
+        {meta.subtitle && <p className="mt-0.5 text-sm text-muted-foreground">{meta.subtitle}</p>}
 
         <div className="mt-1.5 flex items-center gap-3 text-xs text-muted-foreground">
           <span className="flex items-center gap-1">
@@ -109,9 +105,7 @@ function LessonRow({
               {meta.totalParts} parts
             </span>
           )}
-          {!meta.hasContent && (
-            <span className="italic">Coming soon</span>
-          )}
+          {!meta.hasContent && <span className="italic">Coming soon</span>}
         </div>
       </div>
     </div>

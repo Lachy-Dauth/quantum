@@ -52,7 +52,7 @@ export interface LessonMeta {
 export const LESSON_META: Record<LessonSlug, LessonMeta> = {
   'a1-complex-numbers': {
     slug: 'a1-complex-numbers',
-    title: 'Complex Numbers & Euler\'s Formula',
+    title: "Complex Numbers & Euler's Formula",
     subtitle: 'The number system that makes quantum mechanics possible',
     track: 'math',
     totalParts: 4,
@@ -232,7 +232,7 @@ export const LESSON_META: Record<LessonSlug, LessonMeta> = {
   },
   'c8-grover': {
     slug: 'c8-grover',
-    title: 'Grover\'s Search Algorithm',
+    title: "Grover's Search Algorithm",
     subtitle: 'Quadratic speedup for unstructured search',
     track: 'computing',
     totalParts: 2,
@@ -250,7 +250,7 @@ export const LESSON_META: Record<LessonSlug, LessonMeta> = {
   },
   'c10-shor': {
     slug: 'c10-shor',
-    title: 'Shor\'s Factoring Algorithm',
+    title: "Shor's Factoring Algorithm",
     subtitle: 'Breaking RSA with quantum period-finding',
     track: 'computing',
     totalParts: 3,
@@ -272,9 +272,7 @@ export function lessonHref(slug: LessonSlug): string {
 
 /** Get all lessons for a given track, in canonical order */
 export function lessonsForTrack(track: Track): LessonMeta[] {
-  return CANONICAL_ORDER
-    .map(slug => LESSON_META[slug])
-    .filter(meta => meta.track === track)
+  return CANONICAL_ORDER.map((slug) => LESSON_META[slug]).filter((meta) => meta.track === track)
 }
 
 /** Get canonical position (1-indexed) */

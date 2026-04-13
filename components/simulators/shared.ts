@@ -43,21 +43,13 @@ export interface CoordSystem {
   range: number // half-extent of the visible math space
 }
 
-export function mathToSvg(
-  x: number,
-  y: number,
-  cs: CoordSystem,
-): [number, number] {
+export function mathToSvg(x: number, y: number, cs: CoordSystem): [number, number] {
   const sx = (x / cs.range) * (cs.width / 2) + cs.width / 2
   const sy = -(y / cs.range) * (cs.height / 2) + cs.height / 2
   return [sx, sy]
 }
 
-export function svgToMath(
-  sx: number,
-  sy: number,
-  cs: CoordSystem,
-): [number, number] {
+export function svgToMath(sx: number, sy: number, cs: CoordSystem): [number, number] {
   const x = ((sx - cs.width / 2) / (cs.width / 2)) * cs.range
   const y = -((sy - cs.height / 2) / (cs.height / 2)) * cs.range
   return [x, y]
@@ -136,9 +128,7 @@ export function gridLines(cs: CoordSystem): { x: number[]; y: number[] } {
   return { x: xs, y: ys }
 }
 
-export function tickLabels(
-  cs: CoordSystem,
-): { value: number; label: string }[] {
+export function tickLabels(cs: CoordSystem): { value: number; label: string }[] {
   const step = cs.range <= 2 ? 0.5 : 1
   const labels: { value: number; label: string }[] = []
   for (let v = -cs.range; v <= cs.range; v += step) {
@@ -155,7 +145,7 @@ export function arcPath(
   cy: number,
   r: number,
   startAngle: number,
-  endAngle: number,
+  endAngle: number
 ): string {
   // Normalize so arc goes counterclockwise from startAngle to endAngle
   let sweep = endAngle - startAngle

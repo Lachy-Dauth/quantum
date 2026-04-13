@@ -37,27 +37,33 @@ export function ComplexMultiplication({ height = 450 }: SimulatorProps) {
     return svgToMath(sx, sy, cs)
   }, [])
 
-  const handlePointerDown = useCallback((target: 'z' | 'w') => (e: React.PointerEvent) => {
-    e.stopPropagation()
-    setDragTarget(target)
-    ;(e.target as Element).setPointerCapture(e.pointerId)
-  }, [])
+  const handlePointerDown = useCallback(
+    (target: 'z' | 'w') => (e: React.PointerEvent) => {
+      e.stopPropagation()
+      setDragTarget(target)
+      ;(e.target as Element).setPointerCapture(e.pointerId)
+    },
+    []
+  )
 
-  const handlePointerMove = useCallback((e: React.PointerEvent) => {
-    if (!dragTarget) return
-    const pt = getSvgPoint(e)
-    if (!pt) return
-    if (dragTarget === 'z') {
-      setZ(pt)
-    } else {
-      if (constrainW) {
-        const angle = Math.atan2(pt[1], pt[0])
-        setW([Math.cos(angle), Math.sin(angle)])
+  const handlePointerMove = useCallback(
+    (e: React.PointerEvent) => {
+      if (!dragTarget) return
+      const pt = getSvgPoint(e)
+      if (!pt) return
+      if (dragTarget === 'z') {
+        setZ(pt)
       } else {
-        setW(pt)
+        if (constrainW) {
+          const angle = Math.atan2(pt[1], pt[0])
+          setW([Math.cos(angle), Math.sin(angle)])
+        } else {
+          setW(pt)
+        }
       }
-    }
-  }, [dragTarget, constrainW, getSvgPoint])
+    },
+    [dragTarget, constrainW, getSvgPoint]
+  )
 
   const handlePointerUp = useCallback(() => {
     setDragTarget(null)
@@ -95,25 +101,100 @@ export function ComplexMultiplication({ height = 450 }: SimulatorProps) {
           const [, sy] = mathToSvg(0, v, cs)
           return (
             <g key={`g-${v}`}>
-              <line x1={sx} y1={0} x2={sx} y2={H} stroke="currentColor" className="text-slate-200 dark:text-slate-700" strokeWidth={0.5} />
-              <line x1={0} y1={sy} x2={W} y2={sy} stroke="currentColor" className="text-slate-200 dark:text-slate-700" strokeWidth={0.5} />
+              <line
+                x1={sx}
+                y1={0}
+                x2={sx}
+                y2={H}
+                stroke="currentColor"
+                className="text-slate-200 dark:text-slate-700"
+                strokeWidth={0.5}
+              />
+              <line
+                x1={0}
+                y1={sy}
+                x2={W}
+                y2={sy}
+                stroke="currentColor"
+                className="text-slate-200 dark:text-slate-700"
+                strokeWidth={0.5}
+              />
             </g>
           )
         })}
 
         {/* Axes */}
-        <line x1={0} y1={oy} x2={W} y2={oy} stroke="currentColor" className="text-slate-400 dark:text-slate-500" strokeWidth={1} />
-        <line x1={ox} y1={0} x2={ox} y2={H} stroke="currentColor" className="text-slate-400 dark:text-slate-500" strokeWidth={1} />
-        <text x={W - 16} y={oy - 8} fontSize={12} className="fill-slate-500 dark:fill-slate-400" textAnchor="end">Re</text>
-        <text x={ox + 8} y={16} fontSize={12} className="fill-slate-500 dark:fill-slate-400">Im</text>
+        <line
+          x1={0}
+          y1={oy}
+          x2={W}
+          y2={oy}
+          stroke="currentColor"
+          className="text-slate-400 dark:text-slate-500"
+          strokeWidth={1}
+        />
+        <line
+          x1={ox}
+          y1={0}
+          x2={ox}
+          y2={H}
+          stroke="currentColor"
+          className="text-slate-400 dark:text-slate-500"
+          strokeWidth={1}
+        />
+        <text
+          x={W - 16}
+          y={oy - 8}
+          fontSize={12}
+          className="fill-slate-500 dark:fill-slate-400"
+          textAnchor="end"
+        >
+          Re
+        </text>
+        <text x={ox + 8} y={16} fontSize={12} className="fill-slate-500 dark:fill-slate-400">
+          Im
+        </text>
 
         {/* Unit circle */}
-        <circle cx={ox} cy={oy} r={(W / 2) / RANGE} fill="none" stroke="currentColor" className="text-slate-300 dark:text-slate-600" strokeWidth={1} strokeDasharray="4 3" />
+        <circle
+          cx={ox}
+          cy={oy}
+          r={W / 2 / RANGE}
+          fill="none"
+          stroke="currentColor"
+          className="text-slate-300 dark:text-slate-600"
+          strokeWidth={1}
+          strokeDasharray="4 3"
+        />
 
         {/* Argument arcs */}
-        {modZ > 0.2 && <path d={arcPath(ox, oy, arcR, 0, argZ)} fill="none" stroke="#3b82f6" strokeWidth={1.5} opacity={0.6} />}
-        {modW > 0.2 && <path d={arcPath(ox, oy, arcR + 8, 0, argW)} fill="none" stroke="#22c55e" strokeWidth={1.5} opacity={0.6} />}
-        {modP > 0.2 && <path d={arcPath(ox, oy, arcR + 16, 0, argP)} fill="none" stroke="#ef4444" strokeWidth={1.5} opacity={0.6} />}
+        {modZ > 0.2 && (
+          <path
+            d={arcPath(ox, oy, arcR, 0, argZ)}
+            fill="none"
+            stroke="#3b82f6"
+            strokeWidth={1.5}
+            opacity={0.6}
+          />
+        )}
+        {modW > 0.2 && (
+          <path
+            d={arcPath(ox, oy, arcR + 8, 0, argW)}
+            fill="none"
+            stroke="#22c55e"
+            strokeWidth={1.5}
+            opacity={0.6}
+          />
+        )}
+        {modP > 0.2 && (
+          <path
+            d={arcPath(ox, oy, arcR + 16, 0, argP)}
+            fill="none"
+            stroke="#ef4444"
+            strokeWidth={1.5}
+            opacity={0.6}
+          />
+        )}
 
         {/* Vector z */}
         <line x1={ox} y1={oy} x2={zx} y2={zy} stroke="#3b82f6" strokeWidth={2} />
@@ -128,14 +209,56 @@ export function ComplexMultiplication({ height = 450 }: SimulatorProps) {
         <polygon points={arrowHead(ox, oy, px, py, 8)} fill="#ef4444" />
 
         {/* Draggable points */}
-        <circle cx={zx} cy={zy} r={7} fill="#3b82f6" stroke="white" strokeWidth={2} className="cursor-grab" onPointerDown={handlePointerDown('z')} />
-        <circle cx={wx} cy={wy} r={7} fill="#22c55e" stroke="white" strokeWidth={2} className="cursor-grab" onPointerDown={handlePointerDown('w')} />
+        <circle
+          cx={zx}
+          cy={zy}
+          r={7}
+          fill="#3b82f6"
+          stroke="white"
+          strokeWidth={2}
+          className="cursor-grab"
+          onPointerDown={handlePointerDown('z')}
+        />
+        <circle
+          cx={wx}
+          cy={wy}
+          r={7}
+          fill="#22c55e"
+          stroke="white"
+          strokeWidth={2}
+          className="cursor-grab"
+          onPointerDown={handlePointerDown('w')}
+        />
         <circle cx={px} cy={py} r={5} fill="#ef4444" stroke="white" strokeWidth={2} />
 
         {/* Labels */}
-        <text x={zx + 10} y={zy - 10} fontSize={13} fontWeight="bold" className="fill-blue-600 dark:fill-blue-400">z</text>
-        <text x={wx + 10} y={wy - 10} fontSize={13} fontWeight="bold" className="fill-green-600 dark:fill-green-400">w</text>
-        <text x={px + 10} y={py - 10} fontSize={13} fontWeight="bold" className="fill-red-600 dark:fill-red-400">zw</text>
+        <text
+          x={zx + 10}
+          y={zy - 10}
+          fontSize={13}
+          fontWeight="bold"
+          className="fill-blue-600 dark:fill-blue-400"
+        >
+          z
+        </text>
+        <text
+          x={wx + 10}
+          y={wy - 10}
+          fontSize={13}
+          fontWeight="bold"
+          className="fill-green-600 dark:fill-green-400"
+        >
+          w
+        </text>
+        <text
+          x={px + 10}
+          y={py - 10}
+          fontSize={13}
+          fontWeight="bold"
+          className="fill-red-600 dark:fill-red-400"
+        >
+          zw
+        </text>
       </svg>
 
       {/* Info panel */}
@@ -145,16 +268,24 @@ export function ComplexMultiplication({ height = 450 }: SimulatorProps) {
             <span className="w-3 h-3 rounded-full bg-blue-500 inline-block" />
             <span className="text-xs font-semibold text-slate-500 uppercase">z</span>
           </div>
-          <div className="font-mono text-xs text-slate-700 dark:text-slate-300">{fmtComplex(z)}</div>
-          <div className="text-xs text-slate-500">|z| = {fmtNum(modZ)}, arg = {fmtAngle(argZ)}</div>
+          <div className="font-mono text-xs text-slate-700 dark:text-slate-300">
+            {fmtComplex(z)}
+          </div>
+          <div className="text-xs text-slate-500">
+            |z| = {fmtNum(modZ)}, arg = {fmtAngle(argZ)}
+          </div>
         </div>
         <div>
           <div className="flex items-center gap-2 mb-1">
             <span className="w-3 h-3 rounded-full bg-green-500 inline-block" />
             <span className="text-xs font-semibold text-slate-500 uppercase">w</span>
           </div>
-          <div className="font-mono text-xs text-slate-700 dark:text-slate-300">{fmtComplex(w)}</div>
-          <div className="text-xs text-slate-500">|w| = {fmtNum(modW)}, arg = {fmtAngle(argW)}</div>
+          <div className="font-mono text-xs text-slate-700 dark:text-slate-300">
+            {fmtComplex(w)}
+          </div>
+          <div className="text-xs text-slate-500">
+            |w| = {fmtNum(modW)}, arg = {fmtAngle(argW)}
+          </div>
         </div>
         <hr className="border-slate-200 dark:border-slate-700" />
         <div>
@@ -162,24 +293,35 @@ export function ComplexMultiplication({ height = 450 }: SimulatorProps) {
             <span className="w-3 h-3 rounded-full bg-red-500 inline-block" />
             <span className="text-xs font-semibold text-slate-500 uppercase">z &times; w</span>
           </div>
-          <div className="font-mono text-xs text-slate-700 dark:text-slate-300">{fmtComplex(product)}</div>
+          <div className="font-mono text-xs text-slate-700 dark:text-slate-300">
+            {fmtComplex(product)}
+          </div>
           <div className="text-xs text-slate-500">|zw| = {fmtNum(modP)}</div>
           <div className="text-xs text-slate-500">arg(zw) = {fmtAngle(argP)}</div>
         </div>
         <hr className="border-slate-200 dark:border-slate-700" />
         <div className="text-xs space-y-1 text-slate-600 dark:text-slate-400">
-          <div>|z|&middot;|w| = {fmtNum(modZ)}&middot;{fmtNum(modW)} = {fmtNum(modZ * modW)}</div>
+          <div>
+            |z|&middot;|w| = {fmtNum(modZ)}&middot;{fmtNum(modW)} = {fmtNum(modZ * modW)}
+          </div>
           <div>arg(z)+arg(w) = {fmtAngle(argZ + argW)}</div>
         </div>
         <label className="flex items-center gap-2 cursor-pointer">
-          <input type="checkbox" checked={constrainW} onChange={(e) => {
-            setConstrainW(e.target.checked)
-            if (e.target.checked) {
-              const a = cArg(w)
-              setW([Math.cos(a), Math.sin(a)])
-            }
-          }} className="rounded" />
-          <span className="text-slate-600 dark:text-slate-300 text-xs">Constrain w to unit circle</span>
+          <input
+            type="checkbox"
+            checked={constrainW}
+            onChange={(e) => {
+              setConstrainW(e.target.checked)
+              if (e.target.checked) {
+                const a = cArg(w)
+                setW([Math.cos(a), Math.sin(a)])
+              }
+            }}
+            className="rounded"
+          />
+          <span className="text-slate-600 dark:text-slate-300 text-xs">
+            Constrain w to unit circle
+          </span>
         </label>
       </div>
     </div>

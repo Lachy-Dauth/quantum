@@ -2,15 +2,7 @@
 
 import { useState, useMemo } from 'react'
 import type { SimulatorProps } from './index'
-import {
-  type Complex,
-  cMul,
-  cAbs,
-  cArg,
-  cFromPolar,
-  fmtNum,
-  fmtAngle,
-} from './shared'
+import { type Complex, cMul, cAbs, cArg, cFromPolar, fmtNum, fmtAngle } from './shared'
 
 const MINI_SIZE = 140
 const MINI_R = MINI_SIZE / 2 - 20
@@ -35,8 +27,14 @@ export function GlobalRelativePhase({ height = 450 }: SimulatorProps) {
 
   // Hadamard basis probabilities
   // P(+) = |⟨+|ψ⟩|² = |(α + β)/√2|²
-  const plusAmp: Complex = [(alpha[0] + beta[0]) / Math.sqrt(2), (alpha[1] + beta[1]) / Math.sqrt(2)]
-  const minusAmp: Complex = [(alpha[0] - beta[0]) / Math.sqrt(2), (alpha[1] - beta[1]) / Math.sqrt(2)]
+  const plusAmp: Complex = [
+    (alpha[0] + beta[0]) / Math.sqrt(2),
+    (alpha[1] + beta[1]) / Math.sqrt(2),
+  ]
+  const minusAmp: Complex = [
+    (alpha[0] - beta[0]) / Math.sqrt(2),
+    (alpha[1] - beta[1]) / Math.sqrt(2),
+  ]
   const probPlus = cAbs(plusAmp) ** 2
   const probMinus = cAbs(minusAmp) ** 2
 
@@ -52,7 +50,9 @@ export function GlobalRelativePhase({ height = 450 }: SimulatorProps) {
       <div className="flex-1 flex flex-col md:flex-row bg-white dark:bg-slate-900 p-4 gap-4">
         {/* Left: amplitude vectors */}
         <div className="flex-1 flex flex-col items-center gap-4">
-          <div className="text-xs font-semibold text-slate-500 uppercase tracking-wide">Amplitudes</div>
+          <div className="text-xs font-semibold text-slate-500 uppercase tracking-wide">
+            Amplitudes
+          </div>
           <div className="flex flex-wrap justify-center gap-6">
             <AmplitudeCircle label="|0⟩ amplitude" z={alpha} color="#3b82f6" />
             <AmplitudeCircle label="|1⟩ amplitude" z={beta} color="#22c55e" />
@@ -61,10 +61,14 @@ export function GlobalRelativePhase({ height = 450 }: SimulatorProps) {
 
         {/* Right: probability bars */}
         <div className="flex-1 flex flex-col gap-4">
-          <div className="text-xs font-semibold text-slate-500 uppercase tracking-wide text-center">Measurement Probabilities</div>
+          <div className="text-xs font-semibold text-slate-500 uppercase tracking-wide text-center">
+            Measurement Probabilities
+          </div>
           {/* Computational basis */}
           <div className="space-y-2">
-            <div className="text-xs text-slate-500 font-medium">Computational basis {'{|0⟩, |1⟩}'}</div>
+            <div className="text-xs text-slate-500 font-medium">
+              Computational basis {'{|0⟩, |1⟩}'}
+            </div>
             <ProbBar label="|0⟩" value={probZero} color="#3b82f6" />
             <ProbBar label="|1⟩" value={probOne} color="#22c55e" />
           </div>
@@ -80,7 +84,9 @@ export function GlobalRelativePhase({ height = 450 }: SimulatorProps) {
       {/* Controls */}
       <div className="px-4 py-3 bg-slate-50 dark:bg-slate-800/50 border-t border-slate-200 dark:border-slate-700 space-y-3">
         <div className="flex items-center gap-3">
-          <label className="text-xs font-medium text-slate-600 dark:text-slate-400 w-24 sm:w-28 flex-shrink-0">Global phase φ</label>
+          <label className="text-xs font-medium text-slate-600 dark:text-slate-400 w-24 sm:w-28 flex-shrink-0">
+            Global phase φ
+          </label>
           <input
             type="range"
             min={0}
@@ -90,10 +96,14 @@ export function GlobalRelativePhase({ height = 450 }: SimulatorProps) {
             onChange={(e) => setGlobalPhase(Number(e.target.value))}
             className="flex-1 accent-blue-500"
           />
-          <span className="text-xs font-mono text-slate-600 dark:text-slate-400 w-14 text-right">{fmtAngle(globalPhase)}</span>
+          <span className="text-xs font-mono text-slate-600 dark:text-slate-400 w-14 text-right">
+            {fmtAngle(globalPhase)}
+          </span>
         </div>
         <div className="flex items-center gap-3">
-          <label className="text-xs font-medium text-slate-600 dark:text-slate-400 w-24 sm:w-28 flex-shrink-0">Relative phase θ</label>
+          <label className="text-xs font-medium text-slate-600 dark:text-slate-400 w-24 sm:w-28 flex-shrink-0">
+            Relative phase θ
+          </label>
           <input
             type="range"
             min={0}
@@ -103,13 +113,18 @@ export function GlobalRelativePhase({ height = 450 }: SimulatorProps) {
             onChange={(e) => setRelativePhase(Number(e.target.value))}
             className="flex-1 accent-green-500"
           />
-          <span className="text-xs font-mono text-slate-600 dark:text-slate-400 w-14 text-right">{fmtAngle(relativePhase)}</span>
+          <span className="text-xs font-mono text-slate-600 dark:text-slate-400 w-14 text-right">
+            {fmtAngle(relativePhase)}
+          </span>
         </div>
         <div className="flex gap-2 flex-wrap">
-          {presets.map(p => (
+          {presets.map((p) => (
             <button
               key={p.label}
-              onClick={() => { setGlobalPhase(p.global); setRelativePhase(p.relative) }}
+              onClick={() => {
+                setGlobalPhase(p.global)
+                setRelativePhase(p.relative)
+              }}
               className="px-2.5 py-1 rounded text-xs font-medium bg-slate-200 dark:bg-slate-700 text-slate-700 dark:text-slate-300 hover:bg-slate-300 dark:hover:bg-slate-600 transition-colors"
             >
               {p.label}
@@ -126,19 +141,48 @@ function AmplitudeCircle({ label, z, color }: { label: string; z: Complex; color
   const cy = MINI_SIZE / 2
   const mag = cAbs(z)
   const ang = cArg(z)
-  const vx = cx + MINI_R * z[0] / (1 / Math.sqrt(2) + 0.01)
-  const vy = cy - MINI_R * z[1] / (1 / Math.sqrt(2) + 0.01)
+  const vx = cx + (MINI_R * z[0]) / (1 / Math.sqrt(2) + 0.01)
+  const vy = cy - (MINI_R * z[1]) / (1 / Math.sqrt(2) + 0.01)
 
   return (
     <div className="flex flex-col items-center">
       <div className="text-xs text-slate-500 mb-1">{label}</div>
-      <svg viewBox={`0 0 ${MINI_SIZE} ${MINI_SIZE}`} width={MINI_SIZE} height={MINI_SIZE} className="bg-slate-50 dark:bg-slate-800 rounded-lg">
+      <svg
+        viewBox={`0 0 ${MINI_SIZE} ${MINI_SIZE}`}
+        width={MINI_SIZE}
+        height={MINI_SIZE}
+        className="bg-slate-50 dark:bg-slate-800 rounded-lg"
+      >
         {/* Circle border */}
-        <circle cx={cx} cy={cy} r={MINI_R} fill="none" stroke="currentColor" className="text-slate-300 dark:text-slate-600" strokeWidth={1} />
+        <circle
+          cx={cx}
+          cy={cy}
+          r={MINI_R}
+          fill="none"
+          stroke="currentColor"
+          className="text-slate-300 dark:text-slate-600"
+          strokeWidth={1}
+        />
 
         {/* Crosshair */}
-        <line x1={cx - MINI_R} y1={cy} x2={cx + MINI_R} y2={cy} stroke="currentColor" className="text-slate-200 dark:text-slate-700" strokeWidth={0.5} />
-        <line x1={cx} y1={cy - MINI_R} x2={cx} y2={cy + MINI_R} stroke="currentColor" className="text-slate-200 dark:text-slate-700" strokeWidth={0.5} />
+        <line
+          x1={cx - MINI_R}
+          y1={cy}
+          x2={cx + MINI_R}
+          y2={cy}
+          stroke="currentColor"
+          className="text-slate-200 dark:text-slate-700"
+          strokeWidth={0.5}
+        />
+        <line
+          x1={cx}
+          y1={cy - MINI_R}
+          x2={cx}
+          y2={cy + MINI_R}
+          stroke="currentColor"
+          className="text-slate-200 dark:text-slate-700"
+          strokeWidth={0.5}
+        />
 
         {/* Vector */}
         <line x1={cx} y1={cy} x2={vx} y2={vy} stroke={color} strokeWidth={2.5} />

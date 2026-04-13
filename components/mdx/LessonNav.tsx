@@ -16,7 +16,10 @@ export function LessonNav({ prevSlug, prevTitle, nextSlug, nextTitle }: LessonNa
         <span />
       )}
       {nextSlug ? (
-        <a href={`/lessons/${nextSlug}`} className="text-sm text-blue-600 hover:underline sm:text-right">
+        <a
+          href={`/lessons/${nextSlug}`}
+          className="text-sm text-blue-600 hover:underline sm:text-right"
+        >
           {nextTitle ?? nextSlug} &rarr;
         </a>
       ) : (

@@ -35,14 +35,17 @@ He was wrong about the useless part.
 
 Over the next three centuries, mathematicians discovered that these "imaginary" numbers weren't imaginary at all. They were the missing piece of a larger, richer number system — one where every polynomial equation has a solution, where geometry and algebra merge into a single unified picture, and where rotations are as natural as addition.
 
-Then, in 1926, something unexpected happened. When Erwin Schrödinger wrote down the equation governing quantum mechanics, complex numbers didn't appear as a clever trick or a computational shortcut. They appeared as the fundamental language of the theory. Quantum states *are* complex vectors. Probabilities come from the squared modulus of complex amplitudes. Interference — the phenomenon that gives quantum computing its power — is a direct consequence of complex phases adding and cancelling.
+Then, in 1926, something unexpected happened. When Erwin Schrödinger wrote down the equation governing quantum mechanics, complex numbers didn't appear as a clever trick or a computational shortcut. They appeared as the fundamental language of the theory. Quantum states _are_ complex vectors. Probabilities come from the squared modulus of complex amplitudes. Interference — the phenomenon that gives quantum computing its power — is a direct consequence of complex phases adding and cancelling.
 
 For almost a century, physicists debated whether complex numbers were truly essential to quantum mechanics, or merely a convenient formalism. That debate was settled in 2021, when Renou, Trout, Gisin and collaborators proved mathematically that "real quantum mechanics" — a version of the theory using only real numbers — cannot reproduce all the predictions of standard quantum mechanics. Complex numbers aren't optional. They're woven into the fabric of physical reality.
 
 This lesson is your entry point into that number system. We'll build everything from scratch: starting with a single provocative question, layering on geometric intuition, and arriving at a complete toolkit for working with complex numbers. By the end, you'll be ready to use these tools everywhere they appear in quantum computing — which is essentially everywhere.
 
 <Callout type="info" title="What you need before starting">
-  This lesson assumes comfort with high-school algebra and basic trigonometry — specifically, you should know what sine, cosine, and tangent are, and be comfortable with radians. If you've seen complex numbers before, that's fine; we're going to rebuild the subject from the ground up, and you'll likely see things from a new angle.
+  This lesson assumes comfort with high-school algebra and basic trigonometry — specifically, you
+  should know what sine, cosine, and tangent are, and be comfortable with radians. If you've seen
+  complex numbers before, that's fine; we're going to rebuild the subject from the ground up, and
+  you'll likely see things from a new angle.
 </Callout>
 
 ---
@@ -57,7 +60,7 @@ $$
 
 If you try to solve this on the real number line, you hit a wall. Positive numbers squared are positive. Negative numbers squared are also positive. Zero squared is zero. There is no real number whose square is $-1$.
 
-The breakthrough comes from refusing to accept "no solution" as an answer. Instead, we *define* a new number:
+The breakthrough comes from refusing to accept "no solution" as an answer. Instead, we _define_ a new number:
 
 $$
 i^2 = -1
@@ -69,16 +72,17 @@ But here's the key insight that transforms $i$ from a curious abstraction into a
 
 To see why, think about what multiplication by $-1$ does on the real number line. If you start with the number $3$ and multiply by $-1$, you get $-3$. Geometrically, you've rotated 180 degrees around the origin — you've flipped from the positive side of the line to the negative side.
 
-Now, $i^2 = -1$ means that multiplying by $i$ twice gives you a 180-degree rotation. So multiplying by $i$ once gives you *half* of a 180-degree rotation — that is, a 90-degree rotation.
+Now, $i^2 = -1$ means that multiplying by $i$ twice gives you a 180-degree rotation. So multiplying by $i$ once gives you _half_ of a 180-degree rotation — that is, a 90-degree rotation.
 
-But a 90-degree rotation of the real number line doesn't land you back on the real number line. It takes you *off* the line entirely — into a new dimension. This is where the complex plane comes from, and it's the reason we need two dimensions to visualise complex numbers.
+But a 90-degree rotation of the real number line doesn't land you back on the real number line. It takes you _off_ the line entirely — into a new dimension. This is where the complex plane comes from, and it's the reason we need two dimensions to visualise complex numbers.
 
 <Callout type="confusion" title="&quot;i is imaginary, so it isn't a real thing&quot;">
   The word "imaginary" is one of the most unfortunate naming choices in mathematics. Descartes coined it as an insult — he meant that these numbers were fictitious and useless. Three centuries of mathematics and physics have proven him spectacularly wrong.
 
-  $i$ is no more imaginary than negative numbers (which were themselves once called "fictitious") or irrational numbers (which the Pythagoreans tried to cover up). $i$ has a precise geometric meaning — it's a 90-degree rotation — and it describes real physical phenomena. In quantum mechanics, complex amplitudes aren't a mathematical convenience; they're the theory's native language.
+$i$ is no more imaginary than negative numbers (which were themselves once called "fictitious") or irrational numbers (which the Pythagoreans tried to cover up). $i$ has a precise geometric meaning — it's a 90-degree rotation — and it describes real physical phenomena. In quantum mechanics, complex amplitudes aren't a mathematical convenience; they're the theory's native language.
 
-  A more honest name would be "lateral numbers" (a term Gauss actually preferred), since $i$ moves you laterally off the real line into a perpendicular direction.
+A more honest name would be "lateral numbers" (a term Gauss actually preferred), since $i$ moves you laterally off the real line into a perpendicular direction.
+
 </Callout>
 
 ---
@@ -96,34 +100,35 @@ The Argand plane works like this:
 <Definition term="Complex Number">
   A **complex number** is an expression of the form
 
-  $$
-  z = a + bi
-  $$
+$$
+z = a + bi
+$$
 
-  where $a$ and $b$ are real numbers and $i^2 = -1$. The number $a$ is called the **real part** of $z$, written $\operatorname{Re}(z) = a$. The number $b$ is called the **imaginary part** of $z$, written $\operatorname{Im}(z) = b$.
+where $a$ and $b$ are real numbers and $i^2 = -1$. The number $a$ is called the **real part** of $z$, written $\operatorname{Re}(z) = a$. The number $b$ is called the **imaginary part** of $z$, written $\operatorname{Im}(z) = b$.
 
-  The set of all complex numbers is denoted $\C$.
+The set of all complex numbers is denoted $\C$.
 
-  Two complex numbers are equal if and only if their real parts are equal and their imaginary parts are equal:
+Two complex numbers are equal if and only if their real parts are equal and their imaginary parts are equal:
 
-  $$
-  a + bi = c + di \quad \iff \quad a = c \text{ and } b = d
-  $$
+$$
+a + bi = c + di \quad \iff \quad a = c \text{ and } b = d
+$$
+
 </Definition>
 
 You can think of a complex number $z = a + bi$ as a point $(a, b)$ in the plane, or equivalently as a vector (an arrow) from the origin to that point. Both pictures are useful, and we'll switch freely between them.
 
 Here are some examples to build your intuition:
 
-| Complex number | Real part | Imaginary part | Location in the plane |
-|---|---|---|---|
-| $3 + 2i$ | $3$ | $2$ | Three units right, two up |
-| $-1 + 4i$ | $-1$ | $4$ | One unit left, four up |
-| $2$ | $2$ | $0$ | On the real axis |
-| $-3i$ | $0$ | $-3$ | On the imaginary axis, below |
-| $0$ | $0$ | $0$ | The origin |
+| Complex number | Real part | Imaginary part | Location in the plane        |
+| -------------- | --------- | -------------- | ---------------------------- |
+| $3 + 2i$       | $3$       | $2$            | Three units right, two up    |
+| $-1 + 4i$      | $-1$      | $4$            | One unit left, four up       |
+| $2$            | $2$       | $0$            | On the real axis             |
+| $-3i$          | $0$       | $-3$           | On the imaginary axis, below |
+| $0$            | $0$       | $0$            | The origin                   |
 
-Notice that every real number is also a complex number — it's just a complex number with zero imaginary part. The real numbers are a subset of the complex numbers, sitting along the horizontal axis. This is important: $\C$ doesn't replace $\R$; it *extends* it.
+Notice that every real number is also a complex number — it's just a complex number with zero imaginary part. The real numbers are a subset of the complex numbers, sitting along the horizontal axis. This is important: $\C$ doesn't replace $\R$; it _extends_ it.
 
 <SimulatorEmbed
   simulator="argand-plane"
@@ -142,27 +147,28 @@ This is polar form, and for complex numbers it turns out to be extraordinarily p
 <Definition term="Modulus, Argument, and Conjugate">
   For a complex number $z = a + bi$:
 
-  **Modulus (absolute value):** The distance from $z$ to the origin:
+**Modulus (absolute value):** The distance from $z$ to the origin:
 
-  $$
-  |z| = \sqrt{a^2 + b^2}
-  $$
+$$
+|z| = \sqrt{a^2 + b^2}
+$$
 
-  **Argument:** The angle $\theta$ from the positive real axis to $z$, measured counterclockwise:
+**Argument:** The angle $\theta$ from the positive real axis to $z$, measured counterclockwise:
 
-  $$
-  \arg(z) = \operatorname{atan2}(b, a)
-  $$
+$$
+\arg(z) = \operatorname{atan2}(b, a)
+$$
 
-  The argument is defined modulo $2\pi$ (adding full turns doesn't change the direction). The **principal argument** $\operatorname{Arg}(z)$ is the unique value in $(-\pi, \pi]$.
+The argument is defined modulo $2\pi$ (adding full turns doesn't change the direction). The **principal argument** $\operatorname{Arg}(z)$ is the unique value in $(-\pi, \pi]$.
 
-  **Complex conjugate:** The reflection of $z$ across the real axis:
+**Complex conjugate:** The reflection of $z$ across the real axis:
 
-  $$
-  z^* = a - bi
-  $$
+$$
+z^* = a - bi
+$$
 
-  (Some textbooks write $\bar{z}$ instead of $z^*$. We'll use $z^*$ throughout this course, since it's standard in physics and quantum computing.)
+(Some textbooks write $\bar{z}$ instead of $z^*$. We'll use $z^*$ throughout this course, since it's standard in physics and quantum computing.)
+
 </Definition>
 
 Let's unpack these one at a time.
@@ -184,7 +190,10 @@ The argument $\arg(z)$ tells you the direction of $z$. Numbers on the positive r
 We use $\operatorname{atan2}(b, a)$ rather than $\arctan(b/a)$ because the plain arctangent can't distinguish between, say, $1 + i$ (in the first quadrant) and $-1 - i$ (in the third quadrant), since both have $b/a = 1$. The two-argument arctangent $\operatorname{atan2}$ handles all four quadrants correctly.
 
 <Callout type="warning" title="Radians, not degrees">
-  Throughout this course, angles are always in radians. A full turn is $2\pi$, a half turn is $\pi$, a quarter turn is $\pi/2$. If you're more comfortable with degrees, the conversion is: multiply radians by $180/\pi$ to get degrees. But start getting comfortable with radians now — they're the natural unit in every formula we'll encounter.
+  Throughout this course, angles are always in radians. A full turn is $2\pi$, a half turn is $\pi$,
+  a quarter turn is $\pi/2$. If you're more comfortable with degrees, the conversion is: multiply
+  radians by $180/\pi$ to get degrees. But start getting comfortable with radians now — they're the
+  natural unit in every formula we'll encounter.
 </Callout>
 
 ### The Complex Conjugate
@@ -214,6 +223,7 @@ where $r = |z|$ is the modulus and $\theta = \arg(z)$ is the argument. This is j
 **Rectangular to polar:**
 
 Given $z = a + bi$:
+
 1. Compute $r = \sqrt{a^2 + b^2}$
 2. Compute $\theta = \operatorname{atan2}(b, a)$
 3. Write $z = r(\cos\theta + i\sin\theta)$
@@ -221,6 +231,7 @@ Given $z = a + bi$:
 **Polar to rectangular:**
 
 Given $r$ and $\theta$:
+
 1. Compute $a = r\cos\theta$
 2. Compute $b = r\sin\theta$
 3. Write $z = a + bi$
@@ -230,29 +241,30 @@ Let's work through a concrete example.
 <WorkedExample title="Converting to Polar Form">
   **Convert $z = -1 + i\sqrt{3}$ to polar form.**
 
-  **Step 1: Find the modulus.**
+**Step 1: Find the modulus.**
 
-  $$
-  |z| = \sqrt{(-1)^2 + (\sqrt{3})^2} = \sqrt{1 + 3} = \sqrt{4} = 2
-  $$
+$$
+|z| = \sqrt{(-1)^2 + (\sqrt{3})^2} = \sqrt{1 + 3} = \sqrt{4} = 2
+$$
 
-  **Step 2: Find the argument.**
+**Step 2: Find the argument.**
 
-  The point $(-1, \sqrt{3})$ is in the second quadrant (negative real part, positive imaginary part).
+The point $(-1, \sqrt{3})$ is in the second quadrant (negative real part, positive imaginary part).
 
-  $$
-  \theta = \operatorname{atan2}(\sqrt{3}, -1)
-  $$
+$$
+\theta = \operatorname{atan2}(\sqrt{3}, -1)
+$$
 
-  The reference angle is $\arctan(\sqrt{3}/1) = \pi/3$. Since we're in the second quadrant, the argument is $\pi - \pi/3 = 2\pi/3$.
+The reference angle is $\arctan(\sqrt{3}/1) = \pi/3$. Since we're in the second quadrant, the argument is $\pi - \pi/3 = 2\pi/3$.
 
-  **Step 3: Write in polar form.**
+**Step 3: Write in polar form.**
 
-  $$
-  z = 2\left(\cos\frac{2\pi}{3} + i\sin\frac{2\pi}{3}\right)
-  $$
+$$
+z = 2\left(\cos\frac{2\pi}{3} + i\sin\frac{2\pi}{3}\right)
+$$
 
-  **Verification:** $\cos(2\pi/3) = -1/2$ and $\sin(2\pi/3) = \sqrt{3}/2$. So $z = 2(-1/2 + i\sqrt{3}/2) = -1 + i\sqrt{3}$. Confirmed.
+**Verification:** $\cos(2\pi/3) = -1/2$ and $\sin(2\pi/3) = \sqrt{3}/2$. So $z = 2(-1/2 + i\sqrt{3}/2) = -1 + i\sqrt{3}$. Confirmed.
+
 </WorkedExample>
 
 ### Numbers on the unit circle
@@ -265,19 +277,21 @@ $$
 
 This is a point on the unit circle at angle $\theta$ from the positive real axis. Some important special cases:
 
-| $\theta$ | $\cos\theta + i\sin\theta$ | Simplified |
-|---|---|---|
-| $0$ | $1 + 0i$ | $1$ |
-| $\pi/2$ | $0 + i$ | $i$ |
-| $\pi$ | $-1 + 0i$ | $-1$ |
-| $3\pi/2$ | $0 - i$ | $-i$ |
-| $\pi/4$ | $\frac{1}{\sqrt{2}} + \frac{i}{\sqrt{2}}$ | $\frac{1+i}{\sqrt{2}}$ |
-| $\pi/3$ | $\frac{1}{2} + \frac{i\sqrt{3}}{2}$ | $\frac{1 + i\sqrt{3}}{2}$ |
+| $\theta$ | $\cos\theta + i\sin\theta$                | Simplified                |
+| -------- | ----------------------------------------- | ------------------------- |
+| $0$      | $1 + 0i$                                  | $1$                       |
+| $\pi/2$  | $0 + i$                                   | $i$                       |
+| $\pi$    | $-1 + 0i$                                 | $-1$                      |
+| $3\pi/2$ | $0 - i$                                   | $-i$                      |
+| $\pi/4$  | $\frac{1}{\sqrt{2}} + \frac{i}{\sqrt{2}}$ | $\frac{1+i}{\sqrt{2}}$    |
+| $\pi/3$  | $\frac{1}{2} + \frac{i\sqrt{3}}{2}$       | $\frac{1 + i\sqrt{3}}{2}$ |
 
 These values will appear constantly throughout the course — in quantum gates, in the Bloch sphere, and in the Quantum Fourier Transform. Building fluency with them now saves enormous time later.
 
 <Callout type="foreshadow" title="Looking ahead: the Bloch sphere">
-  In the computing track (lesson C1), you'll learn that a single qubit's state can be represented as a point on a sphere. The angle around the equator of that sphere is exactly the argument of a complex number. The unit circle you're looking at right now is the equator of the Bloch sphere.
+  In the computing track (lesson C1), you'll learn that a single qubit's state can be represented as
+  a point on a sphere. The angle around the equator of that sphere is exactly the argument of a
+  complex number. The unit circle you're looking at right now is the equator of the Bloch sphere.
 </Callout>
 
 ---
@@ -298,6 +312,6 @@ This is a small taste of a much larger subject (complex analysis), but it illust
 
 ## What's Coming Next
 
-You now have the basic vocabulary: complex numbers as points in the plane, rectangular and polar forms, the modulus, argument, and conjugate. The next part of this lesson turns to the real payoff — what happens when you *do things* with these numbers.
+You now have the basic vocabulary: complex numbers as points in the plane, rectangular and polar forms, the modulus, argument, and conjugate. The next part of this lesson turns to the real payoff — what happens when you _do things_ with these numbers.
 
 In Part 2, we'll discover that complex arithmetic isn't just algebraic manipulation. Addition is vector addition. Multiplication is rotation and scaling. Division is undoing a rotation. Every algebraic operation has a clean geometric interpretation, and that geometry is the key to understanding why complex numbers are so natural for quantum mechanics.

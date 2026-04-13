@@ -96,7 +96,8 @@ This explains why $i$ is a 90-degree rotation: $i$ has modulus 1 and argument $\
 <Callout type="confusion" title="Confusing argument addition with modulus addition">
   A common mistake: students write $|zw| = |z| + |w|$ (adding the moduli) or $\arg(zw) = \arg(z) \cdot \arg(w)$ (multiplying the arguments). The correct rule is the opposite: **moduli multiply, arguments add**.
 
-  A helpful mnemonic: multiplication of complex numbers is like multiplication of powers. Just as $x^a \cdot x^b = x^{a+b}$ (the exponents add), the arguments (which are like exponents in the exponential form $re^{i\theta}$) add under multiplication. And just as $(xy)^a = x^a y^a$ (the bases multiply), the moduli multiply.
+A helpful mnemonic: multiplication of complex numbers is like multiplication of powers. Just as $x^a \cdot x^b = x^{a+b}$ (the exponents add), the arguments (which are like exponents in the exponential form $re^{i\theta}$) add under multiplication. And just as $(xy)^a = x^a y^a$ (the bases multiply), the moduli multiply.
+
 </Callout>
 
 ### Why this works: the algebraic derivation
@@ -130,31 +131,32 @@ For the argument, note that if $z$ has argument $\theta_1$ and $w$ has argument 
 <WorkedExample title="Geometric Multiplication">
   **Compute $(1 + i)(\sqrt{3} + i)$ and interpret geometrically.**
 
-  **Step 1: Convert to polar form.**
+**Step 1: Convert to polar form.**
 
-  For $1 + i$: modulus $= \sqrt{1^2 + 1^2} = \sqrt{2}$, argument $= \pi/4$ (45 degrees, first quadrant).
+For $1 + i$: modulus $= \sqrt{1^2 + 1^2} = \sqrt{2}$, argument $= \pi/4$ (45 degrees, first quadrant).
 
-  For $\sqrt{3} + i$: modulus $= \sqrt{3 + 1} = 2$, argument $= \pi/6$ (since $\tan\theta = 1/\sqrt{3}$, so $\theta = 30°$).
+For $\sqrt{3} + i$: modulus $= \sqrt{3 + 1} = 2$, argument $= \pi/6$ (since $\tan\theta = 1/\sqrt{3}$, so $\theta = 30°$).
 
-  **Step 2: Multiply in polar form.**
+**Step 2: Multiply in polar form.**
 
-  $$
-  |zw| = \sqrt{2} \cdot 2 = 2\sqrt{2}, \qquad \arg(zw) = \frac{\pi}{4} + \frac{\pi}{6} = \frac{3\pi + 2\pi}{12} = \frac{5\pi}{12}
-  $$
+$$
+|zw| = \sqrt{2} \cdot 2 = 2\sqrt{2}, \qquad \arg(zw) = \frac{\pi}{4} + \frac{\pi}{6} = \frac{3\pi + 2\pi}{12} = \frac{5\pi}{12}
+$$
 
-  So the product has modulus $2\sqrt{2}$ and argument $5\pi/12$ (75 degrees).
+So the product has modulus $2\sqrt{2}$ and argument $5\pi/12$ (75 degrees).
 
-  **Step 3: Verify in rectangular form.**
+**Step 3: Verify in rectangular form.**
 
-  $$
-  (1 + i)(\sqrt{3} + i) = \sqrt{3} + i + i\sqrt{3} + i^2 = (\sqrt{3} - 1) + (1 + \sqrt{3})i
-  $$
+$$
+(1 + i)(\sqrt{3} + i) = \sqrt{3} + i + i\sqrt{3} + i^2 = (\sqrt{3} - 1) + (1 + \sqrt{3})i
+$$
 
-  Check the modulus: $(\sqrt{3} - 1)^2 + (1 + \sqrt{3})^2 = (3 - 2\sqrt{3} + 1) + (1 + 2\sqrt{3} + 3) = 8$.
+Check the modulus: $(\sqrt{3} - 1)^2 + (1 + \sqrt{3})^2 = (3 - 2\sqrt{3} + 1) + (1 + 2\sqrt{3} + 3) = 8$.
 
-  So $|zw| = \sqrt{8} = 2\sqrt{2}$. Confirmed.
+So $|zw| = \sqrt{8} = 2\sqrt{2}$. Confirmed.
 
-  **The geometric picture:** We took a vector of length $\sqrt{2}$ at 45° and a vector of length $2$ at 30°, and the product is a vector of length $2\sqrt{2}$ at 75°. The multiplication rotated and scaled exactly as the rule predicts.
+**The geometric picture:** We took a vector of length $\sqrt{2}$ at 45° and a vector of length $2$ at 30°, and the product is a vector of length $2\sqrt{2}$ at 75°. The multiplication rotated and scaled exactly as the rule predicts.
+
 </WorkedExample>
 
 <Callout type="foreshadow" title="Looking ahead: quantum gates">
@@ -165,7 +167,7 @@ For the argument, note that if $z$ has argument $\theta_1$ and $w$ has argument 
 
 ## Division: Undoing a Rotation
 
-If multiplication rotates and scales, then division should *undo* a rotation and scaling. And it does: to divide $z$ by $w$, you divide the moduli and subtract the arguments:
+If multiplication rotates and scales, then division should _undo_ a rotation and scaling. And it does: to divide $z$ by $w$, you divide the moduli and subtract the arguments:
 
 $$
 \left|\frac{z}{w}\right| = \frac{|z|}{|w|}, \qquad \arg\left(\frac{z}{w}\right) = \arg(z) - \arg(w)
@@ -184,45 +186,46 @@ Why does this work? Because $w \cdot w^* = |w|^2$ is always a positive real numb
 <WorkedExample title="Conjugate Simplification">
   **Simplify $\displaystyle\frac{3 + 4i}{1 - 2i}$ and find its modulus.**
 
-  **Step 1: Multiply by the conjugate of the denominator.**
+**Step 1: Multiply by the conjugate of the denominator.**
 
-  $$
-  \frac{3 + 4i}{1 - 2i} \cdot \frac{1 + 2i}{1 + 2i} = \frac{(3 + 4i)(1 + 2i)}{(1 - 2i)(1 + 2i)}
-  $$
+$$
+\frac{3 + 4i}{1 - 2i} \cdot \frac{1 + 2i}{1 + 2i} = \frac{(3 + 4i)(1 + 2i)}{(1 - 2i)(1 + 2i)}
+$$
 
-  **Step 2: Compute the denominator.**
+**Step 2: Compute the denominator.**
 
-  $$
-  (1 - 2i)(1 + 2i) = 1^2 + 2^2 = 5
-  $$
+$$
+(1 - 2i)(1 + 2i) = 1^2 + 2^2 = 5
+$$
 
-  (using $w \cdot w^* = |w|^2$).
+(using $w \cdot w^* = |w|^2$).
 
-  **Step 3: Compute the numerator.**
+**Step 3: Compute the numerator.**
 
-  $$
-  (3 + 4i)(1 + 2i) = 3 + 6i + 4i + 8i^2 = 3 + 10i - 8 = -5 + 10i
-  $$
+$$
+(3 + 4i)(1 + 2i) = 3 + 6i + 4i + 8i^2 = 3 + 10i - 8 = -5 + 10i
+$$
 
-  **Step 4: Combine.**
+**Step 4: Combine.**
 
-  $$
-  \frac{-5 + 10i}{5} = -1 + 2i
-  $$
+$$
+\frac{-5 + 10i}{5} = -1 + 2i
+$$
 
-  **Step 5: Find the modulus.**
+**Step 5: Find the modulus.**
 
-  $$
-  |-1 + 2i| = \sqrt{1 + 4} = \sqrt{5}
-  $$
+$$
+|-1 + 2i| = \sqrt{1 + 4} = \sqrt{5}
+$$
 
-  **Cross-check via the modulus quotient rule:**
+**Cross-check via the modulus quotient rule:**
 
-  $$
-  \frac{|3 + 4i|}{|1 - 2i|} = \frac{\sqrt{9 + 16}}{\sqrt{1 + 4}} = \frac{5}{\sqrt{5}} = \sqrt{5} \quad \checkmark
-  $$
+$$
+\frac{|3 + 4i|}{|1 - 2i|} = \frac{\sqrt{9 + 16}}{\sqrt{1 + 4}} = \frac{5}{\sqrt{5}} = \sqrt{5} \quad \checkmark
+$$
 
-  The modulus cross-check is a powerful sanity check. If the modulus of your answer doesn't match $|z|/|w|$, you've made an arithmetic error somewhere.
+The modulus cross-check is a powerful sanity check. If the modulus of your answer doesn't match $|z|/|w|$, you've made an arithmetic error somewhere.
+
 </WorkedExample>
 
 ---
@@ -234,33 +237,35 @@ The complex conjugate keeps showing up — in division, in the modulus formula $
 <Theorem name="Conjugate Identities">
   For any complex numbers $z$ and $w$:
 
-  1. $(z + w)^* = z^* + w^*$ — the conjugate of a sum is the sum of the conjugates
-  2. $(zw)^* = z^* w^*$ — the conjugate of a product is the product of the conjugates
-  3. $z z^* = |z|^2$ — a number times its conjugate is the square of its modulus
-  4. $(z^*)^* = z$ — conjugating twice gives you back the original
-</Theorem>
+1. $(z + w)^* = z^* + w^*$ — the conjugate of a sum is the sum of the conjugates
+2. $(zw)^* = z^* w^*$ — the conjugate of a product is the product of the conjugates
+3. $z z^* = |z|^2$ — a number times its conjugate is the square of its modulus
+4. $(z^*)^* = z$ — conjugating twice gives you back the original
+   </Theorem>
 
 <Proof>
   Let $z = a + bi$ and $w = c + di$.
 
-  **(1)** $(z + w)^* = ((a+c) + (b+d)i)^* = (a+c) - (b+d)i = (a - bi) + (c - di) = z^* + w^*$.
+**(1)** $(z + w)^* = ((a+c) + (b+d)i)^* = (a+c) - (b+d)i = (a - bi) + (c - di) = z^* + w^*$.
 
-  **(2)** $zw = (ac - bd) + (ad + bc)i$, so $(zw)^* = (ac - bd) - (ad + bc)i$. Meanwhile, $z^* w^* = (a - bi)(c - di) = (ac - bd) + (-ad - bc)i = (ac - bd) - (ad + bc)i$. They match.
+**(2)** $zw = (ac - bd) + (ad + bc)i$, so $(zw)^* = (ac - bd) - (ad + bc)i$. Meanwhile, $z^* w^* = (a - bi)(c - di) = (ac - bd) + (-ad - bc)i = (ac - bd) - (ad + bc)i$. They match.
 
-  **(3)** $z z^* = (a + bi)(a - bi) = a^2 - (bi)^2 = a^2 - b^2 i^2 = a^2 + b^2 = |z|^2$.
+**(3)** $z z^* = (a + bi)(a - bi) = a^2 - (bi)^2 = a^2 - b^2 i^2 = a^2 + b^2 = |z|^2$.
 
-  **(4)** $(z^*)^* = (a - bi)^* = a + bi = z$.
+**(4)** $(z^*)^* = (a - bi)^* = a + bi = z$.
+
 </Proof>
 
 <Callout type="confusion" title="Confusing z* with -z">
   Students sometimes mix up the conjugate $z^*$ with the negation $-z$. They are different operations:
 
-  - **Conjugate** $z^* = a - bi$: flips the imaginary part. Geometrically, this is a **reflection across the real axis** (flip up/down).
-  - **Negation** $-z = -a - bi$: flips both parts. Geometrically, this is a **rotation by 180°** (or equivalently, reflection through the origin).
+- **Conjugate** $z^* = a - bi$: flips the imaginary part. Geometrically, this is a **reflection across the real axis** (flip up/down).
+- **Negation** $-z = -a - bi$: flips both parts. Geometrically, this is a **rotation by 180°** (or equivalently, reflection through the origin).
 
-  Quick check: $(3 + 4i)^* = 3 - 4i$, but $-(3 + 4i) = -3 - 4i$. The conjugate keeps the real part; negation changes it.
+Quick check: $(3 + 4i)^* = 3 - 4i$, but $-(3 + 4i) = -3 - 4i$. The conjugate keeps the real part; negation changes it.
 
-  Geometrically: the conjugate of a point in the upper half-plane is the corresponding point in the lower half-plane (same horizontal position, reflected vertically). Negation sends it to the diagonally opposite point.
+Geometrically: the conjugate of a point in the upper half-plane is the corresponding point in the lower half-plane (same horizontal position, reflected vertically). Negation sends it to the diagonally opposite point.
+
 </Callout>
 
 ### The modulus is multiplicative
@@ -272,13 +277,14 @@ The conjugate identities let us prove an important property of the modulus clean
 <Proof>
   We compute $|zw|^2$ using the identity $\alpha \alpha^* = |\alpha|^2$ with $\alpha = zw$:
 
-  $$
-  |zw|^2 = (zw)(zw)^* = (zw)(z^* w^*) = (z z^*)(w w^*) = |z|^2 |w|^2
-  $$
+$$
+|zw|^2 = (zw)(zw)^* = (zw)(z^* w^*) = (z z^*)(w w^*) = |z|^2 |w|^2
+$$
 
-  where we used the fact that $(zw)^* = z^* w^*$ (conjugate identity 2) and the commutativity and associativity of multiplication to rearrange.
+where we used the fact that $(zw)^* = z^* w^*$ (conjugate identity 2) and the commutativity and associativity of multiplication to rearrange.
 
-  Since $|zw|^2 = |z|^2 |w|^2$ and all these quantities are non-negative, taking square roots gives $|zw| = |z| \cdot |w|$.
+Since $|zw|^2 = |z|^2 |w|^2$ and all these quantities are non-negative, taking square roots gives $|zw| = |z| \cdot |w|$.
+
 </Proof>
 
 Notice how much cleaner this proof is when you use the conjugate identities compared to the brute-force expansion we did earlier. The conjugate is a bookkeeping tool that keeps track of moduli without forcing you to expand everything into real and imaginary parts.
@@ -292,11 +298,12 @@ Here's a fact that you already know geometrically, even if you haven't seen it s
 <Theorem name="Triangle Inequality">
   For any complex numbers $z$ and $w$:
 
-  $$
-  |z + w| \leq |z| + |w|
-  $$
+$$
+|z + w| \leq |z| + |w|
+$$
 
-  Equality holds if and only if one of $z$, $w$ is a non-negative real multiple of the other (i.e., they point in the same direction from the origin).
+Equality holds if and only if one of $z$, $w$ is a non-negative real multiple of the other (i.e., they point in the same direction from the origin).
+
 </Theorem>
 
 Geometrically, this says that the length of one side of a triangle is at most the sum of the lengths of the other two sides. In the complex plane, the three vertices of the triangle are $0$, $z$, and $z + w$. The side from $0$ to $z$ has length $|z|$, the side from $z$ to $z + w$ has length $|w|$, and the side from $0$ to $z + w$ has length $|z + w|$.
@@ -312,47 +319,51 @@ The direct path (from $0$ straight to $z + w$) can never be longer than the two-
 <Proof>
   We prove this algebraically. Start by squaring both sides (both sides are non-negative, so this is valid):
 
-  $$
-  |z + w|^2 \leq (|z| + |w|)^2
-  $$
+$$
+|z + w|^2 \leq (|z| + |w|)^2
+$$
 
-  **Left side:** Expand using $|\alpha|^2 = \alpha \alpha^*$:
+**Left side:** Expand using $|\alpha|^2 = \alpha \alpha^*$:
 
-  $$
-  |z + w|^2 = (z + w)(z + w)^* = (z + w)(z^* + w^*) = zz^* + zw^* + wz^* + ww^*
-  $$
+$$
+|z + w|^2 = (z + w)(z + w)^* = (z + w)(z^* + w^*) = zz^* + zw^* + wz^* + ww^*
+$$
 
-  $$
-  = |z|^2 + |w|^2 + zw^* + (zw^*)^*
-  $$
+$$
+= |z|^2 + |w|^2 + zw^* + (zw^*)^*
+$$
 
-  Now, for any complex number $\alpha$, we have $\alpha + \alpha^* = 2\operatorname{Re}(\alpha)$. So:
+Now, for any complex number $\alpha$, we have $\alpha + \alpha^* = 2\operatorname{Re}(\alpha)$. So:
 
-  $$
-  |z + w|^2 = |z|^2 + |w|^2 + 2\operatorname{Re}(zw^*)
-  $$
+$$
+|z + w|^2 = |z|^2 + |w|^2 + 2\operatorname{Re}(zw^*)
+$$
 
-  **Right side:**
+**Right side:**
 
-  $$
-  (|z| + |w|)^2 = |z|^2 + 2|z||w| + |w|^2
-  $$
+$$
+(|z| + |w|)^2 = |z|^2 + 2|z||w| + |w|^2
+$$
 
-  **Comparing:** We need to show that $\operatorname{Re}(zw^*) \leq |zw^*|$. But this is always true — the real part of any complex number is at most its modulus (since $\operatorname{Re}(\alpha) \leq |\alpha|$). And $|zw^*| = |z||w^*| = |z||w|$ (since $|w^*| = |w|$).
+**Comparing:** We need to show that $\operatorname{Re}(zw^*) \leq |zw^*|$. But this is always true — the real part of any complex number is at most its modulus (since $\operatorname{Re}(\alpha) \leq |\alpha|$). And $|zw^*| = |z||w^*| = |z||w|$ (since $|w^*| = |w|$).
 
-  Therefore:
+Therefore:
 
-  $$
-  |z + w|^2 = |z|^2 + |w|^2 + 2\operatorname{Re}(zw^*) \leq |z|^2 + |w|^2 + 2|z||w| = (|z| + |w|)^2
-  $$
+$$
+|z + w|^2 = |z|^2 + |w|^2 + 2\operatorname{Re}(zw^*) \leq |z|^2 + |w|^2 + 2|z||w| = (|z| + |w|)^2
+$$
 
-  Taking square roots gives $|z + w| \leq |z| + |w|$.
+Taking square roots gives $|z + w| \leq |z| + |w|$.
 
-  **Equality condition:** Equality holds when $\operatorname{Re}(zw^*) = |zw^*|$, which means $zw^*$ is a non-negative real number, which means $z$ and $w$ point in the same direction (or one of them is zero).
+**Equality condition:** Equality holds when $\operatorname{Re}(zw^*) = |zw^*|$, which means $zw^*$ is a non-negative real number, which means $z$ and $w$ point in the same direction (or one of them is zero).
+
 </Proof>
 
 <Callout type="foreshadow" title="Looking ahead: inner products and distances">
-  The triangle inequality is one of the defining properties of a *norm* — a way of measuring length. In lesson A2, we'll define inner products and norms on complex vector spaces, and the triangle inequality will reappear in a more general form. Every distance-like concept in quantum mechanics ultimately inherits from this inequality.
+  The triangle inequality is one of the defining properties of a *norm* — a way of measuring length.
+  In lesson A2, we'll define inner products and norms on complex vector spaces, and the triangle
+  inequality will reappear in a more general form. Every distance-like concept in quantum mechanics
+  ultimately inherits from this inequality.
 </Callout>
 
 ---
@@ -377,13 +388,13 @@ These identities are useful because they let you express $\operatorname{Re}$ and
 
 Let's collect everything in one place.
 
-| Operation | Rectangular | Polar |
-|---|---|---|
-| **Addition** | $(a+bi) + (c+di) = (a+c) + (b+d)i$ | (No clean polar formula) |
-| **Subtraction** | $(a+bi) - (c+di) = (a-c) + (b-d)i$ | (No clean polar formula) |
-| **Multiplication** | $(a+bi)(c+di) = (ac-bd) + (ad+bc)i$ | Multiply moduli, add arguments |
-| **Division** | Multiply by conjugate of denominator | Divide moduli, subtract arguments |
-| **Conjugation** | $(a+bi)^* = a - bi$ | $r e^{i\theta} \mapsto r e^{-i\theta}$ |
+| Operation          | Rectangular                          | Polar                                  |
+| ------------------ | ------------------------------------ | -------------------------------------- |
+| **Addition**       | $(a+bi) + (c+di) = (a+c) + (b+d)i$   | (No clean polar formula)               |
+| **Subtraction**    | $(a+bi) - (c+di) = (a-c) + (b-d)i$   | (No clean polar formula)               |
+| **Multiplication** | $(a+bi)(c+di) = (ac-bd) + (ad+bc)i$  | Multiply moduli, add arguments         |
+| **Division**       | Multiply by conjugate of denominator | Divide moduli, subtract arguments      |
+| **Conjugation**    | $(a+bi)^* = a - bi$                  | $r e^{i\theta} \mapsto r e^{-i\theta}$ |
 
 Notice the pattern: **addition and subtraction are easier in rectangular form** (just add the components), while **multiplication and division are easier in polar form** (just combine the moduli and arguments). Knowing when to use which form is a skill that comes with practice.
 

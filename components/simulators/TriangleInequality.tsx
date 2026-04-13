@@ -2,15 +2,7 @@
 
 import { useState, useCallback, useRef } from 'react'
 import type { SimulatorProps } from './index'
-import {
-  type Complex,
-  type CoordSystem,
-  cAdd,
-  cAbs,
-  mathToSvg,
-  svgToMath,
-  fmtNum,
-} from './shared'
+import { type Complex, type CoordSystem, cAdd, cAbs, mathToSvg, svgToMath, fmtNum } from './shared'
 
 const RANGE = 3.5
 const W = 600
@@ -32,19 +24,25 @@ export function TriangleInequality({ height = 350 }: SimulatorProps) {
     return svgToMath(sx, sy, cs)
   }, [])
 
-  const handlePointerDown = useCallback((target: 'z' | 'w') => (e: React.PointerEvent) => {
-    e.stopPropagation()
-    setDragTarget(target)
-    ;(e.target as Element).setPointerCapture(e.pointerId)
-  }, [])
+  const handlePointerDown = useCallback(
+    (target: 'z' | 'w') => (e: React.PointerEvent) => {
+      e.stopPropagation()
+      setDragTarget(target)
+      ;(e.target as Element).setPointerCapture(e.pointerId)
+    },
+    []
+  )
 
-  const handlePointerMove = useCallback((e: React.PointerEvent) => {
-    if (!dragTarget) return
-    const pt = getSvgPoint(e)
-    if (!pt) return
-    if (dragTarget === 'z') setZ(pt)
-    else setW(pt)
-  }, [dragTarget, getSvgPoint])
+  const handlePointerMove = useCallback(
+    (e: React.PointerEvent) => {
+      if (!dragTarget) return
+      const pt = getSvgPoint(e)
+      if (!pt) return
+      if (dragTarget === 'z') setZ(pt)
+      else setW(pt)
+    },
+    [dragTarget, getSvgPoint]
+  )
 
   const handlePointerUp = useCallback(() => setDragTarget(null), [])
 
@@ -77,15 +75,47 @@ export function TriangleInequality({ height = 350 }: SimulatorProps) {
           const [, gy] = mathToSvg(0, v, cs)
           return (
             <g key={v}>
-              <line x1={gx} y1={0} x2={gx} y2={H} stroke="currentColor" className="text-slate-200 dark:text-slate-700" strokeWidth={0.5} />
-              <line x1={0} y1={gy} x2={W} y2={gy} stroke="currentColor" className="text-slate-200 dark:text-slate-700" strokeWidth={0.5} />
+              <line
+                x1={gx}
+                y1={0}
+                x2={gx}
+                y2={H}
+                stroke="currentColor"
+                className="text-slate-200 dark:text-slate-700"
+                strokeWidth={0.5}
+              />
+              <line
+                x1={0}
+                y1={gy}
+                x2={W}
+                y2={gy}
+                stroke="currentColor"
+                className="text-slate-200 dark:text-slate-700"
+                strokeWidth={0.5}
+              />
             </g>
           )
         })}
 
         {/* Axes */}
-        <line x1={0} y1={oy} x2={W} y2={oy} stroke="currentColor" className="text-slate-400 dark:text-slate-500" strokeWidth={1} />
-        <line x1={ox} y1={0} x2={ox} y2={H} stroke="currentColor" className="text-slate-400 dark:text-slate-500" strokeWidth={1} />
+        <line
+          x1={0}
+          y1={oy}
+          x2={W}
+          y2={oy}
+          stroke="currentColor"
+          className="text-slate-400 dark:text-slate-500"
+          strokeWidth={1}
+        />
+        <line
+          x1={ox}
+          y1={0}
+          x2={ox}
+          y2={H}
+          stroke="currentColor"
+          className="text-slate-400 dark:text-slate-500"
+          strokeWidth={1}
+        />
 
         {/* Triangle fill */}
         <polygon
@@ -139,20 +169,53 @@ export function TriangleInequality({ height = 350 }: SimulatorProps) {
         )}
 
         {/* Draggable handles */}
-        <circle cx={zx} cy={zy} r={7} fill="#3b82f6" stroke="white" strokeWidth={2} className="cursor-grab" onPointerDown={handlePointerDown('z')} />
-        <circle cx={sx} cy={sy} r={7} fill="#22c55e" stroke="white" strokeWidth={2} className="cursor-grab" onPointerDown={handlePointerDown('w')} />
+        <circle
+          cx={zx}
+          cy={zy}
+          r={7}
+          fill="#3b82f6"
+          stroke="white"
+          strokeWidth={2}
+          className="cursor-grab"
+          onPointerDown={handlePointerDown('z')}
+        />
+        <circle
+          cx={sx}
+          cy={sy}
+          r={7}
+          fill="#22c55e"
+          stroke="white"
+          strokeWidth={2}
+          className="cursor-grab"
+          onPointerDown={handlePointerDown('w')}
+        />
 
         {/* Labels */}
-        <text x={zx + 10} y={zy - 10} fontSize={13} fontWeight="bold" className="fill-blue-600 dark:fill-blue-400">z</text>
-        <text x={sx + 10} y={sy - 10} fontSize={13} fontWeight="bold" className="fill-green-600 dark:fill-green-400">z+w</text>
+        <text
+          x={zx + 10}
+          y={zy - 10}
+          fontSize={13}
+          fontWeight="bold"
+          className="fill-blue-600 dark:fill-blue-400"
+        >
+          z
+        </text>
+        <text
+          x={sx + 10}
+          y={sy - 10}
+          fontSize={13}
+          fontWeight="bold"
+          className="fill-green-600 dark:fill-green-400"
+        >
+          z+w
+        </text>
       </svg>
 
       {/* Inequality display */}
       <div className="px-4 py-3 bg-slate-50 dark:bg-slate-800/50 border-t border-slate-200 dark:border-slate-700 text-center">
         <div className="font-mono text-sm">
-          <span className="text-red-600 dark:text-red-400">|z+w| = {fmtNum(modSum)}</span>
-          {' '}{isEquality ? '=' : '≤'}{' '}
-          <span className="text-blue-600 dark:text-blue-400">|z|</span>
+          <span className="text-red-600 dark:text-red-400">|z+w| = {fmtNum(modSum)}</span>{' '}
+          {isEquality ? '=' : '≤'} <span className="text-blue-600 dark:text-blue-400">|z|</span>
           {' + '}
           <span className="text-green-600 dark:text-green-400">|w|</span>
           {' = '}
