@@ -2,6 +2,7 @@ import { cache } from 'react'
 import fs from 'fs/promises'
 import path from 'path'
 import { renderLesson } from './render'
+import { extractToc } from './toc'
 
 const CONTENT_DIR = path.join(process.cwd(), 'content', 'lessons')
 
@@ -21,7 +22,9 @@ async function readLessonSource(slug: string, part?: number): Promise<string> {
 
 export const getLesson = cache(async (slug: string, part?: number) => {
   const source = await readLessonSource(slug, part)
-  return renderLesson(source)
+  const { content, frontmatter } = await renderLesson(source)
+  const toc = extractToc(source)
+  return { content, frontmatter, toc }
 })
 
 export async function lessonExists(slug: string, part?: number): Promise<boolean> {
