@@ -1,5 +1,5 @@
-import { notFound } from 'next/navigation'
-import { getLesson } from '@/lib/lessons/loader'
+import { notFound, redirect } from 'next/navigation'
+import { getLesson, lessonExists } from '@/lib/lessons/loader'
 import { getPrevNextLessons } from '@/lib/lessons/navigation'
 import { TRACK_META, TRACK_COLORS } from '@/lib/tracks'
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
@@ -15,6 +15,18 @@ interface Props {
 
 export default async function LessonPage({ params }: Props) {
   const { slug } = await params
+
+  // Check if this is a single-part lesson (index.mdx exists)
+  const isSinglePart = await lessonExists(slug)
+
+  // If no index.mdx, check if it's a multi-part lesson and redirect to part-1
+  if (!isSinglePart) {
+    const hasPartOne = await lessonExists(slug, 1)
+    if (hasPartOne) {
+      redirect(`/lessons/${slug}/part-1`)
+    }
+    notFound()
+  }
 
   try {
     const { content, frontmatter, toc } = await getLesson(slug)
