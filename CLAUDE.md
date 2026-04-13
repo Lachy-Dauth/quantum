@@ -42,7 +42,7 @@ A1 → A2 → A3 → P1 → P2 → C1 → C2 → A4 → P3 → P4 → C3 → A5 
 
 - Derive everything from first principles. No "it can be shown that."
 - Build intuition from multiple angles BEFORE formal notation.
-- Lessons are long (8,000-25,000 words). This is intentional, it should never feel like a textbook as it should lean heavier on visualisations, examples, and interactive elements. 
+- Lessons are long (8,000-25,000 words). This is intentional, it should never feel like a textbook as it should lean heavier on visualisations, examples, and interactive elements.
 - Tone: rigorous-but-warm. Respect the reader's intelligence.
 - Every lesson has: motivation, derivation, worked examples, interactive simulator, problem set with solutions.
 - Common confusions callout boxes dismantle specific wrong mental models.

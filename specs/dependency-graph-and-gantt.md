@@ -8,6 +8,7 @@ This document contains two Mermaid diagrams for the full MVP build:
 2. **Gantt Chart** — a sequential schedule for a solo developer working 20 hours/week.
 
 Conventions:
+
 - Each lesson X is split into three nodes: `X_SPEC`, `X_PROSE`, `X_VIS`.
 - A "day" = 4 hours of focused work (20 hrs / 5 working days).
 - Edges are minimal: if A depends on B depends on C, the edge A->C is omitted.
@@ -20,114 +21,114 @@ Update the status column when a task is completed. Statuses: `todo`, `in-progres
 
 ### Infrastructure
 
-| Node | Description | Est. Days | Status |
-|------|-------------|-----------|--------|
-| INFRA_NEXTJS | Next.js + Tailwind + MDX | 3 | done |
-| INFRA_DB | DB schema & migrations | 2 | todo |
-| INFRA_AUTH | Authentication | 2 | todo |
-| INFRA_PAYMENTS | Stripe integration | 3 | todo |
-| INFRA_CI | CI/CD pipeline | 1 | todo |
-| FRONTEND_SHELL | Layout, nav, lesson template | 3 | todo |
+| Node           | Description                  | Est. Days | Status |
+| -------------- | ---------------------------- | --------- | ------ |
+| INFRA_NEXTJS   | Next.js + Tailwind + MDX     | 3         | done   |
+| INFRA_DB       | DB schema & migrations       | 2         | done   |
+| INFRA_AUTH     | Authentication               | 2         | todo   |
+| INFRA_PAYMENTS | Stripe integration           | 3         | todo   |
+| INFRA_CI       | CI/CD pipeline               | 1         | done   |
+| FRONTEND_SHELL | Layout, nav, lesson template | 3         | todo   |
 
 ### Simulators
 
-| Node | Description | Est. Days | Status |
-|------|-------------|-----------|--------|
-| SIM_CORE | Linear-algebra core | 5 | todo |
-| SIM_QUBIT_UI | Qubit circuit simulator | 5 | todo |
-| SIM_SG_UI | Stern-Gerlach simulator | 3 | todo |
-| SIM_CHSH_UI | CHSH inequality simulator | 3 | todo |
-| SIM_SCHRODINGER_UI | 1D Schrodinger simulator | 4 | todo |
+| Node               | Description               | Est. Days | Status |
+| ------------------ | ------------------------- | --------- | ------ |
+| SIM_CORE           | Linear-algebra core       | 5         | todo   |
+| SIM_QUBIT_UI       | Qubit circuit simulator   | 5         | todo   |
+| SIM_SG_UI          | Stern-Gerlach simulator   | 3         | todo   |
+| SIM_CHSH_UI        | CHSH inequality simulator | 3         | todo   |
+| SIM_SCHRODINGER_UI | 1D Schrodinger simulator  | 4         | todo   |
 
 ### Track A — Mathematics
 
-| Node | Description | Est. Days | Status |
-|------|-------------|-----------|--------|
-| A1_SPEC | Complex numbers spec | 0.5 | todo |
-| A1_PROSE | Complex numbers prose | 1 | todo |
-| A1_VIS | Complex numbers visuals | 0.5 | todo |
-| A2_SPEC | Vectors spec | 0.5 | todo |
-| A2_PROSE | Vectors prose | 1 | todo |
-| A2_VIS | Vectors visuals | 0.5 | todo |
-| A3_SPEC | Matrices spec | 0.5 | todo |
-| A3_PROSE | Matrices prose | 2 | todo |
-| A3_VIS | Matrices visuals | 0.5 | todo |
-| A4_SPEC | Eigenvalues spec | 0.5 | todo |
-| A4_PROSE | Eigenvalues prose | 2 | todo |
-| A4_VIS | Eigenvalues visuals | 0.5 | todo |
-| A5_SPEC | Tensor products spec | 0.5 | todo |
-| A5_PROSE | Tensor products prose | 2 | todo |
-| A5_VIS | Tensor products visuals | 0.5 | todo |
-| A6_SPEC | Probability / Born rule spec | 0.5 | todo |
-| A6_PROSE | Probability / Born rule prose | 2 | todo |
-| A6_VIS | Probability / Born rule visuals | 0.5 | todo |
+| Node     | Description                     | Est. Days | Status |
+| -------- | ------------------------------- | --------- | ------ |
+| A1_SPEC  | Complex numbers spec            | 0.5       | todo   |
+| A1_PROSE | Complex numbers prose           | 1         | todo   |
+| A1_VIS   | Complex numbers visuals         | 0.5       | todo   |
+| A2_SPEC  | Vectors spec                    | 0.5       | todo   |
+| A2_PROSE | Vectors prose                   | 1         | todo   |
+| A2_VIS   | Vectors visuals                 | 0.5       | todo   |
+| A3_SPEC  | Matrices spec                   | 0.5       | todo   |
+| A3_PROSE | Matrices prose                  | 2         | todo   |
+| A3_VIS   | Matrices visuals                | 0.5       | todo   |
+| A4_SPEC  | Eigenvalues spec                | 0.5       | todo   |
+| A4_PROSE | Eigenvalues prose               | 2         | todo   |
+| A4_VIS   | Eigenvalues visuals             | 0.5       | todo   |
+| A5_SPEC  | Tensor products spec            | 0.5       | todo   |
+| A5_PROSE | Tensor products prose           | 2         | todo   |
+| A5_VIS   | Tensor products visuals         | 0.5       | todo   |
+| A6_SPEC  | Probability / Born rule spec    | 0.5       | todo   |
+| A6_PROSE | Probability / Born rule prose   | 2         | todo   |
+| A6_VIS   | Probability / Born rule visuals | 0.5       | todo   |
 
 ### Track P — Physics
 
-| Node | Description | Est. Days | Status |
-|------|-------------|-----------|--------|
-| P1_SPEC | Classical physics fails spec | 0.5 | todo |
-| P1_PROSE | Classical physics fails prose | 2 | todo |
-| P1_VIS | Classical physics fails visuals | 1 | todo |
-| P2_SPEC | Postulates spec | 0.5 | todo |
-| P2_PROSE | Postulates prose | 2 | todo |
-| P2_VIS | Postulates visuals | 1 | todo |
-| P3_SPEC | Schrodinger equation spec | 1 | todo |
-| P3_PROSE | Schrodinger equation prose | 3 | todo |
-| P3_VIS | Schrodinger equation visuals | 2 | todo |
-| P4_SPEC | Spin / Pauli spec | 0.5 | todo |
-| P4_PROSE | Spin / Pauli prose | 2 | todo |
-| P4_VIS | Spin / Pauli visuals | 2 | todo |
-| P5_SPEC | Uncertainty spec | 0.5 | todo |
-| P5_PROSE | Uncertainty prose | 2 | todo |
-| P5_VIS | Uncertainty visuals | 1 | todo |
-| P6_SPEC | Bell / CHSH spec | 1 | todo |
-| P6_PROSE | Bell / CHSH prose | 3 | todo |
-| P6_VIS | Bell / CHSH visuals | 2 | todo |
-| P7_SPEC | Decoherence spec | 0.5 | todo |
-| P7_PROSE | Decoherence prose | 2 | todo |
-| P7_VIS | Decoherence visuals | 1 | todo |
+| Node     | Description                     | Est. Days | Status |
+| -------- | ------------------------------- | --------- | ------ |
+| P1_SPEC  | Classical physics fails spec    | 0.5       | todo   |
+| P1_PROSE | Classical physics fails prose   | 2         | todo   |
+| P1_VIS   | Classical physics fails visuals | 1         | todo   |
+| P2_SPEC  | Postulates spec                 | 0.5       | todo   |
+| P2_PROSE | Postulates prose                | 2         | todo   |
+| P2_VIS   | Postulates visuals              | 1         | todo   |
+| P3_SPEC  | Schrodinger equation spec       | 1         | todo   |
+| P3_PROSE | Schrodinger equation prose      | 3         | todo   |
+| P3_VIS   | Schrodinger equation visuals    | 2         | todo   |
+| P4_SPEC  | Spin / Pauli spec               | 0.5       | todo   |
+| P4_PROSE | Spin / Pauli prose              | 2         | todo   |
+| P4_VIS   | Spin / Pauli visuals            | 2         | todo   |
+| P5_SPEC  | Uncertainty spec                | 0.5       | todo   |
+| P5_PROSE | Uncertainty prose               | 2         | todo   |
+| P5_VIS   | Uncertainty visuals             | 1         | todo   |
+| P6_SPEC  | Bell / CHSH spec                | 1         | todo   |
+| P6_PROSE | Bell / CHSH prose               | 3         | todo   |
+| P6_VIS   | Bell / CHSH visuals             | 2         | todo   |
+| P7_SPEC  | Decoherence spec                | 0.5       | todo   |
+| P7_PROSE | Decoherence prose               | 2         | todo   |
+| P7_VIS   | Decoherence visuals             | 1         | todo   |
 
 ### Track C — Computing
 
-| Node | Description | Est. Days | Status |
-|------|-------------|-----------|--------|
-| C1_SPEC | Qubit spec | 0.5 | todo |
-| C1_PROSE | Qubit prose | 1 | todo |
-| C1_VIS | Qubit visuals | 1 | todo |
-| C2_SPEC | Measurement spec | 0.5 | todo |
-| C2_PROSE | Measurement prose | 1 | todo |
-| C2_VIS | Measurement visuals | 1 | todo |
-| C3_SPEC | Gates / Bloch sphere spec | 0.5 | todo |
-| C3_PROSE | Gates / Bloch sphere prose | 2 | todo |
-| C3_VIS | Gates / Bloch sphere visuals | 2 | todo |
-| C4_SPEC | Multi-qubit spec | 0.5 | todo |
-| C4_PROSE | Multi-qubit prose | 2 | todo |
-| C4_VIS | Multi-qubit visuals | 2 | todo |
-| C5_SPEC | Universal gates spec | 0.5 | todo |
-| C5_PROSE | Universal gates prose | 2 | todo |
-| C5_VIS | Universal gates visuals | 1 | todo |
-| C6_SPEC | Deutsch-Jozsa spec | 0.5 | todo |
-| C6_PROSE | Deutsch-Jozsa prose | 2 | todo |
-| C6_VIS | Deutsch-Jozsa visuals | 1 | todo |
-| C7_SPEC | Teleportation spec | 0.5 | todo |
-| C7_PROSE | Teleportation prose | 2 | todo |
-| C7_VIS | Teleportation visuals | 1 | todo |
-| C8_SPEC | Grover spec | 1 | todo |
-| C8_PROSE | Grover prose | 3 | todo |
-| C8_VIS | Grover visuals | 2 | todo |
-| C9_SPEC | QFT spec | 0.5 | todo |
-| C9_PROSE | QFT prose | 3 | todo |
-| C9_VIS | QFT visuals | 1 | todo |
-| C10_SPEC | Shor spec | 1 | todo |
-| C10_PROSE | Shor prose | 3 | todo |
-| C10_VIS | Shor visuals | 2 | todo |
+| Node      | Description                  | Est. Days | Status |
+| --------- | ---------------------------- | --------- | ------ |
+| C1_SPEC   | Qubit spec                   | 0.5       | todo   |
+| C1_PROSE  | Qubit prose                  | 1         | todo   |
+| C1_VIS    | Qubit visuals                | 1         | todo   |
+| C2_SPEC   | Measurement spec             | 0.5       | todo   |
+| C2_PROSE  | Measurement prose            | 1         | todo   |
+| C2_VIS    | Measurement visuals          | 1         | todo   |
+| C3_SPEC   | Gates / Bloch sphere spec    | 0.5       | todo   |
+| C3_PROSE  | Gates / Bloch sphere prose   | 2         | todo   |
+| C3_VIS    | Gates / Bloch sphere visuals | 2         | todo   |
+| C4_SPEC   | Multi-qubit spec             | 0.5       | todo   |
+| C4_PROSE  | Multi-qubit prose            | 2         | todo   |
+| C4_VIS    | Multi-qubit visuals          | 2         | todo   |
+| C5_SPEC   | Universal gates spec         | 0.5       | todo   |
+| C5_PROSE  | Universal gates prose        | 2         | todo   |
+| C5_VIS    | Universal gates visuals      | 1         | todo   |
+| C6_SPEC   | Deutsch-Jozsa spec           | 0.5       | todo   |
+| C6_PROSE  | Deutsch-Jozsa prose          | 2         | todo   |
+| C6_VIS    | Deutsch-Jozsa visuals        | 1         | todo   |
+| C7_SPEC   | Teleportation spec           | 0.5       | todo   |
+| C7_PROSE  | Teleportation prose          | 2         | todo   |
+| C7_VIS    | Teleportation visuals        | 1         | todo   |
+| C8_SPEC   | Grover spec                  | 1         | todo   |
+| C8_PROSE  | Grover prose                 | 3         | todo   |
+| C8_VIS    | Grover visuals               | 2         | todo   |
+| C9_SPEC   | QFT spec                     | 0.5       | todo   |
+| C9_PROSE  | QFT prose                    | 3         | todo   |
+| C9_VIS    | QFT visuals                  | 1         | todo   |
+| C10_SPEC  | Shor spec                    | 1         | todo   |
+| C10_PROSE | Shor prose                   | 3         | todo   |
+| C10_VIS   | Shor visuals                 | 2         | todo   |
 
 ### Launch
 
-| Node | Description | Est. Days | Status |
-|------|-------------|-----------|--------|
-| POLISH | Testing, bug fixes, copyediting | 5 | todo |
+| Node   | Description                     | Est. Days | Status |
+| ------ | ------------------------------- | --------- | ------ |
+| POLISH | Testing, bug fixes, copyediting | 5         | todo   |
 
 ---
 
@@ -136,6 +137,7 @@ Update the status column when a task is completed. Statuses: `todo`, `in-progres
 The graph uses `graph TD` (top-down) for readability given the depth of the content chains. Subgraphs group nodes by category: Infrastructure, Simulators, Track A (Math), Track P (Physics), and Track C (Computing). Within each track subgraph, SPEC/PROSE/VIS nodes are present.
 
 **Reading the graph:**
+
 - Infrastructure and simulator nodes form the "platform spine."
 - SPEC nodes depend only on other SPEC nodes (content ordering).
 - PROSE nodes depend on their own SPEC, on prerequisite PROSE nodes, and on FRONTEND_SHELL.
@@ -460,6 +462,7 @@ graph TD
 **Node count:** 69 content nodes + 5 simulator nodes + 6 infrastructure nodes = **80 nodes total**.
 
 **Key structural observations:**
+
 - The longest SPEC chain runs: A1 -> A2 -> A3 -> A4 -> A6 (5 hops in math), or A1 -> A2 -> A3 -> P1 -> P2 -> C1 -> C2 -> C3 -> C4 -> C5 -> C6/C7/C8/C9 -> C10 (up to 12 hops crossing tracks).
 - PROSE chains mirror SPEC chains but also gate on FRONTEND_SHELL.
 - VIS nodes are the terminal layer and gate on simulator UIs, which are independent of content.
@@ -476,23 +479,29 @@ The critical path is the longest chain of dependent tasks that determines the mi
 **Tracing the critical path (longest chain of dependent work):**
 
 The infrastructure chain to unblock PROSE is:
+
 > INFRA_NEXTJS (3d) -> INFRA_CI (1d) -> INFRA_DB (2d) -> FRONTEND_SHELL (3d) = **9 days**
 
 The deepest PROSE chain starting from A1_PROSE:
 
 First attempt -- naive path through P1/P2/C2:
+
 > A1_PROSE (1d) -> A2_PROSE (1d) -> A3_PROSE (2d) -> P1 (2d) -> P2 (2d) -> C2 (1d) -> C3 (2d) -> C4 (2d) -> C5 (2d) -> C9 (3d) -> C10 (3d) = 21 days
 
 But C3_PROSE also depends on P4_PROSE (via the P4 -> C3 edge). The path into C3 via P4 is:
+
 > A3_PROSE (2d) -> A4_PROSE (2d) -> P3_PROSE (3d) -> P4_PROSE (2d) -> C3_PROSE = 9d from end of A2
 
 ...versus the P2 -> C2 path:
+
 > A3_PROSE (2d) -> P1 (2d) -> P2 (2d) -> C2 (1d) -> C3_PROSE = 7d from end of A2
 
 The P4 path is 2 days longer. And C4_PROSE depends on P6_PROSE:
+
 > P4_PROSE (2d) -> P6_PROSE (3d) -> C4_PROSE = 5d from end of P3
 
 ...versus the C3 path:
+
 > P4_PROSE (2d) -> C3_PROSE (2d) -> C4_PROSE = 4d from end of P3
 
 The P6 path is 1 day longer.
@@ -500,6 +509,7 @@ The P6 path is 1 day longer.
 C5_PROSE depends on A6_PROSE. A6 depends on A4 (2d) -> A6 (2d) = 4d after A3. But the path through P3/P4/P6 already consumes 3+2+3 = 8d after A4, so A6 is not on the critical path.
 
 **Final critical path:**
+
 > INFRA_NEXTJS (3d) -> INFRA_CI (1d) -> INFRA_DB (2d) -> FRONTEND_SHELL (3d) -> A1_PROSE (1d) -> A2_PROSE (1d) -> A3_PROSE (2d) -> A4_PROSE (2d) -> P3_PROSE (3d) -> P4_PROSE (2d) -> P6_PROSE (3d) -> C4_PROSE (2d) -> C5_PROSE (2d) -> C9_PROSE (3d) -> C10_PROSE (3d) -> C10_VIS (2d) -> Polish (5d)
 
 C10_VIS also needs SIM_QUBIT_UI (which needs SIM_CORE). Total simulator path: SIM_CORE (5d) + SIM_QUBIT_UI (5d) = 10 days. Since C10_VIS doesn't start until day 9+24 = 33 at the earliest, the simulator (done by day 10) is not on the critical path.
@@ -687,17 +697,17 @@ gantt
 
 **Raw task-hour inventory:**
 
-| Category | Raw days | Hours |
-|----------|----------|-------|
-| Infrastructure (NEXTJS + CI + DB + SHELL) | 9 | 36 |
-| Auth + Payments | 5 | 20 |
-| Simulator core | 5 | 20 |
-| Simulator UIs (4 components) | 15 | 60 |
-| Content specs (23 lessons) | 13.5 | 54 |
-| Content prose (23 lessons) | 47 | 188 |
-| Content visuals (23 lessons) | 27 | 108 |
-| Polish & launch | 5 | 20 |
-| **Total** | **126.5** | **506** |
+| Category                                  | Raw days  | Hours   |
+| ----------------------------------------- | --------- | ------- |
+| Infrastructure (NEXTJS + CI + DB + SHELL) | 9         | 36      |
+| Auth + Payments                           | 5         | 20      |
+| Simulator core                            | 5         | 20      |
+| Simulator UIs (4 components)              | 15        | 60      |
+| Content specs (23 lessons)                | 13.5      | 54      |
+| Content prose (23 lessons)                | 47        | 188     |
+| Content visuals (23 lessons)              | 27        | 108     |
+| Polish & launch                           | 5         | 20      |
+| **Total**                                 | **126.5** | **506** |
 
 At 20 hours/week (5 working days of 4 hours each), the raw total is **126.5 working days = 25.3 weeks**.
 
@@ -707,17 +717,17 @@ The Gantt chart, with half-day SPECs rounded to 1 day, shows approximately **137
 
 ### Week-by-Week Character
 
-| Weeks | Phase | Character |
-|-------|-------|-----------|
-| 1-2 | Infrastructure (NEXTJS, CI, DB, Shell) | Pure build -- framework, CI, database, MDX pipeline |
-| 3-4 | Content Specs Wave 1 + SIM_CORE | Mixed -- outlining early lessons while building LA engine |
-| 5-7 | Content Specs Wave 2 | Content-heavy -- outlining remaining 16 lessons |
-| 8-11 | Content Prose (math + early physics) | Content-heavy -- writing A1-A5, P1-P4 |
-| 12-14 | Simulator UIs | Build-heavy -- 4 interactive components |
-| 15-20 | Content Prose (physics + computing) | Content-heavy -- writing P5-P7, C1-C10 |
-| 21-25 | Content Visuals (all 23 lessons) | Mixed -- diagrams, problem sets, simulator wiring |
-| 25-26 | Auth + Payments | Build -- authentication and Stripe integration |
-| 27 | Polish & Launch | Mixed -- testing, bug fixes, copyediting |
+| Weeks | Phase                                  | Character                                                 |
+| ----- | -------------------------------------- | --------------------------------------------------------- |
+| 1-2   | Infrastructure (NEXTJS, CI, DB, Shell) | Pure build -- framework, CI, database, MDX pipeline       |
+| 3-4   | Content Specs Wave 1 + SIM_CORE        | Mixed -- outlining early lessons while building LA engine |
+| 5-7   | Content Specs Wave 2                   | Content-heavy -- outlining remaining 16 lessons           |
+| 8-11  | Content Prose (math + early physics)   | Content-heavy -- writing A1-A5, P1-P4                     |
+| 12-14 | Simulator UIs                          | Build-heavy -- 4 interactive components                   |
+| 15-20 | Content Prose (physics + computing)    | Content-heavy -- writing P5-P7, C1-C10                    |
+| 21-25 | Content Visuals (all 23 lessons)       | Mixed -- diagrams, problem sets, simulator wiring         |
+| 25-26 | Auth + Payments                        | Build -- authentication and Stripe integration            |
+| 27    | Polish & Launch                        | Mixed -- testing, bug fixes, copyediting                  |
 
 ### Critical Path
 
@@ -758,22 +768,26 @@ The critical path is driven by the deep cross-track dependency chain: math found
 The optimal split for two developers:
 
 **Developer A (Content-focused):**
+
 - All 23 SPEC nodes (can start day 1 -- no infrastructure dependency)
 - All 23 PROSE nodes (needs FRONTEND_SHELL from Dev B, ~9 days in)
 - All 23 VIS nodes (needs simulator UIs from Dev B)
 
 **Developer B (Engineering-focused):**
+
 - All infrastructure (INFRA_NEXTJS, DB, AUTH, PAYMENTS, CI, FRONTEND_SHELL)
 - All simulators (SIM_CORE + 4 UIs)
 - Integration testing and polish
 
 This split works because:
+
 - Content SPECs have zero infrastructure dependencies -- Dev A writes outlines while Dev B builds the platform.
 - PROSE only needs FRONTEND_SHELL, which Dev B delivers by day ~9.
 - Simulators are fully independent of content until the VIS phase.
 - By the time Dev A finishes prose (~week 14 from their start), Dev B has long since finished all simulator UIs (14 + 20 = 34 days of work).
 
 **Estimated time with two developers:**
+
 - Dev B's total work: 14 (infra) + 20 (simulators) + 5 (polish) = 39 days
 - Dev A's total work: 13.5 (specs) + 47 (prose) + 27 (visuals) = 87.5 days
 - Dev A must wait ~9 days for FRONTEND_SHELL before starting prose, and must wait for simulator UIs before starting simulator-dependent VIS nodes. But Dev B finishes all UIs by ~day 34, well before Dev A reaches VIS (day ~60).

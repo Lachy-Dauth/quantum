@@ -32,128 +32,128 @@ All routes use the Next.js App Router (`/app` directory). Pages are **Server Com
 
 #### Marketing & Static Pages
 
-| Path | Page Component | Auth | Rendering | Description |
-|------|---------------|------|-----------|-------------|
-| `/` | `app/page.tsx` | public | Server (static) | Landing page. Hero, value prop, curriculum preview, pricing CTA, testimonials. |
-| `/about` | `app/about/page.tsx` | public | Server (static) | About the project, authors, methodology. |
-| `/faq` | `app/faq/page.tsx` | public | Server (static) | Frequently asked questions. Accordion layout. |
-| `/pricing` | `app/pricing/page.tsx` | public | Server (static) | Pricing details, feature comparison free vs paid, Stripe checkout CTA. |
-| `/privacy` | `app/privacy/page.tsx` | public | Server (static) | Privacy policy. |
-| `/terms` | `app/terms/page.tsx` | public | Server (static) | Terms of service. |
+| Path       | Page Component         | Auth   | Rendering       | Description                                                                    |
+| ---------- | ---------------------- | ------ | --------------- | ------------------------------------------------------------------------------ |
+| `/`        | `app/page.tsx`         | public | Server (static) | Landing page. Hero, value prop, curriculum preview, pricing CTA, testimonials. |
+| `/about`   | `app/about/page.tsx`   | public | Server (static) | About the project, authors, methodology.                                       |
+| `/faq`     | `app/faq/page.tsx`     | public | Server (static) | Frequently asked questions. Accordion layout.                                  |
+| `/pricing` | `app/pricing/page.tsx` | public | Server (static) | Pricing details, feature comparison free vs paid, Stripe checkout CTA.         |
+| `/privacy` | `app/privacy/page.tsx` | public | Server (static) | Privacy policy.                                                                |
+| `/terms`   | `app/terms/page.tsx`   | public | Server (static) | Terms of service.                                                              |
 
 #### Authentication Pages
 
-| Path | Page Component | Auth | Rendering | Description |
-|------|---------------|------|-----------|-------------|
-| `/sign-in` | `app/sign-in/page.tsx` | public | Client | Sign-in form (email/password + OAuth). Redirects to `/dashboard` on success. |
-| `/sign-up` | `app/sign-up/page.tsx` | public | Client | Registration form. Triggers email verification. |
-| `/verify-email` | `app/verify-email/page.tsx` | public | Client | Email verification landing page. Handles token from email link. |
-| `/reset-password` | `app/reset-password/page.tsx` | public | Client | Password reset request form (enter email). |
-| `/reset-password/confirm` | `app/reset-password/confirm/page.tsx` | public | Client | New password entry form. Token from email link. |
+| Path                      | Page Component                        | Auth   | Rendering | Description                                                                  |
+| ------------------------- | ------------------------------------- | ------ | --------- | ---------------------------------------------------------------------------- |
+| `/sign-in`                | `app/sign-in/page.tsx`                | public | Client    | Sign-in form (email/password + OAuth). Redirects to `/dashboard` on success. |
+| `/sign-up`                | `app/sign-up/page.tsx`                | public | Client    | Registration form. Triggers email verification.                              |
+| `/verify-email`           | `app/verify-email/page.tsx`           | public | Client    | Email verification landing page. Handles token from email link.              |
+| `/reset-password`         | `app/reset-password/page.tsx`         | public | Client    | Password reset request form (enter email).                                   |
+| `/reset-password/confirm` | `app/reset-password/confirm/page.tsx` | public | Client    | New password entry form. Token from email link.                              |
 
 #### Curriculum & Track Pages
 
-| Path | Page Component | Auth | Rendering | Description |
-|------|---------------|------|-----------|-------------|
-| `/curriculum` | `app/curriculum/page.tsx` | public | Server (static) | Full curriculum overview in canonical order. Shows all 23 lessons with track badges, prereqs, and lock icons for paid content. |
-| `/curriculum/map` | `app/curriculum/map/page.tsx` | public | Client | Interactive dependency graph (DAG visualization). Nodes are lessons, edges are prerequisites. Uses Canvas or SVG. |
-| `/tracks` | `app/tracks/page.tsx` | public | Server (static) | Overview of all three tracks with descriptions. |
-| `/tracks/math` | `app/tracks/math/page.tsx` | public | Server (static) | Track A listing: all 6 math lessons in track order. |
-| `/tracks/physics` | `app/tracks/physics/page.tsx` | public | Server (static) | Track P listing: all 7 physics lessons. |
-| `/tracks/computing` | `app/tracks/computing/page.tsx` | public | Server (static) | Track C listing: all 10 computing lessons. |
+| Path                | Page Component                  | Auth   | Rendering       | Description                                                                                                                    |
+| ------------------- | ------------------------------- | ------ | --------------- | ------------------------------------------------------------------------------------------------------------------------------ |
+| `/curriculum`       | `app/curriculum/page.tsx`       | public | Server (static) | Full curriculum overview in canonical order. Shows all 23 lessons with track badges, prereqs, and lock icons for paid content. |
+| `/curriculum/map`   | `app/curriculum/map/page.tsx`   | public | Client          | Interactive dependency graph (DAG visualization). Nodes are lessons, edges are prerequisites. Uses Canvas or SVG.              |
+| `/tracks`           | `app/tracks/page.tsx`           | public | Server (static) | Overview of all three tracks with descriptions.                                                                                |
+| `/tracks/math`      | `app/tracks/math/page.tsx`      | public | Server (static) | Track A listing: all 6 math lessons in track order.                                                                            |
+| `/tracks/physics`   | `app/tracks/physics/page.tsx`   | public | Server (static) | Track P listing: all 7 physics lessons.                                                                                        |
+| `/tracks/computing` | `app/tracks/computing/page.tsx` | public | Server (static) | Track C listing: all 10 computing lessons.                                                                                     |
 
 #### Lesson Pages
 
-| Path | Page Component | Auth | Rendering | Description |
-|------|---------------|------|-----------|-------------|
-| `/lessons` | `app/lessons/page.tsx` | public | Server (static) | Redirects to `/curriculum`. |
-| `/lessons/[slug]` | `app/lessons/[slug]/page.tsx` | paid* | Server (dynamic) | Single-part lesson page. Renders MDX content, embedded simulators, problems. |
-| `/lessons/[slug]/[part]` | `app/lessons/[slug]/[part]/page.tsx` | paid* | Server (dynamic) | Multi-part lesson page. `part` is `part-1`, `part-2`, etc. |
+| Path                     | Page Component                       | Auth   | Rendering        | Description                                                                  |
+| ------------------------ | ------------------------------------ | ------ | ---------------- | ---------------------------------------------------------------------------- |
+| `/lessons`               | `app/lessons/page.tsx`               | public | Server (static)  | Redirects to `/curriculum`.                                                  |
+| `/lessons/[slug]`        | `app/lessons/[slug]/page.tsx`        | paid\* | Server (dynamic) | Single-part lesson page. Renders MDX content, embedded simulators, problems. |
+| `/lessons/[slug]/[part]` | `app/lessons/[slug]/[part]/page.tsx` | paid\* | Server (dynamic) | Multi-part lesson page. `part` is `part-1`, `part-2`, etc.                   |
 
-*Free lessons (A1, A2, A3) are accessible without payment. Paid lessons show a preview (title, objectives, first paragraph) to unauthenticated/unpaid users, with a paywall CTA.
+\*Free lessons (A1, A2, A3) are accessible without payment. Paid lessons show a preview (title, objectives, first paragraph) to unauthenticated/unpaid users, with a paywall CTA.
 
 **Multi-part lesson slugs and structure:**
 
-| Lesson | Slug | Parts | Rationale |
-|--------|------|-------|-----------|
-| P3 Schrodinger equation | `p3-schrodinger-equation` | 2 | TDSE + TISE are conceptually distinct sections |
-| P6 Bell/CHSH | `p6-bell-chsh` | 2 | Bell's theorem + CHSH inequality & experiments |
-| C8 Grover | `c8-grover` | 2 | Oracle construction + amplitude amplification |
-| C9 QFT | `c9-qft` | 2 | Classical DFT motivation + quantum circuit |
-| C10 Shor | `c10-shor` | 3 | Number theory + QPE subroutine + full algorithm |
+| Lesson                  | Slug                      | Parts | Rationale                                       |
+| ----------------------- | ------------------------- | ----- | ----------------------------------------------- |
+| P3 Schrodinger equation | `p3-schrodinger-equation` | 2     | TDSE + TISE are conceptually distinct sections  |
+| P6 Bell/CHSH            | `p6-bell-chsh`            | 2     | Bell's theorem + CHSH inequality & experiments  |
+| C8 Grover               | `c8-grover`               | 2     | Oracle construction + amplitude amplification   |
+| C9 QFT                  | `c9-qft`                  | 2     | Classical DFT motivation + quantum circuit      |
+| C10 Shor                | `c10-shor`                | 3     | Number theory + QPE subroutine + full algorithm |
 
 All other lessons are single-part and served at `/lessons/[slug]` directly. When a single-part lesson is accessed with `/part-1`, it redirects to the base slug.
 
 **Complete lesson slug table:**
 
-| # | Lesson | Slug | Track | Free? |
-|---|--------|------|-------|-------|
-| 1 | A1 Complex numbers | `a1-complex-numbers` | math | Yes |
-| 2 | A2 Vectors | `a2-vectors` | math | Yes |
-| 3 | A3 Matrices | `a3-matrices` | math | Yes |
-| 4 | P1 Classical physics fails | `p1-classical-physics-fails` | physics | No |
-| 5 | P2 Postulates | `p2-postulates` | physics | No |
-| 6 | C1 Qubit | `c1-qubit` | computing | No |
-| 7 | C2 Measurement | `c2-measurement` | computing | No |
-| 8 | A4 Eigenvalues/spectral theorem | `a4-eigenvalues-spectral-theorem` | math | No |
-| 9 | P3 Schrodinger equation | `p3-schrodinger-equation` | physics | No |
-| 10 | P4 Spin/Pauli | `p4-spin-pauli` | physics | No |
-| 11 | C3 Gates/Bloch sphere | `c3-gates-bloch-sphere` | computing | No |
-| 12 | A5 Tensor products | `a5-tensor-products` | math | No |
-| 13 | P5 Uncertainty | `p5-uncertainty` | physics | No |
-| 14 | P6 Bell/CHSH | `p6-bell-chsh` | physics | No |
-| 15 | C4 Multi-qubit | `c4-multi-qubit` | computing | No |
-| 16 | A6 Probability/Born rule | `a6-probability-born-rule` | math | No |
-| 17 | C5 Universal gates | `c5-universal-gates` | computing | No |
-| 18 | C6 Deutsch-Jozsa | `c6-deutsch-jozsa` | computing | No |
-| 19 | C7 Teleportation | `c7-teleportation` | computing | No |
-| 20 | P7 Decoherence | `p7-decoherence` | physics | No |
-| 21 | C8 Grover | `c8-grover` | computing | No |
-| 22 | C9 QFT | `c9-qft` | computing | No |
-| 23 | C10 Shor | `c10-shor` | computing | No |
+| #   | Lesson                          | Slug                              | Track     | Free? |
+| --- | ------------------------------- | --------------------------------- | --------- | ----- |
+| 1   | A1 Complex numbers              | `a1-complex-numbers`              | math      | Yes   |
+| 2   | A2 Vectors                      | `a2-vectors`                      | math      | Yes   |
+| 3   | A3 Matrices                     | `a3-matrices`                     | math      | Yes   |
+| 4   | P1 Classical physics fails      | `p1-classical-physics-fails`      | physics   | No    |
+| 5   | P2 Postulates                   | `p2-postulates`                   | physics   | No    |
+| 6   | C1 Qubit                        | `c1-qubit`                        | computing | No    |
+| 7   | C2 Measurement                  | `c2-measurement`                  | computing | No    |
+| 8   | A4 Eigenvalues/spectral theorem | `a4-eigenvalues-spectral-theorem` | math      | No    |
+| 9   | P3 Schrodinger equation         | `p3-schrodinger-equation`         | physics   | No    |
+| 10  | P4 Spin/Pauli                   | `p4-spin-pauli`                   | physics   | No    |
+| 11  | C3 Gates/Bloch sphere           | `c3-gates-bloch-sphere`           | computing | No    |
+| 12  | A5 Tensor products              | `a5-tensor-products`              | math      | No    |
+| 13  | P5 Uncertainty                  | `p5-uncertainty`                  | physics   | No    |
+| 14  | P6 Bell/CHSH                    | `p6-bell-chsh`                    | physics   | No    |
+| 15  | C4 Multi-qubit                  | `c4-multi-qubit`                  | computing | No    |
+| 16  | A6 Probability/Born rule        | `a6-probability-born-rule`        | math      | No    |
+| 17  | C5 Universal gates              | `c5-universal-gates`              | computing | No    |
+| 18  | C6 Deutsch-Jozsa                | `c6-deutsch-jozsa`                | computing | No    |
+| 19  | C7 Teleportation                | `c7-teleportation`                | computing | No    |
+| 20  | P7 Decoherence                  | `p7-decoherence`                  | physics   | No    |
+| 21  | C8 Grover                       | `c8-grover`                       | computing | No    |
+| 22  | C9 QFT                          | `c9-qft`                          | computing | No    |
+| 23  | C10 Shor                        | `c10-shor`                        | computing | No    |
 
 #### User Dashboard & Settings
 
-| Path | Page Component | Auth | Rendering | Description |
-|------|---------------|------|-----------|-------------|
-| `/dashboard` | `app/dashboard/page.tsx` | authenticated | Server (dynamic) | User home. Progress overview (lessons completed / total), recent activity, bookmarks, next recommended lesson. |
-| `/dashboard/progress` | `app/dashboard/progress/page.tsx` | authenticated | Server (dynamic) | Detailed progress: per-track completion bars, per-lesson status, time spent. |
-| `/dashboard/bookmarks` | `app/dashboard/bookmarks/page.tsx` | authenticated | Server (dynamic) | All bookmarked lessons/sections. |
-| `/settings` | `app/settings/page.tsx` | authenticated | Client | Profile editing, theme toggle (light/dark), math font size, simulator defaults. |
-| `/settings/subscription` | `app/settings/subscription/page.tsx` | authenticated | Client | Subscription management. Links to Stripe Customer Portal. Shows plan status, renewal date, cancellation option. |
+| Path                     | Page Component                       | Auth          | Rendering        | Description                                                                                                     |
+| ------------------------ | ------------------------------------ | ------------- | ---------------- | --------------------------------------------------------------------------------------------------------------- |
+| `/dashboard`             | `app/dashboard/page.tsx`             | authenticated | Server (dynamic) | User home. Progress overview (lessons completed / total), recent activity, bookmarks, next recommended lesson.  |
+| `/dashboard/progress`    | `app/dashboard/progress/page.tsx`    | authenticated | Server (dynamic) | Detailed progress: per-track completion bars, per-lesson status, time spent.                                    |
+| `/dashboard/bookmarks`   | `app/dashboard/bookmarks/page.tsx`   | authenticated | Server (dynamic) | All bookmarked lessons/sections.                                                                                |
+| `/settings`              | `app/settings/page.tsx`              | authenticated | Client           | Profile editing, theme toggle (light/dark), math font size, simulator defaults.                                 |
+| `/settings/subscription` | `app/settings/subscription/page.tsx` | authenticated | Client           | Subscription management. Links to Stripe Customer Portal. Shows plan status, renewal date, cancellation option. |
 
 #### Simulator Sandbox
 
-| Path | Page Component | Auth | Rendering | Description |
-|------|---------------|------|-----------|-------------|
-| `/sandbox` | `app/sandbox/page.tsx` | authenticated | Client | Simulator playground index. Lists available simulators. |
-| `/sandbox/[simulator]` | `app/sandbox/[simulator]/page.tsx` | paid* | Client | Standalone simulator. Full-page interactive tool. |
+| Path                   | Page Component                     | Auth          | Rendering | Description                                             |
+| ---------------------- | ---------------------------------- | ------------- | --------- | ------------------------------------------------------- |
+| `/sandbox`             | `app/sandbox/page.tsx`             | authenticated | Client    | Simulator playground index. Lists available simulators. |
+| `/sandbox/[simulator]` | `app/sandbox/[simulator]/page.tsx` | paid\*        | Client    | Standalone simulator. Full-page interactive tool.       |
 
 Available simulator slugs: `qubit`, `stern-gerlach`, `bloch-sphere`, `circuit-builder`, `chsh`, `grover-oracle`, `qft-visualizer`.
 
-*The `qubit` and `bloch-sphere` simulators are free (they support the free lessons). All others require payment.
+\*The `qubit` and `bloch-sphere` simulators are free (they support the free lessons). All others require payment.
 
 #### API Routes
 
-| Path | Method | Auth | Description |
-|------|--------|------|-------------|
-| `/api/health` | GET | public | Healthcheck endpoint. Returns `{ status: "ok", timestamp }`. Used by Railway. |
-| `/api/auth/callback` | GET | public | OAuth callback handler (Supabase Auth redirects here). |
-| `/api/progress` | GET | authenticated | Get current user's progress for all lessons. |
-| `/api/progress` | POST | authenticated | Update progress for a specific lesson. Body: `{ lessonSlug, status, partIndex?, timeSpentSeconds }`. |
-| `/api/problems/attempt` | POST | authenticated | Record a problem attempt. Body: `{ lessonSlug, problemId, answer, correct }`. |
-| `/api/bookmarks` | GET | authenticated | Get user's bookmarks. |
-| `/api/bookmarks` | POST | authenticated | Add bookmark. Body: `{ lessonSlug, sectionId?, label? }`. |
-| `/api/bookmarks/[id]` | DELETE | authenticated | Remove bookmark. |
-| `/api/settings` | GET | authenticated | Get user settings. |
-| `/api/settings` | PUT | authenticated | Update user settings. Body: partial `UserSettings` object. |
-| `/api/stripe/create-checkout` | POST | authenticated | Create Stripe Checkout Session. Returns `{ url }` for redirect. |
-| `/api/stripe/create-portal` | POST | authenticated | Create Stripe Customer Portal session. Returns `{ url }`. |
-| `/api/stripe/webhook` | POST | public* | Stripe webhook handler. Verifies signature, processes events. |
-| `/api/cron/sync-subscriptions` | POST | internal** | Sync subscription statuses from Stripe. Called by Railway cron. |
+| Path                           | Method | Auth          | Description                                                                                          |
+| ------------------------------ | ------ | ------------- | ---------------------------------------------------------------------------------------------------- |
+| `/api/health`                  | GET    | public        | Healthcheck endpoint. Returns `{ status: "ok", timestamp }`. Used by Railway.                        |
+| `/api/auth/callback`           | GET    | public        | OAuth callback handler (Supabase Auth redirects here).                                               |
+| `/api/progress`                | GET    | authenticated | Get current user's progress for all lessons.                                                         |
+| `/api/progress`                | POST   | authenticated | Update progress for a specific lesson. Body: `{ lessonSlug, status, partIndex?, timeSpentSeconds }`. |
+| `/api/problems/attempt`        | POST   | authenticated | Record a problem attempt. Body: `{ lessonSlug, problemId, answer, correct }`.                        |
+| `/api/bookmarks`               | GET    | authenticated | Get user's bookmarks.                                                                                |
+| `/api/bookmarks`               | POST   | authenticated | Add bookmark. Body: `{ lessonSlug, sectionId?, label? }`.                                            |
+| `/api/bookmarks/[id]`          | DELETE | authenticated | Remove bookmark.                                                                                     |
+| `/api/settings`                | GET    | authenticated | Get user settings.                                                                                   |
+| `/api/settings`                | PUT    | authenticated | Update user settings. Body: partial `UserSettings` object.                                           |
+| `/api/stripe/create-checkout`  | POST   | authenticated | Create Stripe Checkout Session. Returns `{ url }` for redirect.                                      |
+| `/api/stripe/create-portal`    | POST   | authenticated | Create Stripe Customer Portal session. Returns `{ url }`.                                            |
+| `/api/stripe/webhook`          | POST   | public\*      | Stripe webhook handler. Verifies signature, processes events.                                        |
+| `/api/cron/sync-subscriptions` | POST   | internal\*\*  | Sync subscription statuses from Stripe. Called by Railway cron.                                      |
 
-*Stripe webhooks are authenticated via webhook signature verification, not user auth.
-**Internal routes are protected by a shared secret in the `Authorization` header, not user auth.
+\*Stripe webhooks are authenticated via webhook signature verification, not user auth.
+\*\*Internal routes are protected by a shared secret in the `Authorization` header, not user auth.
 
 ### 1.3 App Router File Structure
 
@@ -243,18 +243,16 @@ const PUBLIC_ROUTES = [
   '/lessons', // listing page is public
 ]
 
-const FREE_LESSON_SLUGS = [
-  'a1-complex-numbers',
-  'a2-vectors',
-  'a3-matrices',
-]
+const FREE_LESSON_SLUGS = ['a1-complex-numbers', 'a2-vectors', 'a3-matrices']
 
 const FREE_SIMULATOR_SLUGS = ['qubit', 'bloch-sphere']
 
 export async function middleware(req: NextRequest) {
   const res = NextResponse.next()
   const supabase = createMiddlewareClient({ req, res })
-  const { data: { session } } = await supabase.auth.getSession()
+  const {
+    data: { session },
+  } = await supabase.auth.getSession()
 
   const path = req.nextUrl.pathname
 
@@ -296,9 +294,7 @@ export async function middleware(req: NextRequest) {
 }
 
 export const config = {
-  matcher: [
-    '/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)',
-  ],
+  matcher: ['/((?!_next/static|_next/image|favicon.ico|.*\\.(?:svg|png|jpg|jpeg|gif|webp)$).*)'],
 }
 ```
 
@@ -313,6 +309,7 @@ Paywall enforcement happens at the **page component level**, not middleware. Mid
 **Decision:** Use Supabase Auth + a **Railway-managed PostgreSQL** instance for the database.
 
 **Justification for Supabase Auth over Clerk:**
+
 - Supabase Auth is open source and self-hostable, reducing vendor lock-in.
 - The free tier is generous (50,000 monthly active users) which exceeds any realistic early-stage need.
 - It integrates natively with PostgreSQL Row-Level Security (RLS), which we use for data access control.
@@ -320,6 +317,7 @@ Paywall enforcement happens at the **page component level**, not middleware. Mid
 - Supabase Auth supports email/password, Google OAuth, and GitHub OAuth out of the box.
 
 **Justification for Railway PostgreSQL over Neon or Supabase hosted DB:**
+
 - Since the Next.js app already runs on Railway, co-locating the database on Railway minimizes network latency (same private network).
 - Railway Postgres is a managed plugin with automated backups, one-click provisioning, and automatic `DATABASE_URL` injection into linked services.
 - Neon's serverless scaling model is useful for Vercel's edge functions but is unnecessary when we have a persistent Railway service. We would pay for branching features we don't need.
@@ -856,7 +854,7 @@ import { Pool } from 'pg'
 
 const pool = new Pool({
   connectionString: process.env.DATABASE_URL,
-  max: 20,          // Max connections in pool
+  max: 20, // Max connections in pool
   idleTimeoutMillis: 30000,
   connectionTimeoutMillis: 5000,
 })
@@ -875,8 +873,13 @@ export const db = {
 export type Track = 'math' | 'physics' | 'computing'
 export type ProgressStatus = 'not_started' | 'in_progress' | 'completed'
 export type SubscriptionStatus =
-  | 'active' | 'past_due' | 'canceled' | 'incomplete'
-  | 'trialing' | 'unpaid' | 'paused'
+  | 'active'
+  | 'past_due'
+  | 'canceled'
+  | 'incomplete'
+  | 'trialing'
+  | 'unpaid'
+  | 'paused'
 export type BookmarkTarget = 'lesson' | 'section'
 
 export interface User {
@@ -979,11 +982,11 @@ We use Supabase's **hosted Auth service** (not self-hosted). This gives us a bat
 
 ### 3.2 Auth Methods
 
-| Method | Provider | Details |
-|--------|----------|---------|
+| Method           | Provider      | Details                                          |
+| ---------------- | ------------- | ------------------------------------------------ |
 | Email + password | Supabase Auth | Standard email/password with email verification. |
-| Google OAuth | Supabase Auth | "Sign in with Google" via Supabase's OAuth flow. |
-| GitHub OAuth | Supabase Auth | "Sign in with GitHub" via Supabase's OAuth flow. |
+| Google OAuth     | Supabase Auth | "Sign in with Google" via Supabase's OAuth flow. |
+| GitHub OAuth     | Supabase Auth | "Sign in with GitHub" via Supabase's OAuth flow. |
 
 ### 3.3 Detailed Flows
 
@@ -1044,7 +1047,9 @@ import { cookies } from 'next/headers'
 
 export default async function DashboardPage() {
   const supabase = createServerComponentClient({ cookies })
-  const { data: { session } } = await supabase.auth.getSession()
+  const {
+    data: { session },
+  } = await supabase.auth.getSession()
 
   if (!session) {
     redirect('/sign-in')
@@ -1081,6 +1086,7 @@ export function UserAvatar() {
 **Recommendation:** A single one-time payment of ~$49 USD for lifetime access to all content.
 
 **Justification:**
+
 - The curriculum is finite (23 lessons). Unlike a continuously updated SaaS tool, users expect to "finish" the course. A subscription model creates pressure to rush through content or cancel -- bad for learning.
 - One-time payment eliminates churn management complexity (failed payments, dunning, win-back emails).
 - Lower cognitive burden for the buyer: "pay once, learn forever" is simpler than monthly billing.
@@ -1109,7 +1115,9 @@ const stripe = new Stripe(process.env.STRIPE_SECRET_KEY!)
 
 export async function POST() {
   const supabase = createRouteHandlerClient({ cookies })
-  const { data: { session } } = await supabase.auth.getSession()
+  const {
+    data: { session },
+  } = await supabase.auth.getSession()
 
   if (!session) {
     return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
@@ -1123,12 +1131,14 @@ export async function POST() {
   }
 
   const checkoutSession = await stripe.checkout.sessions.create({
-    mode: 'payment',    // One-time payment, not 'subscription'
+    mode: 'payment', // One-time payment, not 'subscription'
     payment_method_types: ['card'],
-    line_items: [{
-      price: process.env.STRIPE_PRICE_ID!,  // Pre-created Price in Stripe
-      quantity: 1,
-    }],
+    line_items: [
+      {
+        price: process.env.STRIPE_PRICE_ID!, // Pre-created Price in Stripe
+        quantity: 1,
+      },
+    ],
     customer_email: session.user.email,
     metadata: {
       user_id: user.id,
@@ -1162,11 +1172,7 @@ export async function POST(req: Request) {
 
   let event: Stripe.Event
   try {
-    event = stripe.webhooks.constructEvent(
-      body,
-      sig,
-      process.env.STRIPE_WEBHOOK_SECRET!
-    )
+    event = stripe.webhooks.constructEvent(body, sig, process.env.STRIPE_WEBHOOK_SECRET!)
   } catch (err) {
     return NextResponse.json({ error: 'Invalid signature' }, { status: 400 })
   }
@@ -1180,11 +1186,11 @@ export async function POST(req: Request) {
       await createSubscription({
         userId,
         stripeCustomerId: session.customer as string,
-        stripeSubscriptionId: null,  // One-time payment, no subscription ID
+        stripeSubscriptionId: null, // One-time payment, no subscription ID
         stripePriceId: process.env.STRIPE_PRICE_ID!,
         status: 'active',
         currentPeriodStart: new Date(),
-        currentPeriodEnd: null,  // Lifetime: never expires
+        currentPeriodEnd: null, // Lifetime: never expires
       })
       break
     }
@@ -1242,6 +1248,7 @@ export default async function LessonPage({ params }: { params: { slug: string } 
 ```
 
 The `PaywallCTA` component renders differently based on auth state:
+
 - **Not authenticated:** "Sign up free to preview, or unlock all lessons for $49." with Sign Up and Purchase buttons.
 - **Authenticated but unpaid:** "Unlock all 23 lessons for $49. One-time payment, lifetime access." with a Purchase button.
 
@@ -1257,7 +1264,9 @@ export async function getUserPaymentStatus(): Promise<{
   user: User | null
 }> {
   const supabase = createServerComponentClient({ cookies })
-  const { data: { session } } = await supabase.auth.getSession()
+  const {
+    data: { session },
+  } = await supabase.auth.getSession()
 
   if (!session) {
     return { isAuthenticated: false, hasPaid: false, user: null }
@@ -1306,6 +1315,7 @@ No separate worker services are needed for MVP. Background tasks (Stripe webhook
 ### 4.2 Next.js Service Configuration
 
 **Build command:**
+
 ```bash
 npm run db:migrate && npm run build
 ```
@@ -1313,6 +1323,7 @@ npm run db:migrate && npm run build
 This runs database migrations before building. Migrations are idempotent (the migration runner tracks applied migrations in a `pgmigrations` table).
 
 **Start command:**
+
 ```bash
 npm start
 ```
@@ -1355,24 +1366,28 @@ export async function GET() {
 Configure Railway healthcheck: **Path:** `/api/health`, **Interval:** 30s, **Timeout:** 10s.
 
 **Instance sizing recommendation:**
+
 - **Starter/MVP:** 1 vCPU, 1 GB RAM. Sufficient for up to ~1000 concurrent users. Railway charges by usage (~$5/GB RAM/month).
 - **Growth:** 2 vCPU, 2 GB RAM. Enable Railway's horizontal scaling (multiple instances) when response latency exceeds 200ms p95.
 
 ### 4.3 PostgreSQL Configuration
 
 **Railway PostgreSQL plugin** (not an external service):
+
 - Provisioned with one click in the Railway dashboard.
 - Automatic `DATABASE_URL` injection into linked services via Railway's variable references: `${{postgres.DATABASE_URL}}`.
 - Automated daily backups with 7-day retention (Railway's default).
 - No egress charges for communication between the web service and DB (same Railway private network).
 
 **PgBouncer:**
+
 - Railway offers a PgBouncer plugin that fronts the PostgreSQL instance.
 - Configuration: `pool_mode=transaction`, `default_pool_size=25`.
 - The web service connects to PgBouncer's URL instead of the raw PostgreSQL URL.
 - Environment variable: `DATABASE_URL` points to PgBouncer, `DATABASE_URL_DIRECT` points to raw PostgreSQL (used for migrations, which need direct connections for DDL).
 
 **Backup strategy:**
+
 - Railway's built-in daily automated backups (7-day retention).
 - Weekly manual backup via `pg_dump` run as a Railway cron job, stored in an S3-compatible bucket (e.g., Railway volume or external S3).
 - For disaster recovery: restore from Railway backup UI or from the manual dump.
@@ -1381,8 +1396,8 @@ Configure Railway healthcheck: **Path:** `/api/health`, **Interval:** 30s, **Tim
 
 Railway supports cron jobs as a service attribute. Configure the following:
 
-| Cron | Schedule | Endpoint | Description |
-|------|----------|----------|-------------|
+| Cron              | Schedule                        | Endpoint                            | Description                                                                |
+| ----------------- | ------------------------------- | ----------------------------------- | -------------------------------------------------------------------------- |
 | Subscription sync | `0 4 * * *` (daily at 4 AM UTC) | `POST /api/cron/sync-subscriptions` | Reconcile subscription statuses with Stripe. Catches any webhook failures. |
 
 The cron endpoint is protected by a shared secret:
@@ -1433,22 +1448,22 @@ The migration runner uses `DATABASE_URL_DIRECT` (bypassing PgBouncer) because DD
 
 #### Web Service
 
-| Variable | Source | Example | Description |
-|----------|--------|---------|-------------|
-| `PORT` | Railway (auto) | `3000` | Port for Next.js to listen on. |
-| `DATABASE_URL` | Railway (auto, PgBouncer) | `postgresql://...` | PgBouncer connection string. |
-| `DATABASE_URL_DIRECT` | Railway (auto, Postgres) | `postgresql://...` | Direct Postgres connection (for migrations). |
-| `NEXT_PUBLIC_APP_URL` | Manual | `https://quantumlearn.dev` | Public URL of the app. Used in emails, Stripe redirects. |
-| `NEXT_PUBLIC_SUPABASE_URL` | Supabase dashboard | `https://xxx.supabase.co` | Supabase project URL. |
-| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Supabase dashboard | `eyJ...` | Supabase public anon key. Safe to expose to client. |
-| `SUPABASE_SERVICE_ROLE_KEY` | Supabase dashboard | `eyJ...` | Supabase service role key. Server-side only. |
-| `STRIPE_SECRET_KEY` | Stripe dashboard | `sk_live_...` | Stripe secret key. Server-side only. |
-| `STRIPE_PUBLISHABLE_KEY` | Stripe dashboard | `pk_live_...` | Stripe publishable key. Can be exposed to client. |
-| `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` | Stripe dashboard | `pk_live_...` | Alias for client-side access. |
-| `STRIPE_WEBHOOK_SECRET` | Stripe dashboard | `whsec_...` | Stripe webhook endpoint secret. |
-| `STRIPE_PRICE_ID` | Stripe dashboard | `price_...` | Price ID for the lifetime access product. |
-| `CRON_SECRET` | Manual (generate) | `cron_abc123...` | Shared secret for cron job authentication. |
-| `NODE_ENV` | Railway (auto) | `production` | Node environment. |
+| Variable                             | Source                    | Example                    | Description                                              |
+| ------------------------------------ | ------------------------- | -------------------------- | -------------------------------------------------------- |
+| `PORT`                               | Railway (auto)            | `3000`                     | Port for Next.js to listen on.                           |
+| `DATABASE_URL`                       | Railway (auto, PgBouncer) | `postgresql://...`         | PgBouncer connection string.                             |
+| `DATABASE_URL_DIRECT`                | Railway (auto, Postgres)  | `postgresql://...`         | Direct Postgres connection (for migrations).             |
+| `NEXT_PUBLIC_APP_URL`                | Manual                    | `https://quantumlearn.dev` | Public URL of the app. Used in emails, Stripe redirects. |
+| `NEXT_PUBLIC_SUPABASE_URL`           | Supabase dashboard        | `https://xxx.supabase.co`  | Supabase project URL.                                    |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY`      | Supabase dashboard        | `eyJ...`                   | Supabase public anon key. Safe to expose to client.      |
+| `SUPABASE_SERVICE_ROLE_KEY`          | Supabase dashboard        | `eyJ...`                   | Supabase service role key. Server-side only.             |
+| `STRIPE_SECRET_KEY`                  | Stripe dashboard          | `sk_live_...`              | Stripe secret key. Server-side only.                     |
+| `STRIPE_PUBLISHABLE_KEY`             | Stripe dashboard          | `pk_live_...`              | Stripe publishable key. Can be exposed to client.        |
+| `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` | Stripe dashboard          | `pk_live_...`              | Alias for client-side access.                            |
+| `STRIPE_WEBHOOK_SECRET`              | Stripe dashboard          | `whsec_...`                | Stripe webhook endpoint secret.                          |
+| `STRIPE_PRICE_ID`                    | Stripe dashboard          | `price_...`                | Price ID for the lifetime access product.                |
+| `CRON_SECRET`                        | Manual (generate)         | `cron_abc123...`           | Shared secret for cron job authentication.               |
+| `NODE_ENV`                           | Railway (auto)            | `production`               | Node environment.                                        |
 
 ### 4.8 Scaling Considerations
 
@@ -1611,6 +1626,7 @@ Configure in GitHub repository settings:
 The `actions/setup-node@v4` with `cache: 'npm'` caches `~/.npm` (the npm download cache) across runs. This speeds up `npm ci` significantly.
 
 Next.js build cache (`.next/cache`) is not cached in CI because:
+
 1. Railway builds the app independently (CI build is only for validation).
 2. Railway caches build layers via Nixpacks.
 3. Caching `.next/cache` in CI would add complexity (upload/download artifact) with minimal benefit since CI builds are validation-only.
@@ -1624,6 +1640,7 @@ Next.js build cache (`.next/cache`) is not cached in CI because:
 **Decision:** Use `next-mdx-remote` (the `next-mdx-remote/rsc` variant for Server Components).
 
 **Justification over `@next/mdx`:**
+
 - `@next/mdx` compiles MDX at build time as part of the Webpack/Turbopack pipeline. This requires lesson content to live inside the `app/` directory as `.mdx` pages, which couples content structure to route structure.
 - `next-mdx-remote` loads MDX from **any source** (filesystem, CMS, database) and compiles it at render time. This gives us flexibility to:
   - Store lessons in a dedicated `/content/lessons/` directory, separate from application code.
@@ -1659,6 +1676,7 @@ content/
 ```
 
 Convention:
+
 - Single-part lessons have `index.mdx`.
 - Multi-part lessons have `part-1.mdx`, `part-2.mdx`, etc. No `index.mdx`.
 - Lesson-specific assets (images, SVGs) live in `assets/` within the lesson directory.
@@ -1670,21 +1688,21 @@ Every MDX file includes YAML frontmatter:
 
 ```yaml
 ---
-title: "Complex Numbers"
-subtitle: "The number system of quantum mechanics"
+title: 'Complex Numbers'
+subtitle: 'The number system of quantum mechanics'
 track: math
 trackPosition: 1
 canonicalOrder: 1
 slug: a1-complex-numbers
-part: 1                    # For multi-part lessons; omit for single-part
-totalParts: 1              # Total parts in this lesson
+part: 1 # For multi-part lessons; omit for single-part
+totalParts: 1 # Total parts in this lesson
 prerequisites: []
 estimatedMinutes: 25
 objectives:
-  - "Define the imaginary unit and perform arithmetic with complex numbers"
+  - 'Define the imaginary unit and perform arithmetic with complex numbers'
   - "Represent complex numbers in polar form using Euler's formula"
-  - "Compute modulus, conjugate, and argument"
-  - "Understand why quantum mechanics requires complex numbers"
+  - 'Compute modulus, conjugate, and argument'
+  - 'Understand why quantum mechanics requires complex numbers'
 keywords:
   - complex numbers
   - imaginary unit
@@ -1737,11 +1755,7 @@ export async function renderLesson(source: string) {
       parseFrontmatter: true,
       mdxOptions: {
         remarkPlugins: [remarkMath, remarkGfm],
-        rehypePlugins: [
-          rehypeKatex,
-          rehypeSlug,
-          [rehypeAutolinkHeadings, { behavior: 'wrap' }],
-        ],
+        rehypePlugins: [rehypeKatex, rehypeSlug, [rehypeAutolinkHeadings, { behavior: 'wrap' }]],
       },
     },
     components: mdxComponents,
@@ -1771,8 +1785,8 @@ import { LessonNav } from './LessonNav'
 
 export const mdxComponents = {
   // Math (KaTeX)
-  Math,           // Block math: <Math>E = mc^2</Math>
-  InlineMath,     // Inline math: <InlineMath>\\psi</InlineMath>
+  Math, // Block math: <Math>E = mc^2</Math>
+  InlineMath, // Inline math: <InlineMath>\\psi</InlineMath>
   // Note: remark-math + rehype-katex also handles $...$ and $$...$$ syntax
 
   // Callouts
@@ -1780,12 +1794,12 @@ export const mdxComponents = {
   // Usage: <Callout type="info|warning|confusion|foreshadow" title="...">...</Callout>
 
   // Theorem-style blocks
-  Theorem,        // <Theorem name="Spectral Theorem">...</Theorem>
-  Definition,     // <Definition term="Hermitian Matrix">...</Definition>
-  Proof,          // <Proof>...</Proof> (collapsible)
+  Theorem, // <Theorem name="Spectral Theorem">...</Theorem>
+  Definition, // <Definition term="Hermitian Matrix">...</Definition>
+  Proof, // <Proof>...</Proof> (collapsible)
 
   // Worked examples
-  WorkedExample,  // <WorkedExample title="Finding eigenvalues of a 2x2 matrix">...</WorkedExample>
+  WorkedExample, // <WorkedExample title="Finding eigenvalues of a 2x2 matrix">...</WorkedExample>
 
   // Problems with hidden solutions
   Problem,
@@ -1810,7 +1824,7 @@ export const mdxComponents = {
 
   // Code blocks (enhanced syntax highlighting for matrix math)
   CodeBlock,
-  pre: CodeBlock,  // Override default <pre> rendering
+  pre: CodeBlock, // Override default <pre> rendering
 
   // Navigation
   LessonNav,
@@ -2005,9 +2019,9 @@ import { visit } from 'unist-util-visit'
 import type { Heading, Text } from 'mdast'
 
 export interface TocEntry {
-  depth: number       // 2 = h2, 3 = h3 (h1 is the lesson title)
+  depth: number // 2 = h2, 3 = h3 (h1 is the lesson title)
   text: string
-  slug: string        // Generated anchor slug
+  slug: string // Generated anchor slug
 }
 
 export function extractToc(mdxSource: string): TocEntry[] {
@@ -2018,7 +2032,7 @@ export function extractToc(mdxSource: string): TocEntry[] {
     if (node.depth >= 2 && node.depth <= 3) {
       const text = node.children
         .filter((c): c is Text => c.type === 'text')
-        .map(c => c.value)
+        .map((c) => c.value)
         .join('')
       const slug = text
         .toLowerCase()
@@ -2040,7 +2054,7 @@ The TOC is rendered as a sticky sidebar on desktop and a collapsible panel on mo
 
 ```typescript
 // lib/lessons/navigation.ts
-import { allLessonSlugs } from './data'  // Slugs in canonical order
+import { allLessonSlugs } from './data' // Slugs in canonical order
 
 export function getLessonNavigation(currentSlug: string) {
   const index = allLessonSlugs.indexOf(currentSlug)
@@ -2098,8 +2112,8 @@ export const katexMacros = {
   '\\R': '\\mathbb{R}',
   '\\N': '\\mathbb{N}',
   '\\Z': '\\mathbb{Z}',
-  '\\I': '\\mathbb{I}',    // Identity operator
-  '\\H': '\\mathcal{H}',   // Hilbert space
+  '\\I': '\\mathbb{I}', // Identity operator
+  '\\H': '\\mathcal{H}', // Hilbert space
   '\\tensor': '\\otimes',
   '\\dagger': '\\dagger',
 }
@@ -2113,18 +2127,18 @@ These macros are passed to both `rehype-katex` (for `$$...$$` syntax) and the `M
 
 ### 7.1 Rendering Strategy by Page Type
 
-| Page Type | Rendering | Rationale |
-|-----------|-----------|-----------|
-| Landing, About, FAQ, Privacy, Terms | Static Generation (`generateStaticParams` not needed; just Server Components with no dynamic data) | Pure content, no user-specific data. Build once, serve forever. |
-| Pricing | Static Generation | Content is fixed. Stripe price is hardcoded. |
-| Track overview pages | Static Generation | Lesson metadata is static (from seed data). |
-| Curriculum page | Static Generation | Lesson list is static. |
-| Curriculum map | Client Component | Interactive DAG visualization requires client-side rendering. Lesson data is embedded as a static JSON payload. |
-| Lesson pages | Server Component (dynamic) | Must check auth/payment status per request. MDX content is compiled server-side. Lesson HTML is cached aggressively (see below). |
-| Dashboard pages | Server Component (dynamic) | User-specific data fetched from DB per request. |
-| Settings | Client Component | Interactive forms with optimistic updates. |
-| Sandbox simulators | Client Component | Entirely client-side interactive tools. |
-| Auth pages | Client Component | Form interactions, OAuth redirects. |
+| Page Type                           | Rendering                                                                                          | Rationale                                                                                                                        |
+| ----------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
+| Landing, About, FAQ, Privacy, Terms | Static Generation (`generateStaticParams` not needed; just Server Components with no dynamic data) | Pure content, no user-specific data. Build once, serve forever.                                                                  |
+| Pricing                             | Static Generation                                                                                  | Content is fixed. Stripe price is hardcoded.                                                                                     |
+| Track overview pages                | Static Generation                                                                                  | Lesson metadata is static (from seed data).                                                                                      |
+| Curriculum page                     | Static Generation                                                                                  | Lesson list is static.                                                                                                           |
+| Curriculum map                      | Client Component                                                                                   | Interactive DAG visualization requires client-side rendering. Lesson data is embedded as a static JSON payload.                  |
+| Lesson pages                        | Server Component (dynamic)                                                                         | Must check auth/payment status per request. MDX content is compiled server-side. Lesson HTML is cached aggressively (see below). |
+| Dashboard pages                     | Server Component (dynamic)                                                                         | User-specific data fetched from DB per request.                                                                                  |
+| Settings                            | Client Component                                                                                   | Interactive forms with optimistic updates.                                                                                       |
+| Sandbox simulators                  | Client Component                                                                                   | Entirely client-side interactive tools.                                                                                          |
+| Auth pages                          | Client Component                                                                                   | Form interactions, OAuth redirects.                                                                                              |
 
 ### 7.2 Lesson Content Loading Strategy
 
@@ -2167,6 +2181,7 @@ export const getLesson = cache(async (slug: string, part?: number) => {
 ```
 
 **Caching behavior on Railway:**
+
 - Next.js on Railway runs as a standard Node.js server (not edge).
 - The filesystem is persistent within a deploy (lessons are part of the built image).
 - React's `cache()` deduplicates within a request. For cross-request caching, we rely on Next.js's built-in full route cache for static portions and `unstable_cache` for data fetching.
@@ -2180,7 +2195,7 @@ export const getCachedLesson = unstable_cache(
     return getLesson(slug, part)
   },
   ['lesson-content'],
-  { revalidate: false }  // Only revalidate on new deploy
+  { revalidate: false } // Only revalidate on new deploy
 )
 ```
 
@@ -2197,12 +2212,12 @@ Simulators are entirely client-side. No server persistence for simulator state.
 
 // Example: BlochSphere simulator state
 interface BlochSphereState {
-  theta: number          // Polar angle [0, pi]
-  phi: number            // Azimuthal angle [0, 2*pi]
+  theta: number // Polar angle [0, pi]
+  phi: number // Azimuthal angle [0, 2*pi]
   showAxes: boolean
   showLabels: boolean
   animating: boolean
-  gateHistory: GateOp[]  // Stack of applied gates for undo
+  gateHistory: GateOp[] // Stack of applied gates for undo
 }
 
 type BlochSphereAction =
@@ -2291,7 +2306,9 @@ import { getUserByAuthId } from '@/lib/db/users'
 
 export async function GET() {
   const supabase = createRouteHandlerClient({ cookies })
-  const { data: { session } } = await supabase.auth.getSession()
+  const {
+    data: { session },
+  } = await supabase.auth.getSession()
   if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
 
   const user = await getUserByAuthId(session.user.id)
@@ -2303,7 +2320,9 @@ export async function GET() {
 
 export async function POST(req: Request) {
   const supabase = createRouteHandlerClient({ cookies })
-  const { data: { session } } = await supabase.auth.getSession()
+  const {
+    data: { session },
+  } = await supabase.auth.getSession()
   if (!session) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 })
 
   const user = await getUserByAuthId(session.user.id)
@@ -2322,6 +2341,7 @@ export async function POST(req: Request) {
 Problem attempts are recorded **fire-and-forget** from the client. The `Problem` component sends a POST to `/api/problems/attempt` after each submission. The server records it in the `problem_attempts` table.
 
 This data enables:
+
 - **Dashboard analytics:** "You've attempted 45 problems, 38 correct (84%)."
 - **Retry UX:** When revisiting a lesson, the problem shows "You previously answered this correctly" or "You've attempted this 3 times -- try again?"
 - **Future:** Spaced repetition recommendations.
@@ -2376,14 +2396,14 @@ This data enables:
 
 ### 7.7 Caching Strategy Summary
 
-| Content Type | Cache Layer | TTL | Invalidation |
-|-------------|-------------|-----|-------------|
-| Static pages (landing, about, etc.) | Next.js Full Route Cache (build-time) | Infinite (until redeploy) | Redeploy |
-| Lesson MDX content | `unstable_cache` + filesystem read | Infinite (until redeploy) | Redeploy |
-| Lesson metadata (DB) | React `cache()` per-request + `unstable_cache` | 1 hour | Redeploy / manual revalidation |
-| User progress | No cache (always fresh from DB) | -- | -- |
-| Subscription status | React `cache()` per-request (dedup) | Per-request only | Stripe webhook updates DB |
-| Simulator state | Client React state (ephemeral) | -- | -- |
+| Content Type                        | Cache Layer                                    | TTL                       | Invalidation                   |
+| ----------------------------------- | ---------------------------------------------- | ------------------------- | ------------------------------ |
+| Static pages (landing, about, etc.) | Next.js Full Route Cache (build-time)          | Infinite (until redeploy) | Redeploy                       |
+| Lesson MDX content                  | `unstable_cache` + filesystem read             | Infinite (until redeploy) | Redeploy                       |
+| Lesson metadata (DB)                | React `cache()` per-request + `unstable_cache` | 1 hour                    | Redeploy / manual revalidation |
+| User progress                       | No cache (always fresh from DB)                | --                        | --                             |
+| Subscription status                 | React `cache()` per-request (dedup)            | Per-request only          | Stripe webhook updates DB      |
+| Simulator state                     | Client React state (ephemeral)                 | --                        | --                             |
 
 ### 7.8 Error Handling Strategy
 
@@ -2506,7 +2526,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: '*.supabase.co',  // For user avatars from OAuth
+        hostname: '*.supabase.co', // For user avatars from OAuth
       },
     ],
   },
@@ -2605,6 +2625,7 @@ npm run dev
 ```
 
 `.env.example`:
+
 ```
 # App
 NEXT_PUBLIC_APP_URL=http://localhost:3000

@@ -11,13 +11,7 @@ interface FigureProps {
 export function Figure({ src, alt, caption, width = 800, height = 400 }: FigureProps) {
   return (
     <figure className="my-6">
-      <Image
-        src={src}
-        alt={alt}
-        width={width}
-        height={height}
-        className="mx-auto rounded-lg"
-      />
+      <Image src={src} alt={alt} width={width} height={height} className="mx-auto rounded-lg" />
       {caption && (
         <figcaption className="mt-2 text-center text-sm text-slate-500">{caption}</figcaption>
       )}

@@ -1,0 +1,170 @@
+-- Up Migration
+-- Seed all 23 lessons with correct tracks, canonical order, and prerequisites.
+
+INSERT INTO lesson_metadata
+  (slug, title, description, track, track_position, canonical_order, prerequisites, estimated_minutes, is_free, number_of_parts)
+VALUES
+  ('a1-complex-numbers',
+   'Complex Numbers',
+   'The number system underpinning quantum mechanics: imaginary unit, polar form, Euler''s formula, and the complex plane.',
+   'math', 1, 1,
+   '{}',
+   25, true, 1),
+
+  ('a2-vectors',
+   'Vectors and Inner Products',
+   'Column vectors, bra-ket notation, inner products, norms, and orthogonality in complex vector spaces.',
+   'math', 2, 2,
+   '{a1-complex-numbers}',
+   30, true, 1),
+
+  ('a3-matrices',
+   'Matrices and Linear Transformations',
+   'Matrix multiplication, Hermitian and unitary matrices, and their role as quantum operators.',
+   'math', 3, 3,
+   '{a2-vectors}',
+   35, true, 1),
+
+  ('p1-classical-physics-fails',
+   'When Classical Physics Fails',
+   'Blackbody radiation, photoelectric effect, and double-slit experiment: the experimental crises that demanded quantum theory.',
+   'physics', 1, 4,
+   '{a3-matrices}',
+   30, false, 1),
+
+  ('p2-postulates',
+   'The Postulates of Quantum Mechanics',
+   'State vectors, observables, measurement, and time evolution: the axiomatic foundation.',
+   'physics', 2, 5,
+   '{p1-classical-physics-fails}',
+   35, false, 1),
+
+  ('c1-qubit',
+   'The Qubit',
+   'From classical bits to quantum bits: superposition, state vectors, and the Bloch sphere.',
+   'computing', 1, 6,
+   '{p2-postulates}',
+   25, false, 1),
+
+  ('c2-measurement',
+   'Measurement',
+   'Projective measurement, Born rule in action, measurement bases, and the collapse postulate applied to qubits.',
+   'computing', 2, 7,
+   '{c1-qubit}',
+   30, false, 1),
+
+  ('a4-eigenvalues-spectral-theorem',
+   'Eigenvalues and the Spectral Theorem',
+   'Eigenvalue equations, diagonalization, spectral decomposition of Hermitian operators, and physical observables.',
+   'math', 4, 8,
+   '{a3-matrices, c2-measurement}',
+   40, false, 1),
+
+  ('p3-schrodinger-equation',
+   'The Schrodinger Equation',
+   'Time-dependent and time-independent forms, stationary states, and the infinite square well.',
+   'physics', 3, 9,
+   '{a4-eigenvalues-spectral-theorem}',
+   45, false, 2),
+
+  ('p4-spin-pauli',
+   'Spin and Pauli Matrices',
+   'Intrinsic angular momentum, spin-1/2 systems, Stern-Gerlach experiment, and the Pauli matrices.',
+   'physics', 4, 10,
+   '{p3-schrodinger-equation}',
+   35, false, 1),
+
+  ('c3-gates-bloch-sphere',
+   'Quantum Gates and the Bloch Sphere',
+   'Single-qubit gates (X, Y, Z, H, S, T), rotation operators, and visualization on the Bloch sphere.',
+   'computing', 3, 11,
+   '{p4-spin-pauli}',
+   35, false, 1),
+
+  ('a5-tensor-products',
+   'Tensor Products',
+   'Combining quantum systems: tensor product spaces, product states, and entangled states.',
+   'math', 5, 12,
+   '{a4-eigenvalues-spectral-theorem, c3-gates-bloch-sphere}',
+   35, false, 1),
+
+  ('p5-uncertainty',
+   'The Uncertainty Principle',
+   'Heisenberg uncertainty, commutators, Robertson relation, and the energy-time uncertainty.',
+   'physics', 5, 13,
+   '{a5-tensor-products}',
+   30, false, 1),
+
+  ('p6-bell-chsh',
+   'Bell''s Theorem and the CHSH Inequality',
+   'Local hidden variables, Bell''s theorem, CHSH inequality, and experimental violations.',
+   'physics', 6, 14,
+   '{p5-uncertainty}',
+   40, false, 2),
+
+  ('c4-multi-qubit',
+   'Multi-Qubit Systems',
+   'Two-qubit states, CNOT gate, entanglement creation, and the computational basis for n qubits.',
+   'computing', 4, 15,
+   '{p6-bell-chsh}',
+   35, false, 1),
+
+  ('a6-probability-born-rule',
+   'Probability and the Born Rule',
+   'Probability amplitudes, density matrices, mixed states, and the measurement statistics formalism.',
+   'math', 6, 16,
+   '{a5-tensor-products, c4-multi-qubit}',
+   35, false, 1),
+
+  ('c5-universal-gates',
+   'Universal Gate Sets',
+   'Universality, the Solovay-Kitaev theorem (intuition), Toffoli and Fredkin gates, and circuit complexity.',
+   'computing', 5, 17,
+   '{a6-probability-born-rule}',
+   30, false, 1),
+
+  ('c6-deutsch-jozsa',
+   'The Deutsch-Jozsa Algorithm',
+   'The first quantum speedup: problem definition, oracle construction, and the quantum algorithm.',
+   'computing', 6, 18,
+   '{c5-universal-gates}',
+   30, false, 1),
+
+  ('c7-teleportation',
+   'Quantum Teleportation',
+   'The teleportation protocol, classical communication requirement, and no-cloning theorem.',
+   'computing', 7, 19,
+   '{c6-deutsch-jozsa}',
+   30, false, 1),
+
+  ('p7-decoherence',
+   'Decoherence and Noise',
+   'Open quantum systems, decoherence mechanisms, noise models, and the threshold theorem.',
+   'physics', 7, 20,
+   '{c7-teleportation}',
+   35, false, 1),
+
+  ('c8-grover',
+   'Grover''s Search Algorithm',
+   'Unstructured search, oracle construction, amplitude amplification, and optimality.',
+   'computing', 8, 21,
+   '{p7-decoherence}',
+   40, false, 2),
+
+  ('c9-qft',
+   'Quantum Fourier Transform',
+   'Classical DFT review, the QFT circuit, phase kickback, and applications.',
+   'computing', 9, 22,
+   '{c8-grover}',
+   40, false, 2),
+
+  ('c10-shor',
+   'Shor''s Factoring Algorithm',
+   'Period finding, quantum phase estimation, continued fractions, and RSA implications.',
+   'computing', 10, 23,
+   '{c9-qft}',
+   50, false, 3);
+
+-- Down Migration
+
+DELETE FROM lesson_metadata;
