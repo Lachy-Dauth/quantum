@@ -29,11 +29,12 @@ export default async function LessonPartPage({ params }: Props) {
     const trackMeta = TRACK_META[track]
     const trackColors = TRACK_COLORS[track]
 
+    const lessonTitle = LESSON_META[slug as keyof typeof LESSON_META]?.title ?? frontmatter.title
     const breadcrumbItems = [
       { label: 'Home', href: '/' },
       { label: trackMeta.label, href: trackMeta.href },
-      { label: frontmatter.title, href: `/lessons/${slug}` },
-      { label: `Part ${partNum}` },
+      { label: lessonTitle, href: `/lessons/${slug}` },
+      { label: `${frontmatter.title} – ${partNum}` },
     ]
 
     const prevPart = partNum > 1 ? partNum - 1 : null
