@@ -55,8 +55,8 @@ export const LESSON_META: Record<LessonSlug, LessonMeta> = {
     title: "Complex Numbers & Euler's Formula",
     subtitle: 'The number system that makes quantum mechanics possible',
     track: 'math',
-    totalParts: 4,
-    estimatedMinutes: 170,
+    totalParts: 5,
+    estimatedMinutes: 195,
     hasContent: true,
   },
   'a2-vectors': {
