@@ -21,14 +21,17 @@ A quantum computing and physics learning website. Three interleaved tracks — M
 ## Project Structure
 
 ```
-specs/                              # Detailed specs (read these first)
-  lessons-track-a-math.md           # A1-A6 lesson specs
-  lessons-track-p-physics.md        # P1-P7 lesson specs
-  lessons-track-c-computing-1.md    # C1-C5 lesson specs
-  lessons-track-c-computing-2.md    # C6-C10 lesson specs
+specs/
+  lessons-track-a-math/             # One file per lesson
+    a1.md  a2.md  a3.md  a4.md  a5.md  a6.md
+  lessons-track-p-physics/
+    p1.md  p2.md  p3.md  p4.md  p5.md  p6.md  p7.md
+  lessons-track-c-computing/
+    c1.md  c2.md  c3.md  c4.md  c5.md
+    c6.md  c7.md  c8.md  c9.md  c10.md
   simulator-spec.md                 # Simulator technical spec with TS interfaces
   site-architecture.md              # Routes, DB schema, auth, deployment, MDX pipeline
-  dependency-graph-and-gantt.md     # Build order and timeline
+  dependency-graph-and-gantt.md     # Build order, progress tracker, and timeline
 ```
 
 ## Curriculum (Canonical Order)
