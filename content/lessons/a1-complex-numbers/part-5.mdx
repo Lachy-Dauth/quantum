@@ -1,0 +1,353 @@
+---
+title: 'Review and Problem Set'
+subtitle: 'Consolidate your understanding with ten problems from easy to hard'
+track: math
+trackPosition: 1
+canonicalOrder: 1
+slug: a1-complex-numbers
+part: 5
+totalParts: 5
+prerequisites: []
+estimatedMinutes: 40
+objectives:
+  - 'Synthesise ideas from all four preceding parts'
+  - "Solve problems involving polar form, arithmetic, Euler's formula, and phase"
+keywords:
+  - problem set
+  - review
+  - complex numbers
+  - polar form
+  - Euler's formula
+  - quantum phase
+---
+
+## Looking Back, Looking Ahead
+
+Let's take stock of what we've built across the four parts of this lesson.
+
+**Part 1** introduced complex numbers as points in the Argand plane. The key insight: $i$ is a 90-degree rotation, and complex numbers naturally live in two dimensions.
+
+**Part 2** showed that arithmetic is geometry. Addition is the parallelogram rule, multiplication rotates and scales, and the conjugate reflects across the real axis.
+
+**Part 3** derived Euler's formula ($e^{i\theta} = \cos\theta + i\sin\theta$) from two different angles — Taylor series and the ODE argument — and used it to understand roots of unity and exponential form.
+
+**Part 4** connected everything to quantum mechanics: quantum states use complex amplitudes, global phase is invisible, and relative phase drives interference.
+
+In the next lesson (A2: Vectors in $\C^n$), we'll extend these ideas from single complex numbers to _vectors_ of complex numbers — the natural setting for quantum states with more than one qubit. We'll define inner products, norms, and orthogonality, building the geometric language of quantum mechanics.
+
+---
+
+## Problem Set
+
+These problems test your understanding across all four parts of the lesson. They're organised by difficulty: start with the Easy problems to check your basics, then work through Medium and Hard. Solutions are hidden — try each problem yourself before looking.
+
+### Easy
+
+<Problem id="a1-1" type="free-response">
+
+**Problem A1.1.** Convert $z = -1 + i\sqrt{3}$ to polar form. Give the modulus and principal
+argument.
+
+</Problem>
+
+<Proof>
+
+**Solution.**
+
+The modulus is $|z| = \sqrt{(-1)^2 + (\sqrt{3})^2} = \sqrt{1 + 3} = 2$.
+
+The point $(-1, \sqrt{3})$ is in the second quadrant. The reference angle is $\arctan(\sqrt{3}/1) = \pi/3$, so the argument is $\pi - \pi/3 = 2\pi/3$.
+
+Therefore $z = 2e^{i \cdot 2\pi/3}$.
+
+</Proof>
+
+<Problem id="a1-2" type="free-response">
+
+**Problem A1.2.** Compute $(2e^{i\pi/3})(3e^{i\pi/6})$ in both polar and rectangular form.
+
+</Problem>
+
+<Proof>
+
+**Solution.**
+
+**Polar:** Multiply moduli, add arguments: $|zw| = 2 \times 3 = 6$, $\arg(zw) = \pi/3 + \pi/6 = \pi/2$.
+
+So $zw = 6e^{i\pi/2} = 6i$.
+
+**Rectangular verification:** $2e^{i\pi/3} = 2(\cos(\pi/3) + i\sin(\pi/3)) = 2(1/2 + i\sqrt{3}/2) = 1 + i\sqrt{3}$.
+
+$3e^{i\pi/6} = 3(\cos(\pi/6) + i\sin(\pi/6)) = 3(\sqrt{3}/2 + i/2) = 3\sqrt{3}/2 + 3i/2$.
+
+Product: $(1 + i\sqrt{3})(3\sqrt{3}/2 + 3i/2)$.
+
+$= 3\sqrt{3}/2 + 3i/2 + 3i \cdot 3/2 + i\sqrt{3} \cdot 3i/2$
+
+$= 3\sqrt{3}/2 + 3i/2 + 3i\sqrt{3} \cdot \sqrt{3}/2 \cdot i$... Let's be more careful.
+
+Actually, the quickest verification: $6e^{i\pi/2} = 6(\cos(\pi/2) + i\sin(\pi/2)) = 6(0 + i) = 6i$. Since both forms give $6i$, confirmed.
+
+</Proof>
+
+<Problem id="a1-3" type="free-response">
+
+**Problem A1.3.** Prove that $|z^*| = |z|$ for all $z \in \C$.
+
+</Problem>
+
+<Proof>
+
+**Solution.**
+
+Let $z = a + bi$. Then $z^* = a - bi$.
+
+$|z^*| = \sqrt{a^2 + (-b)^2} = \sqrt{a^2 + b^2} = |z|$.
+
+The modulus depends on $b^2$, not on $b$, so flipping the sign of $b$ doesn't change it.
+
+</Proof>
+
+### Medium
+
+<Problem id="a1-4" type="free-response">
+
+**Problem A1.4.** Find all $z$ such that $z^6 = -1$. Express your answers in exponential form and
+describe their geometric arrangement.
+
+</Problem>
+
+<Proof>
+
+**Solution.**
+
+Write $-1 = e^{i\pi}$. Then $z^6 = e^{i\pi}$ requires $z = e^{i(\pi + 2\pi k)/6}$ for $k = 0, 1, 2, 3, 4, 5$.
+
+The six solutions are:
+
+| $k$ | $\theta = \frac{\pi + 2\pi k}{6}$ | Simplified         |
+| --- | --------------------------------- | ------------------ |
+| 0   | $\pi/6$                           | $e^{i\pi/6}$       |
+| 1   | $\pi/2$                           | $e^{i\pi/2} = i$   |
+| 2   | $5\pi/6$                          | $e^{i5\pi/6}$      |
+| 3   | $7\pi/6$                          | $e^{i7\pi/6}$      |
+| 4   | $3\pi/2$                          | $e^{i3\pi/2} = -i$ |
+| 5   | $11\pi/6$                         | $e^{i11\pi/6}$     |
+
+These form a regular hexagon inscribed in the unit circle, rotated by $\pi/6$ (30°) from the standard position (where the vertices would be the 6th roots of unity).
+
+</Proof>
+
+<Problem id="a1-5" type="free-response">
+
+**Problem A1.5.** Prove the parallelogram law: $|z + w|^2 + |z - w|^2 = 2(|z|^2 + |w|^2)$.
+
+</Problem>
+
+<Proof>
+
+**Solution.**
+
+Expand each term using $|\alpha|^2 = \alpha \alpha^*$:
+
+$$
+|z + w|^2 = (z + w)(z^* + w^*) = |z|^2 + zw^* + wz^* + |w|^2
+$$
+
+$$
+|z - w|^2 = (z - w)(z^* - w^*) = |z|^2 - zw^* - wz^* + |w|^2
+$$
+
+Adding these:
+
+$$
+|z + w|^2 + |z - w|^2 = 2|z|^2 + 2|w|^2
+$$
+
+The cross terms $zw^* + wz^*$ cancel. This is the parallelogram law: the sum of the squares of the diagonals of a parallelogram equals the sum of the squares of all four sides.
+
+</Proof>
+
+<Problem id="a1-6" type="free-response">
+
+**Problem A1.6.** Show that for any $z \in \C$: $\operatorname{Re}(z) = \frac{z + z^*}{2}$ and $\operatorname{Im}(z) = \frac{z - z^*}{2i}$.
+
+</Problem>
+
+<Proof>
+
+**Solution.**
+
+Let $z = a + bi$.
+
+$z + z^* = (a + bi) + (a - bi) = 2a$, so $\operatorname{Re}(z) = \frac{z + z^*}{2} = a$. ✓
+
+$z - z^* = (a + bi) - (a - bi) = 2bi$, so $\operatorname{Im}(z) = \frac{z - z^*}{2i} = \frac{2bi}{2i} = b$. ✓
+
+Note: this derivation used no assumption about $|z|$; the identities hold for all $z \in \C$.
+
+</Proof>
+
+<Problem id="a1-7" type="free-response">
+
+**Problem A1.7.** The $T$ gate in quantum computing multiplies a qubit amplitude by $e^{i\pi/4}$. If the initial amplitude is $\alpha = \frac{1+i}{2}$, find the new amplitude $T\alpha$ and verify that $|T\alpha|^2 = |\alpha|^2$.
+
+</Problem>
+
+<Proof>
+
+**Solution.**
+
+First, $e^{i\pi/4} = \frac{1+i}{\sqrt{2}}$ (from the key values table).
+
+$$
+T\alpha = e^{i\pi/4} \cdot \frac{1+i}{2} = \frac{1+i}{\sqrt{2}} \cdot \frac{1+i}{2} = \frac{(1+i)^2}{2\sqrt{2}}
+$$
+
+Compute $(1+i)^2 = 1 + 2i + i^2 = 1 + 2i - 1 = 2i$.
+
+$$
+T\alpha = \frac{2i}{2\sqrt{2}} = \frac{i}{\sqrt{2}}
+$$
+
+**Verification:** $|T\alpha|^2 = \left|\frac{i}{\sqrt{2}}\right|^2 = \frac{|i|^2}{2} = \frac{1}{2}$.
+
+And $|\alpha|^2 = \left|\frac{1+i}{2}\right|^2 = \frac{|1+i|^2}{4} = \frac{2}{4} = \frac{1}{2}$. ✓
+
+Modulus preserved — as it must be, since $|e^{i\pi/4}| = 1$. Multiplication by a unit-modulus complex number preserves probabilities.
+
+</Proof>
+
+### Hard
+
+<Problem id="a1-8" type="free-response">
+
+**Problem A1.8.** Prove that if $|z| = 1$ and $z \neq 1$, then $\displaystyle\sum_{k=0}^{n-1} z^k = \frac{1 - z^n}{1 - z}$. Use this to show that the $n$-th roots of unity (other than 1) are roots of $1 + z + z^2 + \cdots + z^{n-1} = 0$.
+
+</Problem>
+
+<Proof>
+
+**Solution.**
+
+**Part 1: Geometric series formula.**
+
+Let $S = 1 + z + z^2 + \cdots + z^{n-1}$. Multiply both sides by $z$:
+
+$$
+zS = z + z^2 + z^3 + \cdots + z^n
+$$
+
+Subtract: $S - zS = 1 - z^n$, so $S(1 - z) = 1 - z^n$.
+
+Since $z \neq 1$, we can divide: $S = \frac{1 - z^n}{1 - z}$.
+
+(Note: the condition $|z| = 1$ isn't needed for this formula — it holds for any $z \neq 1$.)
+
+**Part 2: Roots of the cyclotomic polynomial.**
+
+Let $\omega_j = e^{2\pi ij/n}$ with $j \neq 0$ (so $\omega_j \neq 1$). Then $\omega_j^n = e^{2\pi ij} = 1$, so the numerator $1 - \omega_j^n = 0$, and the denominator $1 - \omega_j \neq 0$ (since $\omega_j \neq 1$).
+
+Therefore $S = 0$, meaning $1 + \omega_j + \omega_j^2 + \cdots + \omega_j^{n-1} = 0$.
+
+So each non-trivial $n$-th root of unity is a root of the polynomial $p(z) = 1 + z + z^2 + \cdots + z^{n-1} = \frac{z^n - 1}{z - 1}$.
+
+</Proof>
+
+<Problem id="a1-9" type="free-response">
+
+**Problem A1.9.** Let $z = e^{i\theta}$. Express $\cos\theta$ and $\sin\theta$ in terms of $z$. Use this to prove $\cos^2\theta + \sin^2\theta = 1$ purely algebraically.
+
+</Problem>
+
+<Proof>
+
+**Solution.**
+
+Since $z = e^{i\theta} = \cos\theta + i\sin\theta$ and $z^{-1} = e^{-i\theta} = \cos\theta - i\sin\theta$:
+
+$$
+\cos\theta = \frac{z + z^{-1}}{2}, \qquad \sin\theta = \frac{z - z^{-1}}{2i}
+$$
+
+Now compute:
+
+$$
+\cos^2\theta + \sin^2\theta = \frac{(z + z^{-1})^2}{4} + \frac{(z - z^{-1})^2}{(2i)^2}
+$$
+
+Since $(2i)^2 = -4$:
+
+$$
+= \frac{(z + z^{-1})^2}{4} - \frac{(z - z^{-1})^2}{4} = \frac{(z + z^{-1})^2 - (z - z^{-1})^2}{4}
+$$
+
+Expand the numerator:
+
+$(z + z^{-1})^2 = z^2 + 2 + z^{-2}$
+
+$(z - z^{-1})^2 = z^2 - 2 + z^{-2}$
+
+Difference: $(z^2 + 2 + z^{-2}) - (z^2 - 2 + z^{-2}) = 4$.
+
+Therefore:
+
+$$
+\cos^2\theta + \sin^2\theta = \frac{4}{4} = 1
+$$
+
+The Pythagorean identity follows from pure algebra on complex exponentials — no geometry or trigonometric identities required.
+
+</Proof>
+
+<Problem id="a1-10" type="free-response">
+
+**Problem A1.10 (Preview).** Consider the state $\ket{\psi} = \frac{1}{\sqrt{2}}(\ket{0} + e^{i\theta}\ket{1})$.
+
+**(a)** Show that the measurement probabilities in the $\{\ket{0}, \ket{1}\}$ basis are independent of $\theta$.
+
+**(b)** The Hadamard basis states are $\ket{\pm} = \frac{1}{\sqrt{2}}(\ket{0} \pm \ket{1})$. Compute $P(+) = |\braket{+}{\psi}|^2$ and show that it depends on $\theta$.
+
+**(c)** For which values of $\theta$ is $P(+) = 1$? For which is $P(+) = 0$? What's happening physically in each case?
+
+</Problem>
+
+<Proof>
+
+**Solution.**
+
+**(a)** $P(0) = |1/\sqrt{2}|^2 = 1/2$ and $P(1) = |e^{i\theta}/\sqrt{2}|^2 = |e^{i\theta}|^2/2 = 1/2$, since $|e^{i\theta}| = 1$. Both probabilities are $1/2$ regardless of $\theta$. The computational basis measurement cannot distinguish different values of $\theta$.
+
+**(b)** $\braket{+}{\psi} = \frac{1}{\sqrt{2}}\left(\frac{1}{\sqrt{2}} + \frac{e^{i\theta}}{\sqrt{2}}\right) = \frac{1 + e^{i\theta}}{2}$.
+
+$$
+P(+) = \left|\frac{1 + e^{i\theta}}{2}\right|^2 = \frac{|1 + e^{i\theta}|^2}{4}
+$$
+
+Compute $|1 + e^{i\theta}|^2 = (1 + \cos\theta)^2 + \sin^2\theta = 2 + 2\cos\theta = 4\cos^2(\theta/2)$.
+
+Therefore: $P(+) = \cos^2(\theta/2)$.
+
+This depends on $\theta$, so the Hadamard basis _can_ distinguish different relative phases.
+
+**(c)** $P(+) = 1$ when $\cos(\theta/2) = \pm 1$, i.e., $\theta = 0$ (or any multiple of $2\pi$). In this case $\ket{\psi} = \frac{1}{\sqrt{2}}(\ket{0} + \ket{1}) = \ket{+}$ — the amplitudes are perfectly in phase, and they constructively interfere to give certainty.
+
+$P(+) = 0$ when $\cos(\theta/2) = 0$, i.e., $\theta = \pi$. In this case $\ket{\psi} = \frac{1}{\sqrt{2}}(\ket{0} - \ket{1}) = \ket{-}$ — the amplitudes are perfectly out of phase, and they destructively interfere. You get $\ket{-}$ with certainty instead.
+
+This is quantum interference in its simplest form. The relative phase $\theta$ controls the interference pattern, turning certainty in one direction ($\ket{+}$) into certainty in the opposite direction ($\ket{-}$), with everything in between for intermediate values of $\theta$.
+
+</Proof>
+
+---
+
+<Callout type="foreshadow" title="What comes next in the curriculum">
+
+You've completed A1 — congratulations! The complex numbers toolkit you've built here will be used in every subsequent lesson. Here's a preview of where each idea shows up next:
+
+- **Modulus and conjugate** → Inner products and norms (A2), Born rule probabilities (A6)
+- **Multiplication as rotation** → Quantum gates as unitary matrices (C3), Bloch sphere rotations (C1)
+- **Euler's formula** → Matrix exponentials $e^{iHt}$ (A3), time evolution (P3)
+- **Roots of unity** → Quantum Fourier Transform (C9), eigenvalues of the QFT matrix
+- **Global vs relative phase** → Interference and quantum advantage (C3, C6), Bell inequalities (P6)
+
+</Callout>

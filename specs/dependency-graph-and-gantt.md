@@ -44,9 +44,9 @@ Update the status column when a task is completed. Statuses: `todo`, `in-progres
 
 | Node     | Description                     | Est. Days | Status |
 | -------- | ------------------------------- | --------- | ------ |
-| A1_SPEC  | Complex numbers spec            | 0.5       | todo   |
-| A1_PROSE | Complex numbers prose           | 1         | todo   |
-| A1_VIS   | Complex numbers visuals         | 0.5       | todo   |
+| A1_SPEC  | Complex numbers spec            | 0.5       | done   |
+| A1_PROSE | Complex numbers prose           | 1         | done   |
+| A1_VIS   | Complex numbers visuals         | 0.5       | done   |
 | A2_SPEC  | Vectors spec                    | 0.5       | todo   |
 | A2_PROSE | Vectors prose                   | 1         | todo   |
 | A2_VIS   | Vectors visuals                 | 0.5       | todo   |

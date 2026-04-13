@@ -1,0 +1,167 @@
+---
+title: 'Phase in Quantum Mechanics'
+subtitle: 'Why the direction of a complex number is the key to quantum interference'
+track: math
+trackPosition: 1
+canonicalOrder: 1
+slug: a1-complex-numbers
+part: 4
+totalParts: 5
+prerequisites: []
+estimatedMinutes: 35
+objectives:
+  - 'Understand why quantum states are represented by complex vectors'
+  - 'Distinguish between global phase and relative phase'
+  - 'Explain why global phase is physically unobservable'
+  - 'Explain why relative phase is observable through interference'
+keywords:
+  - global phase
+  - relative phase
+  - quantum state
+  - interference
+  - measurement probability
+  - Born rule
+---
+
+## Why Quantum Mechanics Needs Complex Numbers
+
+Throughout this lesson, we've built up the machinery of complex numbers — the Argand plane, arithmetic as geometry, Euler's formula. All elegant mathematics, but why should someone interested in quantum computing _care_?
+
+Here's the short answer: quantum states are described by complex numbers, and the phase (the angle) of those complex numbers is what makes quantum computing work.
+
+Let's see how this plays out, using only the tools we've developed in this lesson. No quantum formalism is required — just the idea that quantum mechanics uses complex amplitudes.
+
+### States as complex vectors
+
+In quantum computing, the simplest system is a **qubit**: a quantum bit that can be in a superposition of two states, which we label $\ket{0}$ and $\ket{1}$. (Don't worry about the bracket notation for now — we'll develop it formally in lesson A2. For now, just think of $\ket{0}$ and $\ket{1}$ as two basis directions, like "right" and "up" in the plane.)
+
+A general qubit state is written as:
+
+$$
+\ket{\psi} = \alpha\ket{0} + \beta\ket{1}
+$$
+
+where $\alpha$ and $\beta$ are **complex numbers** called **amplitudes**, subject to the constraint:
+
+$$
+|\alpha|^2 + |\beta|^2 = 1
+$$
+
+When you measure the qubit, the probability of getting outcome $0$ is $|\alpha|^2$ and the probability of getting outcome $1$ is $|\beta|^2$. This is the **Born rule**, and it's the bridge between the complex world of quantum states and the real world of experimental results.
+
+The key observation: **probabilities depend on the modulus squared** $|\alpha|^2$, not on $\alpha$ itself. This means there's information in $\alpha$ that doesn't show up directly in measurement probabilities — namely, the _phase_ of $\alpha$.
+
+---
+
+## Global Phase: The Direction That Doesn't Matter
+
+Imagine you have a qubit in state $\ket{\psi} = \alpha\ket{0} + \beta\ket{1}$. Now multiply the entire state by some complex number of modulus 1 — say, $e^{i\phi}$:
+
+$$
+e^{i\phi}\ket{\psi} = e^{i\phi}\alpha\ket{0} + e^{i\phi}\beta\ket{1}
+$$
+
+What are the measurement probabilities now?
+
+- Probability of $\ket{0}$: $|e^{i\phi}\alpha|^2 = |e^{i\phi}|^2 |\alpha|^2 = 1 \cdot |\alpha|^2 = |\alpha|^2$
+- Probability of $\ket{1}$: $|e^{i\phi}\beta|^2 = |\beta|^2$
+
+They're identical. Multiplying the entire state by $e^{i\phi}$ doesn't change any observable quantity. This overall factor $e^{i\phi}$ is called a **global phase**, and it's physically meaningless.
+
+<Definition term="Global and Relative Phase">
+
+Given a quantum state $\ket{\psi} = \alpha\ket{0} + \beta\ket{1}$:
+
+**Global phase:** An overall factor $e^{i\phi}$ multiplying the entire state. The states $\ket{\psi}$ and $e^{i\phi}\ket{\psi}$ are physically indistinguishable — they give exactly the same measurement probabilities in every possible experiment.
+
+**Relative phase:** The phase difference between the amplitudes, $\arg(\beta) - \arg(\alpha)$. This _is_ physically meaningful and can be detected through interference experiments.
+
+</Definition>
+
+### Why global phase vanishes
+
+The reason global phase is unobservable is deeply connected to the modulus. When we compute $|e^{i\phi} \alpha|^2$, the Euler factor drops out because $|e^{i\phi}| = 1$. Every physical prediction in quantum mechanics goes through the Born rule ($|\text{amplitude}|^2$), and the modulus-squared operation erases global phase.
+
+This is why, in Part 1, we emphasised the equation $z z^* = |z|^2$. In quantum mechanics, this identity is the mechanism by which global phase disappears: $(\alpha e^{i\phi})(\alpha e^{i\phi})^* = \alpha e^{i\phi} \cdot \alpha^* e^{-i\phi} = |\alpha|^2$.
+
+---
+
+## Relative Phase: The Direction That Does Matter
+
+Now consider something different. Instead of multiplying the entire state by $e^{i\phi}$, suppose we change only the phase of the $\ket{1}$ amplitude:
+
+$$
+\ket{\psi_\theta} = \frac{1}{\sqrt{2}}\ket{0} + \frac{e^{i\theta}}{\sqrt{2}}\ket{1}
+$$
+
+For any value of $\theta$, the measurement probabilities in the $\{\ket{0}, \ket{1}\}$ basis are:
+
+$$
+P(0) = \left|\frac{1}{\sqrt{2}}\right|^2 = \frac{1}{2}, \qquad P(1) = \left|\frac{e^{i\theta}}{\sqrt{2}}\right|^2 = \frac{1}{2}
+$$
+
+So in the standard basis, all values of $\theta$ look the same. This might tempt you to conclude that $\theta$ doesn't matter at all.
+
+**But it does.** It just doesn't show up in _this_ particular measurement.
+
+### Interference reveals the phase
+
+There's another way to measure a qubit — in the **Hadamard basis**. Define two new basis states:
+
+$$
+\ket{+} = \frac{1}{\sqrt{2}}(\ket{0} + \ket{1}), \qquad \ket{-} = \frac{1}{\sqrt{2}}(\ket{0} - \ket{1})
+$$
+
+(Think of these as "diagonal" directions, at 45° to the original axes.)
+
+To find the probability of measuring $\ket{+}$, we need the inner product $\braket{+}{\psi_\theta}$ (which we'll define rigorously in lesson A2, but intuitively it measures the "overlap" between two states):
+
+$$
+\braket{+}{\psi_\theta} = \frac{1}{\sqrt{2}}\left(\frac{1}{\sqrt{2}} + \frac{e^{i\theta}}{\sqrt{2}}\right) = \frac{1 + e^{i\theta}}{2}
+$$
+
+The probability is:
+
+$$
+P(+) = \left|\frac{1 + e^{i\theta}}{2}\right|^2
+$$
+
+Let's compute this using the tools from this lesson. Write $1 + e^{i\theta} = 1 + \cos\theta + i\sin\theta$. Then:
+
+$$
+|1 + e^{i\theta}|^2 = (1 + \cos\theta)^2 + \sin^2\theta = 1 + 2\cos\theta + \cos^2\theta + \sin^2\theta = 2 + 2\cos\theta
+$$
+
+Using the double-angle identity $\cos\theta = 2\cos^2(\theta/2) - 1$:
+
+$$
+|1 + e^{i\theta}|^2 = 2 + 2(2\cos^2(\theta/2) - 1) = 4\cos^2(\theta/2)
+$$
+
+So:
+
+$$
+P(+) = \frac{4\cos^2(\theta/2)}{4} = \cos^2\frac{\theta}{2}
+$$
+
+**This depends on $\theta$!** When $\theta = 0$ (the amplitudes are in phase), $P(+) = 1$ — certainty. When $\theta = \pi$ (the amplitudes are out of phase), $P(+) = 0$ — impossibility. The relative phase controls whether the amplitudes **constructively interfere** (adding up) or **destructively interfere** (cancelling out).
+
+This is the single most important idea in this entire lesson, so let's say it again:
+
+> **Global phase** (multiplying the whole state by $e^{i\phi}$) is unobservable. **Relative phase** (different amplitudes having different phases) is observable through interference. The entire power of quantum computing comes from manipulating relative phases.
+
+<SimulatorEmbed
+  simulator="global-relative-phase"
+  height={450}
+  caption="Two complex amplitudes α and β are shown as vectors. The global-phase dial rotates both simultaneously — notice that the probability bars don't change. The relative-phase dial rotates only β — watch how the interference pattern (shown in the Hadamard-basis probabilities) changes dramatically."
+/>
+
+<Callout type="confusion" title="&quot;If phase doesn't matter, why track it?&quot;">
+
+This is one of the most common confusions in quantum computing. Students hear "global phase is unobservable" and generalise to "all phase is unobservable." But global and relative phase are fundamentally different things.
+
+An analogy: suppose you're at a concert and two speakers are playing the same note. If you shift _both_ speakers forward by the same amount, the sound doesn't change (global phase). But if you shift only _one_ speaker, the sound changes dramatically — at some positions the waves reinforce each other (loud), at others they cancel (silence). That's interference, and it's the relative shift between the speakers that matters, not the absolute position of either one.
+
+The Hadamard gate (lesson C3) is the quantum equivalent of "measuring the interference pattern." It converts relative phase into measurement probability differences. Without it, all quantum computation would reduce to classical coin-flipping.
+
+</Callout>

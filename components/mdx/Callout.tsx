@@ -16,17 +16,17 @@ const calloutStyles: Record<CalloutType, { border: string; bg: string; icon: str
   },
   warning: {
     border: 'border-amber-400',
-    bg: 'bg-amber-50 dark:bg-amber-950',
+    bg: 'bg-amber-50 dark:bg-amber-950/40',
     icon: '⚠',
   },
   confusion: {
     border: 'border-purple-400',
-    bg: 'bg-purple-50 dark:bg-purple-950',
+    bg: 'bg-purple-50 dark:bg-purple-950/40',
     icon: '🤔',
   },
   foreshadow: {
     border: 'border-green-400',
-    bg: 'bg-green-50 dark:bg-green-950',
+    bg: 'bg-green-50 dark:bg-green-950/40',
     icon: '🔮',
   },
 }

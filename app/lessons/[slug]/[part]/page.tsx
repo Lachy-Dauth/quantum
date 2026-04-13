@@ -2,11 +2,11 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getLesson } from '@/lib/lessons/loader'
 import { getPrevNextLessons } from '@/lib/lessons/navigation'
+import { LESSON_META, lessonHref } from '@/lib/lessons/data'
 import { TRACK_META, TRACK_COLORS } from '@/lib/tracks'
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
 import { Badge } from '@/components/ui/Badge'
 import { TableOfContents } from '@/components/ui/TableOfContents'
-import { LessonNav } from '@/components/mdx/LessonNav'
 import { Clock, BookOpen, ChevronLeft, ChevronRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -29,11 +29,12 @@ export default async function LessonPartPage({ params }: Props) {
     const trackMeta = TRACK_META[track]
     const trackColors = TRACK_COLORS[track]
 
+    const lessonTitle = LESSON_META[slug as keyof typeof LESSON_META]?.title ?? frontmatter.title
     const breadcrumbItems = [
       { label: 'Home', href: '/' },
       { label: trackMeta.label, href: trackMeta.href },
-      { label: frontmatter.title, href: `/lessons/${slug}` },
-      { label: `Part ${partNum}` },
+      { label: lessonTitle, href: `/lessons/${slug}` },
+      { label: `${frontmatter.title} – ${partNum}` },
     ]
 
     const prevPart = partNum > 1 ? partNum - 1 : null
@@ -43,7 +44,7 @@ export default async function LessonPartPage({ params }: Props) {
       <div className="mx-auto max-w-7xl px-4 py-8">
         <Breadcrumbs items={breadcrumbItems} className="mb-6" />
 
-        <div className="flex gap-10">
+        <div className="flex flex-col lg:flex-row gap-4 lg:gap-10">
           {/* Main content */}
           <article className="min-w-0 flex-1">
             {/* Track accent bar */}
@@ -120,8 +121,47 @@ export default async function LessonPartPage({ params }: Props) {
             {/* Prose content */}
             <div className="prose prose-slate dark:prose-invert max-w-none">{content}</div>
 
-            {/* Prev/Next lesson navigation */}
-            <LessonNav prevSlug={prev} nextSlug={next} />
+            {/* Bottom navigation: parts within lesson, lessons at boundaries */}
+            <nav className="my-8 flex items-center gap-2 border-t pt-6">
+              {prevPart ? (
+                <Link
+                  href={`/lessons/${slug}/part-${prevPart}`}
+                  className="flex items-center gap-1 rounded-md border border-border px-3 py-1.5 text-sm text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+                >
+                  <ChevronLeft className="h-3.5 w-3.5" />
+                  Part {prevPart}
+                </Link>
+              ) : prev ? (
+                <Link
+                  href={lessonHref(prev)}
+                  className="flex items-center gap-1 rounded-md border border-border px-3 py-1.5 text-sm text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+                >
+                  <ChevronLeft className="h-3.5 w-3.5" />
+                  {LESSON_META[prev].title}
+                </Link>
+              ) : (
+                <span />
+              )}
+              {nextPart ? (
+                <Link
+                  href={`/lessons/${slug}/part-${nextPart}`}
+                  className="flex items-center gap-1 rounded-md border border-border px-3 py-1.5 text-sm text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+                >
+                  Part {nextPart}
+                  <ChevronRight className="h-3.5 w-3.5" />
+                </Link>
+              ) : next ? (
+                <Link
+                  href={lessonHref(next)}
+                  className="flex items-center gap-1 rounded-md border border-border px-3 py-1.5 text-sm text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+                >
+                  {LESSON_META[next].title}
+                  <ChevronRight className="h-3.5 w-3.5" />
+                </Link>
+              ) : (
+                <span />
+              )}
+            </nav>
           </article>
 
           {/* Desktop TOC sidebar */}
