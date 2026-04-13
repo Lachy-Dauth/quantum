@@ -35,10 +35,10 @@ Update the status column when a task is completed. Statuses: `todo`, `in-progres
 | Node               | Description               | Est. Days | Status |
 | ------------------ | ------------------------- | --------- | ------ |
 | SIM_CORE           | Linear-algebra core       | 5         | done   |
-| SIM_QUBIT_UI       | Qubit circuit simulator   | 5         | todo   |
-| SIM_SG_UI          | Stern-Gerlach simulator   | 3         | todo   |
-| SIM_CHSH_UI        | CHSH inequality simulator | 3         | todo   |
-| SIM_SCHRODINGER_UI | 1D Schrodinger simulator  | 4         | todo   |
+| SIM_QUBIT_UI       | Qubit circuit simulator   | 5         | done   |
+| SIM_SG_UI          | Stern-Gerlach simulator   | 3         | done   |
+| SIM_CHSH_UI        | CHSH inequality simulator | 3         | done   |
+| SIM_SCHRODINGER_UI | 1D Schrodinger simulator  | 4         | done   |
 
 ### Track A — Mathematics
 
