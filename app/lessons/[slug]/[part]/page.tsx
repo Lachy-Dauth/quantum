@@ -2,11 +2,11 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getLesson } from '@/lib/lessons/loader'
 import { getPrevNextLessons } from '@/lib/lessons/navigation'
+import { LESSON_META, lessonHref } from '@/lib/lessons/data'
 import { TRACK_META, TRACK_COLORS } from '@/lib/tracks'
 import { Breadcrumbs } from '@/components/ui/Breadcrumbs'
 import { Badge } from '@/components/ui/Badge'
 import { TableOfContents } from '@/components/ui/TableOfContents'
-import { LessonNav } from '@/components/mdx/LessonNav'
 import { Clock, BookOpen, ChevronLeft, ChevronRight } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
@@ -120,8 +120,42 @@ export default async function LessonPartPage({ params }: Props) {
             {/* Prose content */}
             <div className="prose prose-slate dark:prose-invert max-w-none">{content}</div>
 
-            {/* Prev/Next lesson navigation */}
-            <LessonNav prevSlug={prev} nextSlug={next} />
+            {/* Bottom navigation: parts within lesson, lessons at boundaries */}
+            <nav className="my-8 flex flex-col gap-3 border-t pt-6 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+              {prevPart ? (
+                <Link
+                  href={`/lessons/${slug}/part-${prevPart}`}
+                  className="flex items-center gap-1 text-sm text-blue-600 hover:underline"
+                >
+                  <ChevronLeft className="h-3.5 w-3.5" />
+                  Part {prevPart}
+                </Link>
+              ) : prev ? (
+                <Link href={lessonHref(prev)} className="text-sm text-blue-600 hover:underline">
+                  &larr; {LESSON_META[prev].title}
+                </Link>
+              ) : (
+                <span />
+              )}
+              {nextPart ? (
+                <Link
+                  href={`/lessons/${slug}/part-${nextPart}`}
+                  className="flex items-center gap-1 text-sm text-blue-600 hover:underline sm:text-right"
+                >
+                  Part {nextPart}
+                  <ChevronRight className="h-3.5 w-3.5" />
+                </Link>
+              ) : next ? (
+                <Link
+                  href={lessonHref(next)}
+                  className="text-sm text-blue-600 hover:underline sm:text-right"
+                >
+                  {LESSON_META[next].title} &rarr;
+                </Link>
+              ) : (
+                <span />
+              )}
+            </nav>
           </article>
 
           {/* Desktop TOC sidebar */}
