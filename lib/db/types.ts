@@ -1,62 +1,102 @@
-// Database TypeScript types — queries implemented in INFRA_DB
+// Database TypeScript types — aligned with schema in db/migrations/001_initial-schema.sql
+
+export type Track = 'math' | 'physics' | 'computing'
+export type ProgressStatus = 'not_started' | 'in_progress' | 'completed'
+export type SubscriptionStatus =
+  | 'active'
+  | 'past_due'
+  | 'canceled'
+  | 'incomplete'
+  | 'trialing'
+  | 'unpaid'
+  | 'paused'
+export type BookmarkTarget = 'lesson' | 'section'
 
 export interface User {
   id: string
+  authId: string
   email: string
-  name: string | null
-  avatar_url: string | null
-  has_paid: boolean
-  stripe_customer_id: string | null
-  created_at: Date
-  updated_at: Date
+  displayName: string | null
+  avatarUrl: string | null
+  createdAt: Date
+  updatedAt: Date
+}
+
+export interface Subscription {
+  id: string
+  userId: string
+  stripeCustomerId: string
+  stripeSubscriptionId: string | null
+  stripePriceId: string | null
+  status: SubscriptionStatus
+  currentPeriodStart: Date | null
+  currentPeriodEnd: Date | null
+  cancelAtPeriodEnd: boolean
+  canceledAt: Date | null
+  createdAt: Date
+  updatedAt: Date
 }
 
 export interface LessonMetadata {
-  id: number
+  id: string
   slug: string
   title: string
-  subtitle: string | null
-  track: 'math' | 'physics' | 'computing'
-  track_position: number
-  canonical_order: number
-  total_parts: number
-  estimated_minutes: number
-  is_free: boolean
+  description: string
+  track: Track
+  trackPosition: number
+  canonicalOrder: number
+  prerequisites: string[]
+  estimatedMinutes: number
+  wordCount: number
+  isFree: boolean
+  numberOfParts: number
+  createdAt: Date
+  updatedAt: Date
 }
 
 export interface UserProgress {
-  id: number
-  user_id: string
-  lesson_slug: string
-  status: 'not_started' | 'in_progress' | 'completed'
-  current_part: number | null
-  time_spent_seconds: number
-  completed_at: Date | null
-  updated_at: Date
+  id: string
+  userId: string
+  lessonSlug: string
+  status: ProgressStatus
+  currentPart: number
+  timeSpentSec: number
+  lastAccessed: Date | null
+  completedAt: Date | null
+  createdAt: Date
+  updatedAt: Date
 }
 
 export interface ProblemAttempt {
-  id: number
-  user_id: string
-  lesson_slug: string
-  problem_id: string
-  answer: string
-  correct: boolean
-  created_at: Date
+  id: string
+  userId: string
+  lessonSlug: string
+  problemId: string
+  attemptNumber: number
+  answer: Record<string, unknown>
+  isCorrect: boolean
+  timeToAnswer: number | null
+  createdAt: Date
 }
 
 export interface Bookmark {
-  id: number
-  user_id: string
-  lesson_slug: string
-  section_id: string | null
+  id: string
+  userId: string
+  lessonSlug: string
+  targetType: BookmarkTarget
+  sectionId: string | null
   label: string | null
-  created_at: Date
+  createdAt: Date
 }
 
 export interface UserSettings {
-  user_id: string
+  id: string
+  userId: string
   theme: 'light' | 'dark' | 'system'
-  font_size: 'small' | 'medium' | 'large'
-  updated_at: Date
+  mathFontSize: 'small' | 'medium' | 'large'
+  simulatorShowLabels: boolean
+  simulatorAutoPlay: boolean
+  emailProgressDigest: boolean
+  createdAt: Date
+  updatedAt: Date
 }

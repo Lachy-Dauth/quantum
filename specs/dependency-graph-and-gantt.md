@@ -24,7 +24,7 @@ Update the status column when a task is completed. Statuses: `todo`, `in-progres
 | Node           | Description                  | Est. Days | Status |
 | -------------- | ---------------------------- | --------- | ------ |
 | INFRA_NEXTJS   | Next.js + Tailwind + MDX     | 3         | done   |
-| INFRA_DB       | DB schema & migrations       | 2         | todo   |
+| INFRA_DB       | DB schema & migrations       | 2         | done   |
 | INFRA_AUTH     | Authentication               | 2         | todo   |
 | INFRA_PAYMENTS | Stripe integration           | 3         | todo   |
 | INFRA_CI       | CI/CD pipeline               | 1         | done   |
