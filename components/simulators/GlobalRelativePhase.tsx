@@ -96,7 +96,7 @@ export function GlobalRelativePhase({ height = 450 }: SimulatorProps) {
             onChange={(e) => setGlobalPhase(Number(e.target.value))}
             className="flex-1 accent-blue-500"
           />
-          <span className="text-xs font-mono text-slate-600 dark:text-slate-400 w-14 text-right">
+          <span className="text-xs font-mono text-slate-600 dark:text-slate-400 w-20 text-right whitespace-nowrap flex-shrink-0">
             {fmtAngle(globalPhase)}
           </span>
         </div>
@@ -113,7 +113,7 @@ export function GlobalRelativePhase({ height = 450 }: SimulatorProps) {
             onChange={(e) => setRelativePhase(Number(e.target.value))}
             className="flex-1 accent-green-500"
           />
-          <span className="text-xs font-mono text-slate-600 dark:text-slate-400 w-14 text-right">
+          <span className="text-xs font-mono text-slate-600 dark:text-slate-400 w-20 text-right whitespace-nowrap flex-shrink-0">
             {fmtAngle(relativePhase)}
           </span>
         </div>
