@@ -43,7 +43,7 @@ export default function HomePage() {
           From 2&times;2 matrices to Shor&apos;s algorithm. 23 lessons across mathematics, physics,
           and computing &mdash; derived from scratch, with interactive simulators.
         </p>
-        <div className="mt-8 flex items-center justify-center gap-4">
+        <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row sm:gap-4">
           <Button href="/curriculum" size="lg">
             Start Learning
             <ArrowRight className="ml-2 h-4 w-4" />

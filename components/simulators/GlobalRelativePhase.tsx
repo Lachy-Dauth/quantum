@@ -53,7 +53,7 @@ export function GlobalRelativePhase({ height = 450 }: SimulatorProps) {
         {/* Left: amplitude vectors */}
         <div className="flex-1 flex flex-col items-center gap-4">
           <div className="text-xs font-semibold text-slate-500 uppercase tracking-wide">Amplitudes</div>
-          <div className="flex gap-6">
+          <div className="flex flex-wrap justify-center gap-6">
             <AmplitudeCircle label="|0⟩ amplitude" z={alpha} color="#3b82f6" />
             <AmplitudeCircle label="|1⟩ amplitude" z={beta} color="#22c55e" />
           </div>
@@ -80,7 +80,7 @@ export function GlobalRelativePhase({ height = 450 }: SimulatorProps) {
       {/* Controls */}
       <div className="px-4 py-3 bg-slate-50 dark:bg-slate-800/50 border-t border-slate-200 dark:border-slate-700 space-y-3">
         <div className="flex items-center gap-3">
-          <label className="text-xs font-medium text-slate-600 dark:text-slate-400 w-28">Global phase φ</label>
+          <label className="text-xs font-medium text-slate-600 dark:text-slate-400 w-24 sm:w-28 flex-shrink-0">Global phase φ</label>
           <input
             type="range"
             min={0}
@@ -93,7 +93,7 @@ export function GlobalRelativePhase({ height = 450 }: SimulatorProps) {
           <span className="text-xs font-mono text-slate-600 dark:text-slate-400 w-14 text-right">{fmtAngle(globalPhase)}</span>
         </div>
         <div className="flex items-center gap-3">
-          <label className="text-xs font-medium text-slate-600 dark:text-slate-400 w-28">Relative phase θ</label>
+          <label className="text-xs font-medium text-slate-600 dark:text-slate-400 w-24 sm:w-28 flex-shrink-0">Relative phase θ</label>
           <input
             type="range"
             min={0}

@@ -45,7 +45,7 @@ export default async function LessonPage({ params }: Props) {
       <div className="mx-auto max-w-7xl px-4 py-8">
         <Breadcrumbs items={breadcrumbItems} className="mb-6" />
 
-        <div className="flex gap-10">
+        <div className="flex flex-col lg:flex-row gap-4 lg:gap-10">
           {/* Main content */}
           <article className="min-w-0 flex-1">
             {/* Track accent bar */}

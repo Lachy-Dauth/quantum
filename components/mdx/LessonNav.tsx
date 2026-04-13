@@ -7,7 +7,7 @@ interface LessonNavProps {
 
 export function LessonNav({ prevSlug, prevTitle, nextSlug, nextTitle }: LessonNavProps) {
   return (
-    <nav className="my-8 flex items-center justify-between border-t pt-6">
+    <nav className="my-8 flex flex-col gap-3 border-t pt-6 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
       {prevSlug ? (
         <a href={`/lessons/${prevSlug}`} className="text-sm text-blue-600 hover:underline">
           &larr; {prevTitle ?? prevSlug}
@@ -16,7 +16,7 @@ export function LessonNav({ prevSlug, prevTitle, nextSlug, nextTitle }: LessonNa
         <span />
       )}
       {nextSlug ? (
-        <a href={`/lessons/${nextSlug}`} className="text-sm text-blue-600 hover:underline">
+        <a href={`/lessons/${nextSlug}`} className="text-sm text-blue-600 hover:underline sm:text-right">
           {nextTitle ?? nextSlug} &rarr;
         </a>
       ) : (
