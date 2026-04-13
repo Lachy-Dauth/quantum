@@ -121,18 +121,22 @@ export default async function LessonPartPage({ params }: Props) {
             <div className="prose prose-slate dark:prose-invert max-w-none">{content}</div>
 
             {/* Bottom navigation: parts within lesson, lessons at boundaries */}
-            <nav className="my-8 flex flex-col gap-3 border-t pt-6 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+            <nav className="my-8 flex items-center gap-2 border-t pt-6">
               {prevPart ? (
                 <Link
                   href={`/lessons/${slug}/part-${prevPart}`}
-                  className="flex items-center gap-1 text-sm text-blue-600 hover:underline"
+                  className="flex items-center gap-1 rounded-md border border-border px-3 py-1.5 text-sm text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
                 >
                   <ChevronLeft className="h-3.5 w-3.5" />
                   Part {prevPart}
                 </Link>
               ) : prev ? (
-                <Link href={lessonHref(prev)} className="text-sm text-blue-600 hover:underline">
-                  &larr; {LESSON_META[prev].title}
+                <Link
+                  href={lessonHref(prev)}
+                  className="flex items-center gap-1 rounded-md border border-border px-3 py-1.5 text-sm text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
+                >
+                  <ChevronLeft className="h-3.5 w-3.5" />
+                  {LESSON_META[prev].title}
                 </Link>
               ) : (
                 <span />
@@ -140,7 +144,7 @@ export default async function LessonPartPage({ params }: Props) {
               {nextPart ? (
                 <Link
                   href={`/lessons/${slug}/part-${nextPart}`}
-                  className="flex items-center gap-1 text-sm text-blue-600 hover:underline sm:text-right"
+                  className="flex items-center gap-1 rounded-md border border-border px-3 py-1.5 text-sm text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
                 >
                   Part {nextPart}
                   <ChevronRight className="h-3.5 w-3.5" />
@@ -148,9 +152,10 @@ export default async function LessonPartPage({ params }: Props) {
               ) : next ? (
                 <Link
                   href={lessonHref(next)}
-                  className="text-sm text-blue-600 hover:underline sm:text-right"
+                  className="flex items-center gap-1 rounded-md border border-border px-3 py-1.5 text-sm text-muted-foreground hover:bg-muted hover:text-foreground transition-colors"
                 >
-                  {LESSON_META[next].title} &rarr;
+                  {LESSON_META[next].title}
+                  <ChevronRight className="h-3.5 w-3.5" />
                 </Link>
               ) : (
                 <span />
