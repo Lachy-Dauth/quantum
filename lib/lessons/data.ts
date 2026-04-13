@@ -26,11 +26,7 @@ export const CANONICAL_ORDER = [
 
 export type LessonSlug = (typeof CANONICAL_ORDER)[number]
 
-export const FREE_LESSON_SLUGS = [
-  'a1-complex-numbers',
-  'a2-vectors',
-  'a3-matrices',
-] as const
+export const FREE_LESSON_SLUGS = ['a1-complex-numbers', 'a2-vectors', 'a3-matrices'] as const
 
 export const FREE_SIMULATOR_SLUGS = ['qubit', 'bloch-sphere'] as const
 
