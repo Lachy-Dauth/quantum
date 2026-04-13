@@ -94,7 +94,8 @@ This explains why $i$ is a 90-degree rotation: $i$ has modulus 1 and argument $\
 />
 
 <Callout type="confusion" title="Confusing argument addition with modulus addition">
-  A common mistake: students write $|zw| = |z| + |w|$ (adding the moduli) or $\arg(zw) = \arg(z) \cdot \arg(w)$ (multiplying the arguments). The correct rule is the opposite: **moduli multiply, arguments add**.
+
+A common mistake: students write $|zw| = |z| + |w|$ (adding the moduli) or $\arg(zw) = \arg(z) \cdot \arg(w)$ (multiplying the arguments). The correct rule is the opposite: **moduli multiply, arguments add**.
 
 A helpful mnemonic: multiplication of complex numbers is like multiplication of powers. Just as $x^a \cdot x^b = x^{a+b}$ (the exponents add), the arguments (which are like exponents in the exponential form $re^{i\theta}$) add under multiplication. And just as $(xy)^a = x^a y^a$ (the bases multiply), the moduli multiply.
 
@@ -129,7 +130,8 @@ Taking square roots: $|zw| = |z||w|$. Moduli multiply. This is a clean algebraic
 For the argument, note that if $z$ has argument $\theta_1$ and $w$ has argument $\theta_2$, then the trig identity $\cos(\theta_1 + \theta_2) + i\sin(\theta_1 + \theta_2)$ matches the formula for the product's rectangular coordinates when both numbers are on the unit circle. The general case follows by factoring out the moduli.
 
 <WorkedExample title="Geometric Multiplication">
-  **Compute $(1 + i)(\sqrt{3} + i)$ and interpret geometrically.**
+
+**Compute $(1 + i)(\sqrt{3} + i)$ and interpret geometrically.**
 
 **Step 1: Convert to polar form.**
 
@@ -160,7 +162,9 @@ So $|zw| = \sqrt{8} = 2\sqrt{2}$. Confirmed.
 </WorkedExample>
 
 <Callout type="foreshadow" title="Looking ahead: quantum gates">
-  In quantum computing, single-qubit gates are complex numbers of modulus 1 (or 2×2 matrices of such numbers). Applying a gate to a qubit amplitude is exactly this "rotate without scaling" operation. The phase gates $S$ and $T$ (lesson C3) multiply amplitudes by $e^{i\pi/2} = i$ and $e^{i\pi/4}$ respectively — pure rotations by 90° and 45°.
+
+In quantum computing, single-qubit gates are complex numbers of modulus 1 (or 2×2 matrices of such numbers). Applying a gate to a qubit amplitude is exactly this "rotate without scaling" operation. The phase gates $S$ and $T$ (lesson C3) multiply amplitudes by $e^{i\pi/2} = i$ and $e^{i\pi/4}$ respectively — pure rotations by 90° and 45°.
+
 </Callout>
 
 ---
@@ -184,7 +188,8 @@ The denominator becomes $c^2 + d^2 = |w|^2$, which is a real number — no more 
 Why does this work? Because $w \cdot w^* = |w|^2$ is always a positive real number. Multiplying numerator and denominator by $w^*$ clears the complex denominator.
 
 <WorkedExample title="Conjugate Simplification">
-  **Simplify $\displaystyle\frac{3 + 4i}{1 - 2i}$ and find its modulus.**
+
+**Simplify $\displaystyle\frac{3 + 4i}{1 - 2i}$ and find its modulus.**
 
 **Step 1: Multiply by the conjugate of the denominator.**
 
@@ -235,16 +240,19 @@ The modulus cross-check is a powerful sanity check. If the modulus of your answe
 The complex conjugate keeps showing up — in division, in the modulus formula $z z^* = |z|^2$, and (as we'll see later) all throughout quantum mechanics. Let's catalogue its key properties.
 
 <Theorem name="Conjugate Identities">
-  For any complex numbers $z$ and $w$:
+
+For any complex numbers $z$ and $w$:
 
 1. $(z + w)^* = z^* + w^*$ — the conjugate of a sum is the sum of the conjugates
 2. $(zw)^* = z^* w^*$ — the conjugate of a product is the product of the conjugates
 3. $z z^* = |z|^2$ — a number times its conjugate is the square of its modulus
 4. $(z^*)^* = z$ — conjugating twice gives you back the original
-   </Theorem>
+
+</Theorem>
 
 <Proof>
-  Let $z = a + bi$ and $w = c + di$.
+
+Let $z = a + bi$ and $w = c + di$.
 
 **(1)** $(z + w)^* = ((a+c) + (b+d)i)^* = (a+c) - (b+d)i = (a - bi) + (c - di) = z^* + w^*$.
 
@@ -257,7 +265,8 @@ The complex conjugate keeps showing up — in division, in the modulus formula $
 </Proof>
 
 <Callout type="confusion" title="Confusing z* with -z">
-  Students sometimes mix up the conjugate $z^*$ with the negation $-z$. They are different operations:
+
+Students sometimes mix up the conjugate $z^*$ with the negation $-z$. They are different operations:
 
 - **Conjugate** $z^* = a - bi$: flips the imaginary part. Geometrically, this is a **reflection across the real axis** (flip up/down).
 - **Negation** $-z = -a - bi$: flips both parts. Geometrically, this is a **rotation by 180°** (or equivalently, reflection through the origin).
@@ -275,7 +284,8 @@ The conjugate identities let us prove an important property of the modulus clean
 **Proposition (Modulus is Multiplicative).** For any complex numbers $z$ and $w$, $|zw| = |z| \cdot |w|$.
 
 <Proof>
-  We compute $|zw|^2$ using the identity $\alpha \alpha^* = |\alpha|^2$ with $\alpha = zw$:
+
+We compute $|zw|^2$ using the identity $\alpha \alpha^* = |\alpha|^2$ with $\alpha = zw$:
 
 $$
 |zw|^2 = (zw)(zw)^* = (zw)(z^* w^*) = (z z^*)(w w^*) = |z|^2 |w|^2
@@ -296,7 +306,8 @@ Notice how much cleaner this proof is when you use the conjugate identities comp
 Here's a fact that you already know geometrically, even if you haven't seen it stated for complex numbers.
 
 <Theorem name="Triangle Inequality">
-  For any complex numbers $z$ and $w$:
+
+For any complex numbers $z$ and $w$:
 
 $$
 |z + w| \leq |z| + |w|
@@ -317,7 +328,8 @@ The direct path (from $0$ straight to $z + w$) can never be longer than the two-
 />
 
 <Proof>
-  We prove this algebraically. Start by squaring both sides (both sides are non-negative, so this is valid):
+
+We prove this algebraically. Start by squaring both sides (both sides are non-negative, so this is valid):
 
 $$
 |z + w|^2 \leq (|z| + |w|)^2
@@ -360,10 +372,12 @@ Taking square roots gives $|z + w| \leq |z| + |w|$.
 </Proof>
 
 <Callout type="foreshadow" title="Looking ahead: inner products and distances">
-  The triangle inequality is one of the defining properties of a *norm* — a way of measuring length.
-  In lesson A2, we'll define inner products and norms on complex vector spaces, and the triangle
-  inequality will reappear in a more general form. Every distance-like concept in quantum mechanics
-  ultimately inherits from this inequality.
+
+The triangle inequality is one of the defining properties of a _norm_ — a way of measuring length.
+In lesson A2, we'll define inner products and norms on complex vector spaces, and the triangle
+inequality will reappear in a more general form. Every distance-like concept in quantum mechanics
+ultimately inherits from this inequality.
+
 </Callout>
 
 ---

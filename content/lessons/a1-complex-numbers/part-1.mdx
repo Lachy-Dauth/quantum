@@ -42,10 +42,12 @@ For almost a century, physicists debated whether complex numbers were truly esse
 This lesson is your entry point into that number system. We'll build everything from scratch: starting with a single provocative question, layering on geometric intuition, and arriving at a complete toolkit for working with complex numbers. By the end, you'll be ready to use these tools everywhere they appear in quantum computing — which is essentially everywhere.
 
 <Callout type="info" title="What you need before starting">
-  This lesson assumes comfort with high-school algebra and basic trigonometry — specifically, you
-  should know what sine, cosine, and tangent are, and be comfortable with radians. If you've seen
-  complex numbers before, that's fine; we're going to rebuild the subject from the ground up, and
-  you'll likely see things from a new angle.
+
+This lesson assumes comfort with high-school algebra and basic trigonometry — specifically, you
+should know what sine, cosine, and tangent are, and be comfortable with radians. If you've seen
+complex numbers before, that's fine; we're going to rebuild the subject from the ground up, and
+you'll likely see things from a new angle.
+
 </Callout>
 
 ---
@@ -77,7 +79,8 @@ Now, $i^2 = -1$ means that multiplying by $i$ twice gives you a 180-degree rotat
 But a 90-degree rotation of the real number line doesn't land you back on the real number line. It takes you _off_ the line entirely — into a new dimension. This is where the complex plane comes from, and it's the reason we need two dimensions to visualise complex numbers.
 
 <Callout type="confusion" title="&quot;i is imaginary, so it isn't a real thing&quot;">
-  The word "imaginary" is one of the most unfortunate naming choices in mathematics. Descartes coined it as an insult — he meant that these numbers were fictitious and useless. Three centuries of mathematics and physics have proven him spectacularly wrong.
+
+The word "imaginary" is one of the most unfortunate naming choices in mathematics. Descartes coined it as an insult — he meant that these numbers were fictitious and useless. Three centuries of mathematics and physics have proven him spectacularly wrong.
 
 $i$ is no more imaginary than negative numbers (which were themselves once called "fictitious") or irrational numbers (which the Pythagoreans tried to cover up). $i$ has a precise geometric meaning — it's a 90-degree rotation — and it describes real physical phenomena. In quantum mechanics, complex amplitudes aren't a mathematical convenience; they're the theory's native language.
 
@@ -98,7 +101,8 @@ The Argand plane works like this:
 - Every other point in the plane is a **complex number** — a combination of a real part and an imaginary part.
 
 <Definition term="Complex Number">
-  A **complex number** is an expression of the form
+
+A **complex number** is an expression of the form
 
 $$
 z = a + bi
@@ -145,7 +149,8 @@ Rectangular form $z = a + bi$ tells you where a complex number sits in terms of 
 This is polar form, and for complex numbers it turns out to be extraordinarily powerful — especially when it comes to multiplication, as we'll see in the next part.
 
 <Definition term="Modulus, Argument, and Conjugate">
-  For a complex number $z = a + bi$:
+
+For a complex number $z = a + bi$:
 
 **Modulus (absolute value):** The distance from $z$ to the origin:
 
@@ -190,10 +195,12 @@ The argument $\arg(z)$ tells you the direction of $z$. Numbers on the positive r
 We use $\operatorname{atan2}(b, a)$ rather than $\arctan(b/a)$ because the plain arctangent can't distinguish between, say, $1 + i$ (in the first quadrant) and $-1 - i$ (in the third quadrant), since both have $b/a = 1$. The two-argument arctangent $\operatorname{atan2}$ handles all four quadrants correctly.
 
 <Callout type="warning" title="Radians, not degrees">
-  Throughout this course, angles are always in radians. A full turn is $2\pi$, a half turn is $\pi$,
-  a quarter turn is $\pi/2$. If you're more comfortable with degrees, the conversion is: multiply
-  radians by $180/\pi$ to get degrees. But start getting comfortable with radians now — they're the
-  natural unit in every formula we'll encounter.
+
+Throughout this course, angles are always in radians. A full turn is $2\pi$, a half turn is $\pi$,
+a quarter turn is $\pi/2$. If you're more comfortable with degrees, the conversion is: multiply
+radians by $180/\pi$ to get degrees. But start getting comfortable with radians now — they're the
+natural unit in every formula we'll encounter.
+
 </Callout>
 
 ### The Complex Conjugate
@@ -239,7 +246,8 @@ Given $r$ and $\theta$:
 Let's work through a concrete example.
 
 <WorkedExample title="Converting to Polar Form">
-  **Convert $z = -1 + i\sqrt{3}$ to polar form.**
+
+**Convert $z = -1 + i\sqrt{3}$ to polar form.**
 
 **Step 1: Find the modulus.**
 
@@ -289,9 +297,11 @@ This is a point on the unit circle at angle $\theta$ from the positive real axis
 These values will appear constantly throughout the course — in quantum gates, in the Bloch sphere, and in the Quantum Fourier Transform. Building fluency with them now saves enormous time later.
 
 <Callout type="foreshadow" title="Looking ahead: the Bloch sphere">
-  In the computing track (lesson C1), you'll learn that a single qubit's state can be represented as
-  a point on a sphere. The angle around the equator of that sphere is exactly the argument of a
-  complex number. The unit circle you're looking at right now is the equator of the Bloch sphere.
+
+In the computing track (lesson C1), you'll learn that a single qubit's state can be represented as
+a point on a sphere. The angle around the equator of that sphere is exactly the argument of a
+complex number. The unit circle you're looking at right now is the equator of the Bloch sphere.
+
 </Callout>
 
 ---

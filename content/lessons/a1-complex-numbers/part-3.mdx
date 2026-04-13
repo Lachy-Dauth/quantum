@@ -64,7 +64,8 @@ $$
 Each successive root is obtained by multiplying by $\omega$, which rotates by $2\pi/n$. Since there are $n$ roots equally spaced around the unit circle, they form the vertices of a **regular $n$-gon** inscribed in the unit circle.
 
 <WorkedExample title="The 4th Roots of Unity">
-  **Find all $z$ such that $z^4 = 1$.**
+
+**Find all $z$ such that $z^4 = 1$.**
 
 The four solutions are $\omega_k = \cos\frac{2\pi k}{4} + i\sin\frac{2\pi k}{4} = \cos\frac{\pi k}{2} + i\sin\frac{\pi k}{2}$ for $k = 0, 1, 2, 3$:
 
@@ -106,7 +107,8 @@ $$
 There are two ways to see why this is true — one algebraic, one geometric.
 
 <Proof>
-  **Algebraic proof (geometric series).**
+
+**Algebraic proof (geometric series).**
 
 Let $S = 1 + \omega + \omega^2 + \cdots + \omega^{n-1}$. This is a geometric series with first term 1 and common ratio $\omega$.
 
@@ -133,7 +135,9 @@ More formally: rotating all roots by $\omega$ (i.e., multiplying each by $\omega
 **Verification for $n = 4$:** $1 + i + (-1) + (-i) = 0$. The real parts cancel ($1 + (-1) = 0$), and the imaginary parts cancel ($i + (-i) = 0$).
 
 <Callout type="foreshadow" title="Looking ahead: Quantum Fourier Transform">
-  The roots of unity are the engine behind the Quantum Fourier Transform (lesson C9). The QFT on $n$ qubits uses the $N = 2^n$-th roots of unity as its building blocks. The sum-to-zero property is what makes the QFT pick out specific frequencies while cancelling others — the same principle behind destructive and constructive interference. When you see $\omega = e^{2\pi i/N}$ in a quantum algorithm, you're looking at the same objects we just derived.
+
+The roots of unity are the engine behind the Quantum Fourier Transform (lesson C9). The QFT on $n$ qubits uses the $N = 2^n$-th roots of unity as its building blocks. The sum-to-zero property is what makes the QFT pick out specific frequencies while cancelling others — the same principle behind destructive and constructive interference. When you see $\omega = e^{2\pi i/N}$ in a quantum algorithm, you're looking at the same objects we just derived.
+
 </Callout>
 
 ---
@@ -143,7 +147,8 @@ More formally: rotating all roots by $\omega$ (i.e., multiplying each by $\omega
 We've been writing complex numbers on the unit circle as $\cos\theta + i\sin\theta$. This works, but it's clunky. There's a much more elegant notation — one that will become the standard throughout the rest of this course.
 
 <Theorem name="Euler's Formula">
-  For all real numbers $\theta$:
+
+For all real numbers $\theta$:
 
 $$
 e^{i\theta} = \cos\theta + i\sin\theta
@@ -174,16 +179,19 @@ $$
 $$
 
 <Callout type="info" title="What if Taylor series are new to you?">
-  A Taylor series writes a smooth function as an infinite polynomial. The idea is that you can
-  approximate any well-behaved function near a point by matching its value, its slope, its
-  curvature, and so on. The factorial denominators ($n!$) ensure that each term matches the right
-  derivative. For now, you can treat these three series as facts — we're going to verify Euler's
-  formula by substituting and rearranging, so the main skill required is patience with algebra, not
-  deep analysis.
+
+A Taylor series writes a smooth function as an infinite polynomial. The idea is that you can
+approximate any well-behaved function near a point by matching its value, its slope, its
+curvature, and so on. The factorial denominators ($n!$) ensure that each term matches the right
+derivative. For now, you can treat these three series as facts — we're going to verify Euler's
+formula by substituting and rearranging, so the main skill required is patience with algebra, not
+deep analysis.
+
 </Callout>
 
 <Proof>
-  **Taylor series derivation of Euler's formula.**
+
+**Taylor series derivation of Euler's formula.**
 
 Substitute $x = i\theta$ into the Taylor series for $e^x$:
 
@@ -226,7 +234,8 @@ The Taylor series proof works, but it has a "rabbit out of a hat" quality — yo
 The ODE argument gives that deeper understanding. It starts from a single observation: the function $f(\theta) = \cos\theta + i\sin\theta$ satisfies a very specific differential equation.
 
 <Proof>
-  **ODE derivation of Euler's formula.**
+
+**ODE derivation of Euler's formula.**
 
 Define $f(\theta) = \cos\theta + i\sin\theta$. We'll show that $f$ satisfies the same initial-value problem as $e^{i\theta}$, and since the solution is unique, they must be equal.
 
@@ -275,10 +284,12 @@ A point that starts at $1$ (on the positive real axis), always moves perpendicul
 />
 
 <Callout type="foreshadow" title="Looking ahead: matrix exponentials">
-  This ODE argument generalises powerfully. In lesson A3, you'll encounter the matrix exponential
-  $e^{iHt}$, where $H$ is a matrix. The same logic applies: $e^{iHt}$ satisfies $\frac{d}
-  {dt}U(t) = iH \cdot U(t)$, which is the Schrödinger equation governing quantum time evolution. The
-  scalar Euler's formula you just learned is the 1×1 case of a much bigger story.
+
+This ODE argument generalises powerfully. In lesson A3, you'll encounter the matrix exponential
+$e^{iHt}$, where $H$ is a matrix. The same logic applies: $e^{iHt}$ satisfies $\frac{d}
+{dt}U(t) = iH \cdot U(t)$, which is the Schrödinger equation governing quantum time evolution. The
+scalar Euler's formula you just learned is the 1×1 case of a much bigger story.
+
 </Callout>
 
 ---
@@ -338,7 +349,9 @@ This is **Euler's identity**, often called the most beautiful equation in mathem
 Euler himself didn't single it out as special (he stated the more general formula and moved on). Its fame is largely a 20th-century phenomenon. But the beauty is real: this equation is the reason the exponential function, the circle, and the imaginary unit are all intertwined.
 
 <Callout type="info" title="Historical note">
-  Leonhard Euler published $e^{i\theta} = \cos\theta + i\sin\theta$ in 1748, in his *Introductio in Analysin Infinitorum*. But the formula was implicit in earlier work by Roger Cotes (1714), and Abraham de Moivre had used a closely related result even earlier. Mathematics is full of misattributions — Euler gets the credit partly because he was the first to write it in this clean exponential notation, and partly because he was Euler.
+
+Leonhard Euler published $e^{i\theta} = \cos\theta + i\sin\theta$ in 1748, in his _Introductio in Analysin Infinitorum_. But the formula was implicit in earlier work by Roger Cotes (1714), and Abraham de Moivre had used a closely related result even earlier. Mathematics is full of misattributions — Euler gets the credit partly because he was the first to write it in this clean exponential notation, and partly because he was Euler.
+
 </Callout>
 
 ---
@@ -358,7 +371,8 @@ With Euler's formula in hand, here's a reference table of $e^{i\theta}$ at commo
 | $3\pi/2$ | $0 - i$                                   | $-i$                   |
 
 <Callout type="confusion" title="The argument is only defined modulo 2π">
-  A subtle point that trips up students: $\arg(z)$ is not a single number but a family of numbers differing by multiples of $2\pi$. The angle $\pi/4$ and the angle $\pi/4 + 2\pi = 9\pi/4$ point in the same direction.
+
+A subtle point that trips up students: $\arg(z)$ is not a single number but a family of numbers differing by multiples of $2\pi$. The angle $\pi/4$ and the angle $\pi/4 + 2\pi = 9\pi/4$ point in the same direction.
 
 The **principal argument** $\operatorname{Arg}(z) \in (-\pi, \pi]$ gives a single canonical choice, but be aware that this convention creates a discontinuity: as you cross the negative real axis, the principal argument jumps from just below $\pi$ to just above $-\pi$. This "branch cut" matters in complex analysis; for our purposes, the main takeaway is: **angles are periodic**, and $e^{i\theta} = e^{i(\theta + 2\pi)}$.
 
@@ -371,7 +385,8 @@ The **principal argument** $\operatorname{Arg}(z) \in (-\pi, \pi]$ gives a singl
 The exponential form makes computing powers almost effortless.
 
 <WorkedExample title="Euler's Formula at Key Angles">
-  **Evaluate $e^{i\pi/4}$ and express in rectangular form.**
+
+**Evaluate $e^{i\pi/4}$ and express in rectangular form.**
 
 By Euler's formula:
 
@@ -386,7 +401,8 @@ This number appears everywhere in quantum computing: the $T$ gate applies a phas
 </WorkedExample>
 
 <WorkedExample title="Computing (1+i)^8">
-  **Compute $(1+i)^8$.**
+
+**Compute $(1+i)^8$.**
 
 **Step 1: Convert $1+i$ to exponential form.**
 
@@ -405,7 +421,9 @@ This is why polar/exponential form exists: it turns hard problems (repeated comp
 </WorkedExample>
 
 <Callout type="foreshadow" title="Looking ahead: repeated gate application">
-  The same principle applies to quantum gates. If a gate $R_z(\theta)$ rotates a qubit by angle $\theta$, then applying it $n$ times gives $R_z(n\theta)$. In exponential form: $e^{i\theta}$ raised to the $n$-th power is $e^{in\theta}$. Trivial in exponential form; painful in matrix form. This is why quantum computing papers write gates as exponentials.
+
+The same principle applies to quantum gates. If a gate $R_z(\theta)$ rotates a qubit by angle $\theta$, then applying it $n$ times gives $R_z(n\theta)$. In exponential form: $e^{i\theta}$ raised to the $n$-th power is $e^{in\theta}$. Trivial in exponential form; painful in matrix form. This is why quantum computing papers write gates as exponentials.
+
 </Callout>
 
 ---

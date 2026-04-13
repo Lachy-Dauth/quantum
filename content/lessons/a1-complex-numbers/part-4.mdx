@@ -69,7 +69,8 @@ What are the measurement probabilities now?
 They're identical. Multiplying the entire state by $e^{i\phi}$ doesn't change any observable quantity. This overall factor $e^{i\phi}$ is called a **global phase**, and it's physically meaningless.
 
 <Definition term="Global and Relative Phase">
-  Given a quantum state $\ket{\psi} = \alpha\ket{0} + \beta\ket{1}$:
+
+Given a quantum state $\ket{\psi} = \alpha\ket{0} + \beta\ket{1}$:
 
 **Global phase:** An overall factor $e^{i\phi}$ multiplying the entire state. The states $\ket{\psi}$ and $e^{i\phi}\ket{\psi}$ are physically indistinguishable — they give exactly the same measurement probabilities in every possible experiment.
 
@@ -156,7 +157,8 @@ This is the single most important idea in this entire lesson, so let's say it ag
 />
 
 <Callout type="confusion" title="&quot;If phase doesn't matter, why track it?&quot;">
-  This is one of the most common confusions in quantum computing. Students hear "global phase is unobservable" and generalise to "all phase is unobservable." But global and relative phase are fundamentally different things.
+
+This is one of the most common confusions in quantum computing. Students hear "global phase is unobservable" and generalise to "all phase is unobservable." But global and relative phase are fundamentally different things.
 
 An analogy: suppose you're at a concert and two speakers are playing the same note. If you shift _both_ speakers forward by the same amount, the sound doesn't change (global phase). But if you shift only _one_ speaker, the sound changes dramatically — at some positions the waves reinforce each other (loud), at others they cancel (silence). That's interference, and it's the relative shift between the speakers that matters, not the absolute position of either one.
 
@@ -189,12 +191,15 @@ These problems test your understanding across all four parts of the lesson. They
 ### Easy
 
 <Problem id="a1-1" type="free-response">
-  **Problem A1.1.** Convert $z = -1 + i\sqrt{3}$ to polar form. Give the modulus and principal
-  argument.
+
+**Problem A1.1.** Convert $z = -1 + i\sqrt{3}$ to polar form. Give the modulus and principal
+argument.
+
 </Problem>
 
 <Proof>
-  **Solution.**
+
+**Solution.**
 
 The modulus is $|z| = \sqrt{(-1)^2 + (\sqrt{3})^2} = \sqrt{1 + 3} = 2$.
 
@@ -205,11 +210,14 @@ Therefore $z = 2e^{i \cdot 2\pi/3}$.
 </Proof>
 
 <Problem id="a1-2" type="free-response">
-  **Problem A1.2.** Compute $(2e^{i\pi/3})(3e^{i\pi/6})$ in both polar and rectangular form.
+
+**Problem A1.2.** Compute $(2e^{i\pi/3})(3e^{i\pi/6})$ in both polar and rectangular form.
+
 </Problem>
 
 <Proof>
-  **Solution.**
+
+**Solution.**
 
 **Polar:** Multiply moduli, add arguments: $|zw| = 2 \times 3 = 6$, $\arg(zw) = \pi/3 + \pi/6 = \pi/2$.
 
@@ -230,11 +238,14 @@ Actually, the quickest verification: $6e^{i\pi/2} = 6(\cos(\pi/2) + i\sin(\pi/2)
 </Proof>
 
 <Problem id="a1-3" type="free-response">
-  **Problem A1.3.** Prove that $|z^*| = |z|$ for all $z \in \C$.
+
+**Problem A1.3.** Prove that $|z^*| = |z|$ for all $z \in \C$.
+
 </Problem>
 
 <Proof>
-  **Solution.**
+
+**Solution.**
 
 Let $z = a + bi$. Then $z^* = a - bi$.
 
@@ -247,12 +258,15 @@ The modulus depends on $b^2$, not on $b$, so flipping the sign of $b$ doesn't ch
 ### Medium
 
 <Problem id="a1-4" type="free-response">
-  **Problem A1.4.** Find all $z$ such that $z^6 = -1$. Express your answers in exponential form and
-  describe their geometric arrangement.
+
+**Problem A1.4.** Find all $z$ such that $z^6 = -1$. Express your answers in exponential form and
+describe their geometric arrangement.
+
 </Problem>
 
 <Proof>
-  **Solution.**
+
+**Solution.**
 
 Write $-1 = e^{i\pi}$. Then $z^6 = e^{i\pi}$ requires $z = e^{i(\pi + 2\pi k)/6}$ for $k = 0, 1, 2, 3, 4, 5$.
 
@@ -272,11 +286,14 @@ These form a regular hexagon inscribed in the unit circle, rotated by $\pi/6$ (3
 </Proof>
 
 <Problem id="a1-5" type="free-response">
-  **Problem A1.5.** Prove the parallelogram law: $|z + w|^2 + |z - w|^2 = 2(|z|^2 + |w|^2)$.
+
+**Problem A1.5.** Prove the parallelogram law: $|z + w|^2 + |z - w|^2 = 2(|z|^2 + |w|^2)$.
+
 </Problem>
 
 <Proof>
-  **Solution.**
+
+**Solution.**
 
 Expand each term using $|\alpha|^2 = \alpha \alpha^*$:
 
@@ -299,11 +316,14 @@ The cross terms $zw^* + wz^*$ cancel. This is the parallelogram law: the sum of 
 </Proof>
 
 <Problem id="a1-6" type="free-response">
-  **Problem A1.6.** Show that for any $z \in \C$: $\operatorname{Re}(z) = \frac{z + z^*}{2}$ and $\operatorname{Im}(z) = \frac{z - z^*}{2i}$.
+
+**Problem A1.6.** Show that for any $z \in \C$: $\operatorname{Re}(z) = \frac{z + z^*}{2}$ and $\operatorname{Im}(z) = \frac{z - z^*}{2i}$.
+
 </Problem>
 
 <Proof>
-  **Solution.**
+
+**Solution.**
 
 Let $z = a + bi$.
 
@@ -316,11 +336,14 @@ Note: this derivation used no assumption about $|z|$; the identities hold for al
 </Proof>
 
 <Problem id="a1-7" type="free-response">
-  **Problem A1.7.** The $T$ gate in quantum computing multiplies a qubit amplitude by $e^{i\pi/4}$. If the initial amplitude is $\alpha = \frac{1+i}{2}$, find the new amplitude $T\alpha$ and verify that $|T\alpha|^2 = |\alpha|^2$.
+
+**Problem A1.7.** The $T$ gate in quantum computing multiplies a qubit amplitude by $e^{i\pi/4}$. If the initial amplitude is $\alpha = \frac{1+i}{2}$, find the new amplitude $T\alpha$ and verify that $|T\alpha|^2 = |\alpha|^2$.
+
 </Problem>
 
 <Proof>
-  **Solution.**
+
+**Solution.**
 
 First, $e^{i\pi/4} = \frac{1+i}{\sqrt{2}}$ (from the key values table).
 
@@ -345,14 +368,18 @@ Modulus preserved — as it must be, since $|e^{i\pi/4}| = 1$. Multiplication by
 ### Hard
 
 <Problem id="a1-8" type="free-response">
-  **Problem A1.8.** Prove that if $|z| = 1$ and $z \neq 1$, then $\displaystyle\sum_{(k = 0)}^
-  {n - 1} z^k = \frac{(1 - z) ^ n}
-  {1 - z}$. Use this to show that the $n$-th roots of unity (other than 1) are roots of $1 + z + z^2
-  + \cdots + z^{n - 1} = 0$.
+
+**Problem A1.8.** Prove that if $|z| = 1$ and $z \neq 1$, then $\displaystyle\sum_{(k = 0)}^
+{n - 1} z^k = \frac{(1 - z) ^ n}
+{1 - z}$. Use this to show that the $n$-th roots of unity (other than 1) are roots of $1 + z + z^2
+
+- \cdots + z^{n - 1} = 0$.
+
 </Problem>
 
 <Proof>
-  **Solution.**
+
+**Solution.**
 
 **Part 1: Geometric series formula.**
 
@@ -379,11 +406,14 @@ So each non-trivial $n$-th root of unity is a root of the polynomial $p(z) = 1 +
 </Proof>
 
 <Problem id="a1-9" type="free-response">
-  **Problem A1.9.** Let $z = e^{i\theta}$. Express $\cos\theta$ and $\sin\theta$ in terms of $z$. Use this to prove $\cos^2\theta + \sin^2\theta = 1$ purely algebraically.
+
+**Problem A1.9.** Let $z = e^{i\theta}$. Express $\cos\theta$ and $\sin\theta$ in terms of $z$. Use this to prove $\cos^2\theta + \sin^2\theta = 1$ purely algebraically.
+
 </Problem>
 
 <Proof>
-  **Solution.**
+
+**Solution.**
 
 Since $z = e^{i\theta} = \cos\theta + i\sin\theta$ and $z^{-1} = e^{-i\theta} = \cos\theta - i\sin\theta$:
 
@@ -422,7 +452,8 @@ The Pythagorean identity follows from pure algebra on complex exponentials — n
 </Proof>
 
 <Problem id="a1-10" type="free-response">
-  **Problem A1.10 (Preview).** Consider the state $\ket{\psi} = \frac{1}{\sqrt{2}}(\ket{0} + e^{i\theta}\ket{1})$.
+
+**Problem A1.10 (Preview).** Consider the state $\ket{\psi} = \frac{1}{\sqrt{2}}(\ket{0} + e^{i\theta}\ket{1})$.
 
 **(a)** Show that the measurement probabilities in the $\{\ket{0}, \ket{1}\}$ basis are independent of $\theta$.
 
@@ -433,7 +464,8 @@ The Pythagorean identity follows from pure algebra on complex exponentials — n
 </Problem>
 
 <Proof>
-  **Solution.**
+
+**Solution.**
 
 **(a)** $P(0) = |1/\sqrt{2}|^2 = 1/2$ and $P(1) = |e^{i\theta}/\sqrt{2}|^2 = |e^{i\theta}|^2/2 = 1/2$, since $|e^{i\theta}| = 1$. Both probabilities are $1/2$ regardless of $\theta$. The computational basis measurement cannot distinguish different values of $\theta$.
 
@@ -460,11 +492,13 @@ This is quantum interference in its simplest form. The relative phase $\theta$ c
 ---
 
 <Callout type="foreshadow" title="What comes next in the curriculum">
-  You've completed A1 — congratulations! The complex numbers toolkit you've built here will be used in every subsequent lesson. Here's a preview of where each idea shows up next:
+
+You've completed A1 — congratulations! The complex numbers toolkit you've built here will be used in every subsequent lesson. Here's a preview of where each idea shows up next:
 
 - **Modulus and conjugate** → Inner products and norms (A2), Born rule probabilities (A6)
 - **Multiplication as rotation** → Quantum gates as unitary matrices (C3), Bloch sphere rotations (C1)
 - **Euler's formula** → Matrix exponentials $e^{iHt}$ (A3), time evolution (P3)
 - **Roots of unity** → Quantum Fourier Transform (C9), eigenvalues of the QFT matrix
 - **Global vs relative phase** → Interference and quantum advantage (C3, C6), Bell inequalities (P6)
-  </Callout>
+
+</Callout>
